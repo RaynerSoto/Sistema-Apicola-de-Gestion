@@ -27,6 +27,7 @@
 	<modules>
 		<module>API Gateway</module>
 		<module>Eureka Server</module>
+		<module>Config Server</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
