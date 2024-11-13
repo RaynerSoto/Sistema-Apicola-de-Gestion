@@ -19,6 +19,9 @@
 			<name>Rayner Alejandro Soto Martínez</name>
 			<email>raynersoto01@gmail.com</email>
 			<url>https://www.linkedin.com/in/rayner-alejandro/</url>
+			<roles>
+				<role>Desarrollador de software</role>
+			</roles>
 		</developer>
 	</developers>
 	<modules>
