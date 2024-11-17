@@ -5,36 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a4e4b69-400a-4b55-9608-f18a08f4919a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/src/main/java/cu/edu/cujae/microservicegateway/ApiGatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/src/main/java/cu/edu/cujae/microservicegateway/ServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API Gateway/src/test/java/cu/edu/cujae/microservicegateway/ApiGatewayApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/src/main/java/cu/edu/cujae/eureka/EurekaServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/src/main/java/cu/edu/cujae/eureka/ServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka Server/src/test/java/cu/edu/cujae/eureka/EurekaServerApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +84,7 @@
     "go.import.settings.migrated": "true",
     "jdk.selected.JAVA_MODULE": "22",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Rayner/Proyectos/Sistema Apicola de Gestion/API Apicola",
+    "last_opened_file_path": "C:/Rayner/Proyectos/Sistema-geografico-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -218,19 +189,6 @@
       <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="microservice-gateway" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="microservice-gateway" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="microservice-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cu.edu.cujae.microservicegateway.ApiGatewayApplication" />
@@ -284,7 +242,8 @@
       <workItem from="1731467815646" duration="62000" />
       <workItem from="1731468041798" duration="49000" />
       <workItem from="1731509078435" duration="3298000" />
-      <workItem from="1731518518209" duration="300000" />
+      <workItem from="1731518518209" duration="418000" />
+      <workItem from="1731519713029" duration="211000" />
     </task>
     <servers />
   </component>
