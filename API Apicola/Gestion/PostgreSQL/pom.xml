@@ -16,6 +16,7 @@
 	<url/>
 	<modules>
 		<module>Apicultores</module>
+		<module>Prueba</module>
 	</modules>
 	<licenses>
 		<license/>

@@ -7,15 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
-        <module name="microservice-eureka" />
+        <module name="Apicultores" />
         <module name="ConfigServer" />
+        <module name="microservice-eureka" />
+        <module name="microservice-configserver" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Prueba" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="APIApicola" options="" />
+      <module name="Apicultores" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
+      <module name="Prueba" options="-parameters" />
+      <module name="microservice-configserver" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
     </option>
