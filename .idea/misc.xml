@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/API Apicola/pom.xml" />
         <option value="$PROJECT_DIR$/API Apicola/Gestion/pom.xml" />
+        <option value="$PROJECT_DIR$/API Apicola/Gestion/PostgreSQL/Apicultores/pom.xml" />
       </list>
     </option>
   </component>

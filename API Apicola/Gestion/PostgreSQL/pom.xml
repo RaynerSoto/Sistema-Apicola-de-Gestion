@@ -14,6 +14,9 @@
 	<name>PostgreSQL</name>
 	<description>PostgreSQL</description>
 	<url/>
+	<modules>
+		<module>Apicultores</module>
+	</modules>
 	<licenses>
 		<license/>
 	</licenses>
