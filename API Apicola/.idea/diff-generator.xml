@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="sourceModelValue" value="microservice-gestion-postgresql:microservice-gestion-postgresql" />
+    <option name="targetDbValue" value="52adae8c-2f32-4d27-b950-1008b7855e4d" />
+  </component>
+</project>

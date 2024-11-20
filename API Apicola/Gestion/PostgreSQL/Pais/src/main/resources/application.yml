@@ -1,0 +1,6 @@
+spring:
+  banner:
+    location: banner/banner.txt
+  application:
+    name: Pais
+
