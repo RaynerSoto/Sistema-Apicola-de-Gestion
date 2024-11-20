@@ -11,6 +11,7 @@
         <module name="ConfigServer" />
         <module name="microservice-eureka" />
         <module name="microservice-configserver" />
+        <module name="microservice-pais" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,6 +27,7 @@
       <module name="microservice-configserver" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-pais" options="-parameters" />
     </option>
   </component>
 </project>
