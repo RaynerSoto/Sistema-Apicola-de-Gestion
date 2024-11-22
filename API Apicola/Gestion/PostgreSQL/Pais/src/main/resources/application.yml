@@ -3,4 +3,24 @@ spring:
     location: banner/banner.txt
   application:
     name: Pais
+  datasource:
+    url: jdbc:postgresql:${GestionApicola}
+    username: ${DB_USER1}
+    password: ${DB_PASSWORD1}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 60000
+    jpa:
+      format-sql: true
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          format_sql: true
+        javax:
+          persistence:
+            query:
+              timeout: 60000
+      database: postgresql
+      show-sql: true
 
