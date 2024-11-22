@@ -17,6 +17,7 @@
 	<modules>
 		<module>Apicultores</module>
 		<module>Pais</module>
+		<module>Continente</module>
 	</modules>
 	<licenses>
 		<license/>

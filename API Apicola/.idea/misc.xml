@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -7,6 +8,7 @@
         <option value="$PROJECT_DIR$/Eureka Server/pom.xml" />
         <option value="$PROJECT_DIR$/Config Server/pom.xml" />
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Continente/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
