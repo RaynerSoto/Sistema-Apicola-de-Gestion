@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.locationtech.jts.geom.Geometry;
 
 @Entity
 @Table(name = "paises")
@@ -21,7 +22,7 @@ public class Pais {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_seq")
     @SequenceGenerator(name = "pais_seq", sequenceName = "secuence_id_pais",initialValue = 1,allocationSize = 1)
     @Column(name = "id_pais",nullable = false,unique = true,updatable = false)
-    private Long id_pais;
+    private Long idPais;
 
     @Column(name = "nombre",unique = true,nullable = false,length = 100)
     @Size(min = 4,max = 100,message = "El nombre del país se encuentra entre 4 y 100 caracteres")
@@ -43,10 +44,10 @@ public class Pais {
     @Column(name = "centroide",columnDefinition = "geometry")
     private Geometry centroide;
 
-    @Column(name = "nombre_continente")
+    @Column(name = "nombre_continente",nullable = false)
     @Size(min = 4,max = 100,message = "El nombre del continente se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "El nombre del continente no puede ser nulo o estar vacío")
-    private String nombre_continente;
+    private String nombreContinente;
 
     @Column(name = "codigo",unique = true,nullable = false,length = 10)
     @Size(min = 1,max = 10,message = "El código del país se encuentra entre 1 y 10 caracteres")
@@ -70,6 +71,6 @@ public class Pais {
         this.centroide = paisDto.centroide();
         this.areaKM2 = paisDto.areaKM2();
         this.codigo = paisDto.codigo();
-        this.nombre_continente = paisDto.nombre_continente();
+        this.nombreContinente = paisDto.nombre_continente();
     }
 }

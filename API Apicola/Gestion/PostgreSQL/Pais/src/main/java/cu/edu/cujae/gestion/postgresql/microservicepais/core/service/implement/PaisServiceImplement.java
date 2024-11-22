@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.serviceImplement;
+package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
