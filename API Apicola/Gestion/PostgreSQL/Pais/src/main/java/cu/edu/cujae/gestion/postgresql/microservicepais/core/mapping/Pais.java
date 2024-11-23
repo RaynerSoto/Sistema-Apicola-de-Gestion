@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.mapping;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Geometry;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 @Table(name = "paises")
@@ -59,18 +60,25 @@ public class Pais {
     private Double areaKM2;
 
     @PrePersist
+    @PreUpdate
     public void prePersist(){
         Validacion.validarUnsupportedOperationException(this);
     }
 
-    public Pais(PaisDto paisDto) {
-        this.nombre = paisDto.nombre();
-        this.sigla = paisDto.sigla();
-        this.poblacion = paisDto.poblacion();
-        this.geometry = paisDto.geometry();
-        this.centroide = paisDto.centroide();
-        this.areaKM2 = paisDto.areaKM2();
-        this.codigo = paisDto.codigo();
-        this.nombreContinente = paisDto.nombre_continente();
+    public Pais(PaisDtoReci paisDtoReci) {
+        this.nombre = paisDtoReci.nombre();
+        this.sigla = paisDtoReci.sigla();
+        if (paisDtoReci.poblacion() != null)
+            this.poblacion = paisDtoReci.poblacion();
+        else
+            this.poblacion = 0L;
+        this.geometry = paisDtoReci.geometry();
+        this.centroide = paisDtoReci.centroide();
+        if (paisDtoReci.areaKM2() != null)
+            this.areaKM2 = paisDtoReci.areaKM2();
+        else
+            this.areaKM2 = 0D;
+        this.codigo = paisDtoReci.codigo();
+        this.nombreContinente = paisDtoReci.nombre_continente();
     }
 }
