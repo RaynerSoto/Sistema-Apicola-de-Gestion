@@ -50,11 +50,6 @@ public class Pais {
     @NotBlank(message = "El nombre del continente no puede ser nulo o estar vacío")
     private String nombreContinente;
 
-    @Column(name = "codigo",unique = true,nullable = false,length = 10)
-    @Size(min = 1,max = 10,message = "El código del país se encuentra entre 1 y 10 caracteres")
-    @NotBlank(message = "El código del país no puede ser nulo o estar vacío")
-    private String codigo;
-
     @Column(name = "areakm2",nullable = false)
     @Min(value = 0, message = "Los valores de problación deben 0 o positivos")
     private Double areaKM2;
@@ -78,7 +73,6 @@ public class Pais {
             this.areaKM2 = paisDtoReci.areaKM2();
         else
             this.areaKM2 = 0D;
-        this.codigo = paisDtoReci.codigo();
         this.nombreContinente = paisDtoReci.nombre_continente();
     }
 }
