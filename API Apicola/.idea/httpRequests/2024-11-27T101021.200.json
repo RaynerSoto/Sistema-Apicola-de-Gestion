@@ -1,0 +1,4 @@
+{
+  "iscorrectoRespuesta": false,
+  "respuesta": "Connection refused: getsockopt executing GET http://localhost:8085/api/v1/gestion/1/continente/Am%C3%A9rica"
+}

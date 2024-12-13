@@ -1,0 +1,5 @@
+{
+  "iscorrectoRespuesta": false,
+  "respuesta": "Type definition error: [simple type, class cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.RespuestaContinenteDto]",
+  "paisDtoSent": null
+}

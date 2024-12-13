@@ -4,15 +4,29 @@
 		"domain":"https://api.apifox.com",
 		"syncAfterSave":false
 	},
-	"dataList":[],
-	"envList":[],
+	"dataList":[
+		{
+			"hostGroup":[
+				{
+					"env":"local",
+					"url":"http://localhost:8085"
+				}
+			],
+			"name":"microservice-continente"
+		}
+	],
+	"envList":[
+		"local"
+	],
 	"headerList":[],
 	"ignoreParseFieldList":[],
 	"maxDescriptionLength":-1,
 	"pmCollectionId":"",
 	"postScript":"",
 	"preScript":"",
-	"projectList":[],
+	"projectList":[
+		"microservice-continente"
+	],
 	"syncModel":{
 		"branch":"master",
 		"domain":"https://github.com",

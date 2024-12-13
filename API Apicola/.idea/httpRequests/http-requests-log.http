@@ -1,0 +1,336 @@
+GET http://localhost:8085/api/v1/gestion/1/continente/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-02T113526.200.json
+
+###
+
+GET http://localhost:8086/api/v1/gestion/1/pais/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-11-30T132435.200.json
+
+###
+
+GET http://localhost:8085/api/v1/gestion/1/continente/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-11-30T132301.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 139
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "AAAA",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-28T135744.500.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 140
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "AAAAA",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-28T134823.500.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 139
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "AAAA",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-28T134359.500.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 139
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "Asia",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-28T133444.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 139
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "Asia",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-28T133402.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 135
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-28T133317.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 131
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": {},
+  "nombre_continente": "",
+  "areaKM2": 0,
+  "centroide": {}
+}
+
+<> 2024-11-28T132618.500.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 131
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "",
+  "sigla": "",
+  "poblacion": 0,
+  "geometry": {},
+  "nombre_continente": "",
+  "areaKM2": 0,
+  "centroide": {}
+}
+
+<> 2024-11-28T132552.500.json
+
+###
+
+GET http://localhost:8085/api/v1/gestion/1/continente/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-11-28T130424.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 149
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "Cuba",
+  "sigla": "CU",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "América",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-27T101021.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 149
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "Cuba",
+  "sigla": "CU",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "América",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-27T100241.200.json
+
+###
+
+GET http://localhost:8086/api/v1/gestion/1/pais/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-11-27T093015.200.json
+
+###
+
+GET http://localhost:8085/api/v1/gestion/1/continente/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-11-27T092455.200.json
+
+###
+
+GET http://localhost:8086/api/v1/gestion/1/pais/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-11-27T092238.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 149
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "Cuba",
+  "sigla": "CU",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "América",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-27T092206.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 149
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "Cuba",
+  "sigla": "CU",
+  "poblacion": 0,
+  "geometry": null,
+  "nombre_continente": "América",
+  "areaKM2": 0,
+  "centroide": null
+}
+
+<> 2024-11-27T091514.200.json
+
+###
+
+POST http://localhost:8086/api/v1/gestion/1/pais/
+Content-Type: application/json
+Content-Length: 145
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "nombre": "Cuba",
+  "sigla": "CU",
+  "poblacion": 0,
+  "geometry": {},
+  "nombre_continente": "América",
+  "areaKM2": 0,
+  "centroide": {}
+}
+
+<> 2024-11-27T085946.500.json
+
+###
+

@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.service.implement;
 
-import cu.edu.cujae.gestion.postgresql.continente.core.dto.ContinenteDto;
+import cu.edu.cujae.gestion.postgresql.continente.core.dto.standar.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.continente.core.mapper.Continente;
 import cu.edu.cujae.gestion.postgresql.continente.core.repository.ContinenteRepository;
 import cu.edu.cujae.gestion.postgresql.continente.core.service.ContinenteService;
@@ -25,7 +25,7 @@ public class ContinenteServiceImplement implements ContinenteService {
         if (continente.isPresent()) {
             return new ContinenteDto(continente.get().getIdContinente(), continente.get().getNombre());
         }
-        return null;
+        throw new RuntimeException("No hay un continente con el nombre " + nombreContinente);
     }
 
     @Override

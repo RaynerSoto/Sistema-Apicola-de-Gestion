@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="fastRequestCurrentParamGroup">
+    <option name="className" value="cu.edu.cujae.gestion.postgresql.continente.core.controller.ContinenteController" />
+    <option name="filePath" value="" />
+    <option name="method" value="getAll" />
+    <option name="module" value="microservice-continente" />
+    <option name="originUrl" value="/api/v1/gestion/1/continente/" />
+    <option name="responseParamMap">
+      <map>
+        <entry key="return">
+          <value>
+            <Object />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{},&quot;body&quot;:{&quot;iscorrectoRespuesta&quot;:&quot;No comment,Type =Boolean&quot;,&quot;respuesta&quot;:&quot;No comment,Type =String&quot;,&quot;continentes&quot;:[{&quot;idContinente&quot;:&quot;No comment,Type =Number&quot;,&quot;nombre&quot;:&quot;No comment,Type =String&quot;}]}}" />
+    <option name="url" value="/api/v1/gestion/1/continente/" />
+  </component>
+</project>

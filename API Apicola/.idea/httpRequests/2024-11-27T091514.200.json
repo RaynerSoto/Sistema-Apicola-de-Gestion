@@ -1,0 +1,4 @@
+{
+  "iscorrectoRespuesta": false,
+  "respuesta": "[400] during [GET] to [http://localhost:8085/api/v1/gestion/1/continente/Cuba] [ContinenteOpenFeign#getContinente(String)]: [{\"iscorrectoRespuesta\":false,\"respuesta\":\"No hay un continente con el nombre Cuba\"}]"
+}

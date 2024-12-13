@@ -5,8 +5,8 @@ spring:
     name: Pais
   datasource:
     url: jdbc:postgresql:${GestionApicola}
-    username: ${DB_USER1}
-    password: ${DB_PASSWORD1}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-timeout: 60000
@@ -23,4 +23,10 @@ spring:
               timeout: 60000
       database: postgresql
       show-sql: true
-
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+server:
+  port: 8086

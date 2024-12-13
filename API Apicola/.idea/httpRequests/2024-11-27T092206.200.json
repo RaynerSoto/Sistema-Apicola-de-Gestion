@@ -1,0 +1,4 @@
+{
+  "iscorrectoRespuesta": false,
+  "respuesta": "class java.util.LinkedHashMap cannot be cast to class cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto (java.util.LinkedHashMap is in module java.base of loader 'bootstrap'; cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @1ee7596d)"
+}

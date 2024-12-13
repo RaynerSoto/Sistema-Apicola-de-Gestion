@@ -1,0 +1,26 @@
+{
+  "iscorrectoRespuesta": true,
+  "respuesta": null,
+  "continentes": [
+    {
+      "idContinente": 1,
+      "nombre": "América"
+    },
+    {
+      "idContinente": 2,
+      "nombre": "África"
+    },
+    {
+      "idContinente": 3,
+      "nombre": "Europa"
+    },
+    {
+      "idContinente": 4,
+      "nombre": "Asia"
+    },
+    {
+      "idContinente": 5,
+      "nombre": "Oceanía"
+    }
+  ]
+}

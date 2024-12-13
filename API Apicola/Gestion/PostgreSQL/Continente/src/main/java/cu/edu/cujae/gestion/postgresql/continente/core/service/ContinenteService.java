@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.service;
 
-import cu.edu.cujae.gestion.postgresql.continente.core.dto.ContinenteDto;
+import cu.edu.cujae.gestion.postgresql.continente.core.dto.standar.ContinenteDto;
 
 import java.util.List;
 

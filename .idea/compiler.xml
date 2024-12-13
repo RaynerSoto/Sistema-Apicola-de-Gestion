@@ -7,13 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
-        <module name="Apicultores" />
-        <module name="Prueba" />
-        <module name="microservice-eureka" />
+        <module name="microservice-gestion-pais" />
         <module name="microservice-configserver" />
+        <module name="microservice-excel" />
+        <module name="microservicio-municipio" />
+        <module name="microservice-localidad" />
+        <module name="microservice-eureka" />
+        <module name="microservice-continente" />
+        <module name="microservice-estado" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Apicultores" target="21" />
+      <module name="Prueba" target="21" />
       <module name="untitled" target="21" />
     </bytecodeTargetLevel>
   </component>
@@ -22,9 +28,15 @@
       <module name="Apicultores" options="-parameters" />
       <module name="Prueba" options="-parameters" />
       <module name="microservice-configserver" options="-parameters" />
+      <module name="microservice-continente" options="-parameters" />
+      <module name="microservice-estado" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-excel" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-gestion" options="" />
+      <module name="microservice-gestion-pais" options="-parameters" />
+      <module name="microservice-localidad" options="-parameters" />
+      <module name="microservicio-municipio" options="-parameters" />
       <module name="untitled" options="-parameters" />
     </option>
   </component>

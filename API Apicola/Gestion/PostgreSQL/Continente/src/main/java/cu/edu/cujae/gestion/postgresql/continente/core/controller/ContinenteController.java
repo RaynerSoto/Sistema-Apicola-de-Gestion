@@ -1,5 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.controller;
 
+import cu.edu.cujae.gestion.postgresql.continente.core.dto.response.RespuestaContinenteDtoList;
+import cu.edu.cujae.gestion.postgresql.continente.core.dto.response.RespuestaContinenteDto;
 import cu.edu.cujae.gestion.postgresql.continente.core.service.ContinenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,20 +21,20 @@ public class ContinenteController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<RespuestaContinenteDtoList> getAll() {
         try {
-            return ResponseEntity.ok(continenteService.getAllContinentes());
+            return ResponseEntity.ok(new RespuestaContinenteDtoList(true,continenteService.getAllContinentes()));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("No se pudo acceder al listado de países. Compruebe con el servicio técnico");
+            return ResponseEntity.badRequest().body(new RespuestaContinenteDtoList(false,"No se pudo acceder al listado de países. Compruebe con el servicio técnico"));
         }
     }
 
     @GetMapping("/{nombre}")
-    public ResponseEntity<?> obternerContinenteXNombre(@PathVariable String nombre) {
+    public ResponseEntity<RespuestaContinenteDto> obternerContinenteXNombre(@PathVariable(value = "nombre") String nombre) {
         try {
-            return ResponseEntity.ok(continenteService.isCorrectContinente(nombre));
+            return ResponseEntity.ok(new RespuestaContinenteDto(true,continenteService.isCorrectContinente(nombre)));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("No se puedo obtener el nombre del continente");
+            return ResponseEntity.badRequest().body(new RespuestaContinenteDto(false,e.getMessage()));
         }
     }
 }

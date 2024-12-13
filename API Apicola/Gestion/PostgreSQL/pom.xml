@@ -15,9 +15,11 @@
 	<description>PostgreSQL</description>
 	<url/>
 	<modules>
-		<module>Apicultores</module>
 		<module>Pais</module>
 		<module>Continente</module>
+		<module>Estado</module>
+		<module>Localidad</module>
+		<module>Municipio</module>
 	</modules>
 	<licenses>
 		<license/>

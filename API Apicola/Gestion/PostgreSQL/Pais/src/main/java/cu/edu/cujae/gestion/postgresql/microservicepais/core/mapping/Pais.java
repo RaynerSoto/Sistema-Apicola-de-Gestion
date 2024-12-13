@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.mapping;
 
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
 import jakarta.persistence.*;
@@ -10,7 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Geometry;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 @Table(name = "paises")
@@ -54,6 +54,55 @@ public class Pais {
     @Min(value = 0, message = "Los valores de problación deben 0 o positivos")
     private Double areaKM2;
 
+    public Pais(PaisDtoReci paisDtoReci, ContinenteDto continente) {
+        this.nombre = paisDtoReci.nombre();
+        this.sigla = paisDtoReci.sigla();
+        if (paisDtoReci.poblacion() != null)
+            this.poblacion = paisDtoReci.poblacion();
+        else
+            this.poblacion = 0L;
+        this.geometry = paisDtoReci.geometry();
+        this.centroide = paisDtoReci.centroide();
+        if (paisDtoReci.areaKM2() != null)
+            this.areaKM2 = paisDtoReci.areaKM2();
+        else
+            this.areaKM2 = 0D;
+        this.nombreContinente = continente.getNombre();
+    }
+
+    public Pais(PaisDtoReci paisDtoReci, String continente) {
+        this.nombre = paisDtoReci.nombre();
+        this.sigla = paisDtoReci.sigla();
+        if (paisDtoReci.poblacion() != null)
+            this.poblacion = paisDtoReci.poblacion();
+        else
+            this.poblacion = 0L;
+        this.geometry = paisDtoReci.geometry();
+        this.centroide = paisDtoReci.centroide();
+        if (paisDtoReci.areaKM2() != null)
+            this.areaKM2 = paisDtoReci.areaKM2();
+        else
+            this.areaKM2 = 0D;
+        this.nombreContinente = continente;
+    }
+
+    public Pais(PaisDtoReci paisDtoReci, String continente, Long id) {
+        this.idPais = id;
+        this.nombre = paisDtoReci.nombre();
+        this.sigla = paisDtoReci.sigla();
+        if (paisDtoReci.poblacion() != null)
+            this.poblacion = paisDtoReci.poblacion();
+        else
+            this.poblacion = 0L;
+        this.geometry = paisDtoReci.geometry();
+        this.centroide = paisDtoReci.centroide();
+        if (paisDtoReci.areaKM2() != null)
+            this.areaKM2 = paisDtoReci.areaKM2();
+        else
+            this.areaKM2 = 0D;
+        this.nombreContinente = continente;
+    }
+
     @PrePersist
     @PreUpdate
     public void prePersist(){
@@ -61,6 +110,23 @@ public class Pais {
     }
 
     public Pais(PaisDtoReci paisDtoReci) {
+        this.nombre = paisDtoReci.nombre();
+        this.sigla = paisDtoReci.sigla();
+        if (paisDtoReci.poblacion() != null)
+            this.poblacion = paisDtoReci.poblacion();
+        else
+            this.poblacion = 0L;
+        this.geometry = paisDtoReci.geometry();
+        this.centroide = paisDtoReci.centroide();
+        if (paisDtoReci.areaKM2() != null)
+            this.areaKM2 = paisDtoReci.areaKM2();
+        else
+            this.areaKM2 = 0D;
+        this.nombreContinente = paisDtoReci.nombre_continente();
+    }
+
+    public Pais(PaisDtoReci paisDtoReci, Long id) {
+        this.idPais = id;
         this.nombre = paisDtoReci.nombre();
         this.sigla = paisDtoReci.sigla();
         if (paisDtoReci.poblacion() != null)
