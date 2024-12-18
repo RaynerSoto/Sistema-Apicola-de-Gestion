@@ -8,17 +8,17 @@ public class Validacion {
 
     public static String comprobacionValidador(Object elemento){
         Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
-        if (validator.validate(elemento).isEmpty() == false){
+        if (!validator.validate(elemento).isEmpty()){
             for (ConstraintViolation con : validator.validate(elemento)){
                 return con.getMessage();
             }
         }
-        return "";
+        return null;
     }
 
-    public static void validarUnsupportedOperationException(Object elemento){
+    public static void validarUnsupportedOperationException(Object elemento) throws NullPointerException{
         String validacion = Validacion.comprobacionValidador(elemento);
-        if (validacion.isBlank() == false)
+        if (!validacion.isBlank())
             throw new UnsupportedOperationException(validacion);
     }
 }

@@ -53,7 +53,7 @@ public class Pais {
     private String nombreContinente;
 
     @Column(name = "areakm2",nullable = false)
-    @Min(value = 0, message = "Los valores de problación deben 0 o positivos")
+    @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private Double areaKM2;
 
     public Pais(PaisDtoReci paisDtoReci, ContinenteDto continente) {

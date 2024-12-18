@@ -7,7 +7,7 @@
         <artifactId>microservice-gestion-postgresql</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>cu.edu.cujae.excel</groupId>
+    <groupId>cu.edu.cujae.gestion.postgresql.continente</groupId>
     <artifactId>microservice-continente</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
