@@ -2,7 +2,7 @@ package cu.edu.cujae.gestion.postgresql.microservicepais.core.controller;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.response.RespuestaPaisDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.response.RespuestaPaisDtoList;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.mapping.Pais;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
@@ -39,13 +39,11 @@ public class PaisController {
     public ResponseEntity<RespuestaPaisDto> insertarPais(@RequestBody PaisDtoReci paisDtoReci) throws ValidationException {
         try{
             String continente = continentService.obtenerContinente(paisDtoReci.nombre_continente());
-            if (paisDtoReci.nombre_continente().equals(String.valueOf(continente)))
-                paisService.insertarPais(new Pais(paisDtoReci));
-            else
-                paisService.insertarPais(new Pais(paisDtoReci, continente));
+            Pais pais = paisDtoReci.nombre_continente().equals(continente) ? new Pais(paisDtoReci):new Pais(paisDtoReci,continente);
+            paisService.insertarPais(pais);
             return ResponseEntity.ok(new RespuestaPaisDto(true,"País insertado"));
         }catch (Exception e){
-            System.out.println(e.getCause().getMessage());
+            System.out.println(e.getMessage());
             return ResponseEntity.ok(new RespuestaPaisDto(false,e.getMessage()));
         }
     }

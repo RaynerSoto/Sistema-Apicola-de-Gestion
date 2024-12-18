@@ -5,8 +5,6 @@ import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.Continent
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 import java.rmi.ServerException;
 
 @Service
@@ -24,7 +22,7 @@ public class ContinentServiceImplement implements ContinentService {
             throw new IllegalArgumentException("No se puede buscar un continente con dichos valores");
         RespuestaContinenteDto respuesta = continenteOpenFeign.getContinente(continent);
         if (!respuesta.isIscorrectoRespuesta())
-            throw new ServerException(String.valueOf(respuesta.getRespuesta()));
-        return respuesta.getRespuesta();
+            throw new ServerException(respuesta.getRespuesta());
+        return respuesta.getContinenteDto().getNombre();
     }
 }

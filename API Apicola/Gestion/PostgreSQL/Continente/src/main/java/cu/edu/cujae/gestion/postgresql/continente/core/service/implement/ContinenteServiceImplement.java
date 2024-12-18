@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.service.implement;
 
 import cu.edu.cujae.gestion.postgresql.continente.core.dto.standar.ContinenteDto;
-import cu.edu.cujae.gestion.postgresql.continente.core.mapper.Continente;
+import cu.edu.cujae.gestion.postgresql.continente.core.model.Continente;
 import cu.edu.cujae.gestion.postgresql.continente.core.repository.ContinenteRepository;
 import cu.edu.cujae.gestion.postgresql.continente.core.service.ContinenteService;
 import org.springframework.beans.factory.annotation.Autowired;

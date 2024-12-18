@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.microservicepais.core.mapping;
+package cu.edu.cujae.gestion.postgresql.microservicepais.core.model;
 
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Geometry;
@@ -17,11 +18,12 @@ import org.locationtech.jts.geom.Geometry;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Pais {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_seq")
-    @SequenceGenerator(name = "pais_seq", sequenceName = "secuence_id_pais",initialValue = 1,allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "pais_seq")
+    @SequenceGenerator(name = "pais_seq", sequenceName = "pais_id_pais_seq",initialValue = 1,allocationSize = 1)
     @Column(name = "id_pais",nullable = false,unique = true,updatable = false)
     private Long idPais;
 
@@ -103,12 +105,6 @@ public class Pais {
         this.nombreContinente = continente;
     }
 
-    @PrePersist
-    @PreUpdate
-    public void prePersist(){
-        Validacion.validarUnsupportedOperationException(this);
-    }
-
     public Pais(PaisDtoReci paisDtoReci) {
         this.nombre = paisDtoReci.nombre();
         this.sigla = paisDtoReci.sigla();
@@ -140,5 +136,10 @@ public class Pais {
         else
             this.areaKM2 = 0D;
         this.nombreContinente = paisDtoReci.nombre_continente();
+    }
+
+    @PrePersist
+    public void prePersist(){
+        Validacion.validarUnsupportedOperationException(this);
     }
 }

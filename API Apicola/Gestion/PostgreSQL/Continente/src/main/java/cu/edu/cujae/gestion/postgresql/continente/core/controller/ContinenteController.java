@@ -25,7 +25,7 @@ public class ContinenteController {
         try {
             return ResponseEntity.ok(new RespuestaContinenteDtoList(true,continenteService.getAllContinentes()));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new RespuestaContinenteDtoList(false,"No se pudo acceder al listado de países. Compruebe con el servicio técnico"));
+            return ResponseEntity.ok(new RespuestaContinenteDtoList(false,"No se pudo acceder al listado de países. Compruebe con el servicio técnico"));
         }
     }
 
@@ -34,7 +34,7 @@ public class ContinenteController {
         try {
             return ResponseEntity.ok(new RespuestaContinenteDto(true,continenteService.isCorrectContinente(nombre)));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new RespuestaContinenteDto(false,e.getMessage()));
+            return ResponseEntity.ok(new RespuestaContinenteDto(false,e.getMessage()));
         }
     }
 }

@@ -1,8 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.sent.PaisDtoSent;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.mapping.Pais;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
@@ -58,7 +57,6 @@ public class PaisServiceImplement implements PaisService {
 
     @Override
     public List<PaisDtoSent> buscarPaises() {
-        return paisRepository.findAll().stream().map(p-> PaisDtoSent.convertirPaisDtoSent(p)).toList();
-
+        return paisRepository.findAll().stream().map(PaisDtoSent::convertirPaisDtoSent).toList();
     }
 }

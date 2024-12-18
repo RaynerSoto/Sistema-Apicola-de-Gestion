@@ -1,10 +1,9 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.utils;
 
-import cu.edu.cujae.gestion.postgresql.continente.core.mapper.Continente;
+import cu.edu.cujae.gestion.postgresql.continente.core.model.Continente;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class MapperTest {
     @Test
