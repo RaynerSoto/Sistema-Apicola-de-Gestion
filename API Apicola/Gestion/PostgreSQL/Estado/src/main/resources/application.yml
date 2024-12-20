@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: Estado
+
+server:
+  port: 8087

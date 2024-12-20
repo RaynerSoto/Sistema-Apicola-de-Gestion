@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.service;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.sent.PaisDtoSent;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.enviar.PaisDtoSent;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 
 import java.util.List;

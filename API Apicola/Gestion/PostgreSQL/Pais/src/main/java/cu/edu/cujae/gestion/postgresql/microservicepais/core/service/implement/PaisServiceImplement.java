@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.sent.PaisDtoSent;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.enviar.PaisDtoSent;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;

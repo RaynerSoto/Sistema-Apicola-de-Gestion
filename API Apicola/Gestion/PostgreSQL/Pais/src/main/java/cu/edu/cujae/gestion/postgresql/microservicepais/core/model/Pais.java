@@ -139,7 +139,8 @@ public class Pais {
     }
 
     @PrePersist
+    @PreUpdate
     public void prePersist(){
-        Validacion.validarUnsupportedOperationException(this);
+        Validacion.validarElemento(this);
     }
 }

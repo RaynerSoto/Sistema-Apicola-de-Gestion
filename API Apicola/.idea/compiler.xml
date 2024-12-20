@@ -15,6 +15,7 @@
         <module name="microservice-localidad" />
         <module name="microservice-eureka" />
         <module name="microservice-continente" />
+        <module name="microservice-estado" />
         <module name="microservice-pais" />
       </profile>
     </annotationProcessing>
@@ -32,6 +33,7 @@
       <module name="Prueba" options="-parameters" />
       <module name="microservice-configserver" options="-parameters" />
       <module name="microservice-continente" options="-parameters" />
+      <module name="microservice-estado" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-excel" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />

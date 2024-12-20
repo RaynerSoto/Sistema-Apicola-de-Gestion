@@ -1,3 +1,12 @@
+GET http://localhost:8086/api/v1/gestion/1/pais/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-19T100846.200.json
+
+###
+
 GET http://localhost:8085/api/v1/gestion/1/continente/
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
 Accept-Encoding: br, deflate, gzip, x-gzip
