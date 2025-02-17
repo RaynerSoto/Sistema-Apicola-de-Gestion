@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.enviar;
+package cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.enviar;
 
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import org.locationtech.jts.geom.Geometry;

@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuesta.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.ConversionObjetos;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
 @Service
 public class ContinentServiceImplement implements ContinentService {

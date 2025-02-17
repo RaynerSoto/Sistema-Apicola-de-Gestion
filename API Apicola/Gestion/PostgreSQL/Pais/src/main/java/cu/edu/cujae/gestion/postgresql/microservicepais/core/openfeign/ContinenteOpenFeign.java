@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuesta.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

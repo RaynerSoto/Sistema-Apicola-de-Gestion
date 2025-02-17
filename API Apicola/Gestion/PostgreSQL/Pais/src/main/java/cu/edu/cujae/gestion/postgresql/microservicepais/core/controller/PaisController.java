@@ -1,29 +1,44 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.controller;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuesta.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APIGeografica;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APITraduction;
 import io.micrometer.core.instrument.config.validate.ValidationException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/v1/gestion/1/pais")
+@Tag(name = "Controllador de País",description = "Todos los endpoints que se ocupan del trabajo con la entidad País")
 public class PaisController {
     private final PaisService paisService;
     private final ContinentService continentService;
 
+    private final PaisRepository paisRepository;
+
     @Autowired
-    public PaisController(PaisService paisService, ContinentService continentService) {
+    public PaisController(PaisService paisService, ContinentService continentService, PaisRepository paisRepository) {
         this.paisService = paisService;
         this.continentService = continentService;
+        this.paisRepository = paisRepository;
     }
 
     @GetMapping("/")
-    public ResponseEntity<RespuestaEstandar> listadoPaises(){
+    @Operation(summary = "Listado de países",description = "Permite listar los países almacenados")
+    /**
+     * Permite listar los países almacenados
+     */
+    public ResponseEntity<RespuestaEstandar> listarPaises(){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(paisService.buscarPaises()));
         }catch (Exception e){
@@ -31,47 +46,34 @@ public class PaisController {
         }
     }
 
-    @PostMapping("/")
-    public ResponseEntity<RespuestaEstandar> insertarPais(@RequestBody PaisDtoReci paisDtoReci) throws ValidationException {
+
+    //Haciendo cambios para el insertar País a través de una API
+    @PostMapping("/{nombre}")
+    @Operation(summary = "Insertar país",
+            description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
+    public ResponseEntity<RespuestaEstandar> insertarPais(@PathVariable String nombre) throws ValidationException {
         try{
-            String continente = continentService.obtenerContinente(paisDtoReci.nombre_continente());
-            Pais pais = paisDtoReci.nombre_continente().equals(continente) ? new Pais(paisDtoReci):new Pais(paisDtoReci,continente);
+            String pais_nombre = APITraduction.traduccionESEN(nombre);
+            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(pais_nombre);
+            Pais pais = new Pais(apiGeoDto.toEspañol());
             paisService.insertarPais(pais);
-            return ResponseEntity.ok(new RespuestaEstandar("País: "+paisDtoReci.nombre()+" insertado"));
+            return ResponseEntity.ok(new RespuestaEstandar("País: "+ nombre +" insertado"));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<RespuestaEstandar> modificarPais(@RequestBody PaisDtoReci paisDtoReci, @PathVariable Long id){
-        try {
-            String continente = continentService.obtenerContinente(paisDtoReci.nombre_continente());
-            if (paisDtoReci.nombre_continente().equals(String.valueOf(continente)))
-                paisService.insertarPais(new Pais(paisDtoReci,id));
-            else
-                paisService.insertarPais(new Pais(paisDtoReci, continente,id));
-            return ResponseEntity.ok(new RespuestaEstandar("País modificado con éxito"));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
-        }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<RespuestaEstandar> eliminarPais(@PathVariable Long id) {
-        try {
-            paisService.eliminarPais(id);
-            return ResponseEntity.ok(new RespuestaEstandar("País eliminado con éxito"));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
-        }
-    }
-
-    @GetMapping("/buscar/{id}")
-    public ResponseEntity<RespuestaEstandar> buscarPaisID(@PathVariable Long id){
-        try {
-            return ResponseEntity.ok(new RespuestaEstandar(paisService.buscarPais(id)));
-        } catch (Exception e) {
+    @PutMapping("/{nombre}")
+    @Operation(summary = "Actualizar país",
+            description = "Método que permite actualizar un país en el sistema, mediante la conexión a una API externa")
+    public ResponseEntity<RespuestaEstandar> actualizarPais(@PathVariable String nombre){
+        try{
+            String pais_nombre = APITraduction.traduccionESEN(nombre);
+            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(pais_nombre);
+            Pais pais = new Pais(apiGeoDto.toEspañol());
+            paisService.actualizarPais(pais);
+            return ResponseEntity.ok(new RespuestaEstandar(String.format("País %s con datos actualizados",pais_nombre)));
+        }catch (Exception e){
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
         }
     }

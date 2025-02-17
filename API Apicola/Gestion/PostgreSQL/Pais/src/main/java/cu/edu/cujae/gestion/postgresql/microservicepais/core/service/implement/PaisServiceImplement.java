@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.enviar.PaisDtoSent;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.enviar.PaisDtoSent;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
@@ -32,6 +32,17 @@ public class PaisServiceImplement implements PaisService {
             paisRepository.save(pais);
         else
             throw new IllegalArgumentException("No se encuentra ningún país a modificar");
+    }
+
+    @Override
+    public void actualizarPais(Pais pais) throws Exception {
+        if(paisRepository.existsPaisByNombre(pais.getNombre())){
+            pais.setIdPais(paisRepository.findByNombreEquals(pais.getNombre()).get().getIdPais());
+            paisRepository.save(pais);
+        }
+        else {
+            throw new IllegalArgumentException("No se encontró ningún país a modificar");
+        }
     }
 
     @Override

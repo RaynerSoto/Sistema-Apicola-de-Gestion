@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuesta;
+package cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

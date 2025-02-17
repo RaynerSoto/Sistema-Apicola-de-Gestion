@@ -1,7 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.model;
 
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.recibir.PaisDtoReci;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -31,6 +32,11 @@ public class Pais {
     @Size(min = 4,max = 100,message = "El nombre del país se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "El nombre del país no puede ser nulo o estar vacío")
     private String nombre;
+
+    @Column(name = "nombre_completo",unique = true,nullable = false,length = 100)
+    @Size(min = 4,max = 100,message = "El nombre completo del país se encuentra entre 4 y 100 caracteres")
+    @NotBlank(message = "El nombre completo del país no puede ser nulo o estar vacío")
+    private String nombreCompleto;
 
     @Column(name = "sigla",unique = true,nullable = false,length = 100)
     @Size(min = 1,max = 10,message = "La sigla del país se encuentra entre 1 y 10 caracteres")
@@ -136,6 +142,15 @@ public class Pais {
         else
             this.areaKM2 = 0D;
         this.nombreContinente = paisDtoReci.nombre_continente();
+    }
+
+    public Pais(APIGeoDto apiGeoDto) {
+        this.nombre = apiGeoDto.name().common();
+        this.nombreCompleto = apiGeoDto.name().official();
+        this.nombreContinente = apiGeoDto.region();
+        this.sigla = apiGeoDto.cca3();
+        this.poblacion = apiGeoDto.population();
+        this.areaKM2 = apiGeoDto.area();
     }
 
     @PrePersist
