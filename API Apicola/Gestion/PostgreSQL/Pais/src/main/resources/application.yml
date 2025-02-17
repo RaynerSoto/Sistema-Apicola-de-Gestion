@@ -41,3 +41,6 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /
+
+enlaces:
+  traduccion:

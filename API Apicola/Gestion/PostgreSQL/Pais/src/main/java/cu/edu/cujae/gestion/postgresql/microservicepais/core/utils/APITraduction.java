@@ -74,7 +74,7 @@ public class APITraduction {
      * Realiza una solicitud HTTP a la API de traducción MyMemory para traducir el texto proporcionado desde inglés a español.
      * @param httpClient
      * @param nombre
-     * @return
+     * @return String
      * @throws IOException
      * @throws InterruptedException
      */
@@ -94,7 +94,7 @@ public class APITraduction {
      * @param nombre
      * @param idiomaActual
      * @param idiomaATraduccion
-     * @return
+     * @return String
      * @throws IOException
      * @throws InterruptedException
      */
@@ -116,7 +116,7 @@ public class APITraduction {
      * @param nombre
      * @param idiomaActual
      * @param idiomaATraduccion
-     * @return
+     * @return String
      * @throws IOException
      * @throws InterruptedException
      */
@@ -124,7 +124,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual+"|".replace("|", "%7C")+idiomaATraduccion)).
+                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual.toLowerCase()+"|".replace("|", "%7C")+idiomaATraduccion.toLowerCase())).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
