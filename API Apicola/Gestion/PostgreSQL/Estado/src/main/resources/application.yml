@@ -45,3 +45,4 @@ springdoc:
 enlaces:
   traduccion: "https://api.mymemory.translated.net/get?q="
   geografia_pais: "https://restcountries.com/v3.1/translation/"
+  geografia_estado: "http://api.geonames.org/searchJSON?country=%s&featureCode=ADM1&username=raynerdr"

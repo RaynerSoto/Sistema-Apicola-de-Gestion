@@ -1,12 +1,11 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.controller;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APIGeografica;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APITraduction;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APIGeograficaPais;
 import io.micrometer.core.instrument.config.validate.ValidationException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -51,8 +50,8 @@ public class PaisController {
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
     public ResponseEntity<RespuestaEstandar> insertarPais(@PathVariable String nombre) throws ValidationException {
         try{
-            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(nombre);
-            paisService.insertarPais(new Pais(apiGeoDto));
+            APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre);
+            paisService.insertarPais(new Pais(apiGeoPaisDto));
             return ResponseEntity.ok(new RespuestaEstandar("País: "+ nombre +" insertado"));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
@@ -64,8 +63,8 @@ public class PaisController {
             description = "Método que permite actualizar un país en el sistema, mediante la conexión a una API externa")
     public ResponseEntity<RespuestaEstandar> actualizarPais(@PathVariable String nombre){
         try{
-            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(nombre);
-            paisService.actualizarPais(new Pais(apiGeoDto));
+            APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre);
+            paisService.actualizarPais(new Pais(apiGeoPaisDto));
             return ResponseEntity.ok(new RespuestaEstandar(String.format("País %s con datos actualizados", nombre)));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));

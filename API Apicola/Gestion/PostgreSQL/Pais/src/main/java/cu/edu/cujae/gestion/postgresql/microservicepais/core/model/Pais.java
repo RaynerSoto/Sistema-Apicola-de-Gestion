@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.model;
 
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
@@ -144,13 +144,13 @@ public class Pais {
         this.nombreContinente = paisDtoReci.nombre_continente();
     }
 
-    public Pais(APIGeoDto apiGeoDto) {
-        this.nombre = apiGeoDto.spa().common();
-        this.nombreCompleto = apiGeoDto.spa().official();
-        this.nombreContinente = apiGeoDto.region();
-        this.sigla = apiGeoDto.cca3();
-        this.poblacion = apiGeoDto.population();
-        this.areaKM2 = apiGeoDto.area();
+    public Pais(APIGeoPaisDto apiGeoPaisDto) {
+        this.nombre = apiGeoPaisDto.spa().common();
+        this.nombreCompleto = apiGeoPaisDto.spa().official();
+        this.nombreContinente = apiGeoPaisDto.region();
+        this.sigla = apiGeoPaisDto.cca2();
+        this.poblacion = apiGeoPaisDto.population();
+        this.areaKM2 = apiGeoPaisDto.area();
     }
 
     @PrePersist

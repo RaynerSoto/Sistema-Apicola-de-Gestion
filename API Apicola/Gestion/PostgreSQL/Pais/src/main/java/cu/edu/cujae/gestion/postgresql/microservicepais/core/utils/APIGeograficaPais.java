@@ -1,28 +1,24 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.utils;
 
 import com.google.gson.Gson;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoDto;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.traduccion.TraduccionRecibirPeticionDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.reflect.TypeToken;
 import jakarta.annotation.PostConstruct;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Type;
 
 @Component
-public class APIGeografica {
+public class APIGeograficaPais {
 
     @Value("${enlaces.geografia_pais}")
     private String urlInyectada;
@@ -41,8 +37,8 @@ public class APIGeografica {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static APIGeoDto obtenerDatosPaises(String nombre) throws IOException, InterruptedException {
-        List<APIGeoDto> pais = new ArrayList<>();
+    public static APIGeoPaisDto obtenerDatosPaises(String nombre) throws IOException, InterruptedException {
+        List<APIGeoPaisDto> pais = new ArrayList<>();
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
@@ -51,10 +47,10 @@ public class APIGeografica {
                 build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         try{
-            Type listType = new TypeToken<List<APIGeoDto>>() {}.getType();
+            Type listType = new TypeToken<List<APIGeoPaisDto>>() {}.getType();
             pais = new Gson().fromJson(response.body(), listType);
         }catch (Exception e){
-            pais.add(new Gson().fromJson(response.body(), APIGeoDto.class));
+            pais.add(new Gson().fromJson(response.body(), APIGeoPaisDto.class));
         }
         return pais.getFirst();
     }
