@@ -43,4 +43,5 @@ springdoc:
     path: /
 
 enlaces:
-  traduccion:
+  traduccion: "https://api.mymemory.translated.net/get?q="
+  geografia_pais: "https://restcountries.com/v3.1/translation/"

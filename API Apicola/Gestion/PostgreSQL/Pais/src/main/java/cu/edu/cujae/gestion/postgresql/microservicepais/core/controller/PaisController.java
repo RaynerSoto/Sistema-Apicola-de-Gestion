@@ -15,8 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/v1/gestion/1/pais")
 @Tag(name = "Controllador de País",description = "Todos los endpoints que se ocupan del trabajo con la entidad País")
@@ -53,10 +51,8 @@ public class PaisController {
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
     public ResponseEntity<RespuestaEstandar> insertarPais(@PathVariable String nombre) throws ValidationException {
         try{
-            String pais_nombre = APITraduction.traduccionESEN(nombre);
-            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(pais_nombre);
-            Pais pais = new Pais(apiGeoDto.toEspañol());
-            paisService.insertarPais(pais);
+            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(nombre);
+            paisService.insertarPais(new Pais(apiGeoDto));
             return ResponseEntity.ok(new RespuestaEstandar("País: "+ nombre +" insertado"));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
@@ -68,11 +64,9 @@ public class PaisController {
             description = "Método que permite actualizar un país en el sistema, mediante la conexión a una API externa")
     public ResponseEntity<RespuestaEstandar> actualizarPais(@PathVariable String nombre){
         try{
-            String pais_nombre = APITraduction.traduccionESEN(nombre);
-            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(pais_nombre);
-            Pais pais = new Pais(apiGeoDto.toEspañol());
-            paisService.actualizarPais(pais);
-            return ResponseEntity.ok(new RespuestaEstandar(String.format("País %s con datos actualizados",pais_nombre)));
+            APIGeoDto apiGeoDto = APIGeografica.obtenerDatosPaises(nombre);
+            paisService.actualizarPais(new Pais(apiGeoDto));
+            return ResponseEntity.ok(new RespuestaEstandar(String.format("País %s con datos actualizados", nombre)));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
         }

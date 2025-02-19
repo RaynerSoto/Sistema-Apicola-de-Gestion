@@ -2,6 +2,9 @@ package cu.edu.cujae.gestion.postgresql.microservicepais.core.utils;
 
 import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.traduccion.TraduccionRecibirPeticionDto;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URI;
@@ -11,7 +14,18 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
+@Component
 public class APITraduction {
+
+    @Value("${enlaces.traduccion}")
+    private String urlInyectada;
+
+    private static String url; // Esta será la que se usará en el método estático
+
+    @PostConstruct
+    private void init() {
+        url = urlInyectada; // Se asigna el valor inyectado a la variable estática
+    }
 
     /**
      * Realiza una solicitud HTTP a la API de traducción MyMemory para traducir el texto proporcionado desde español a inglés.
@@ -25,7 +39,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
+                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
@@ -44,7 +58,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
+                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
@@ -63,7 +77,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
+                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
@@ -82,7 +96,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
+                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
@@ -103,7 +117,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual+"|".replace("|", "%7C")+idiomaATraduccion)).
+                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual+"|".replace("|", "%7C")+idiomaATraduccion)).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
@@ -124,7 +138,7 @@ public class APITraduction {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create("https://api.mymemory.translated.net/get?q="+ URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual.toLowerCase()+"|".replace("|", "%7C")+idiomaATraduccion.toLowerCase())).
+                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual.toLowerCase()+"|".replace("|", "%7C")+idiomaATraduccion.toLowerCase())).
                 GET().build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);

@@ -145,8 +145,8 @@ public class Pais {
     }
 
     public Pais(APIGeoDto apiGeoDto) {
-        this.nombre = apiGeoDto.name().common();
-        this.nombreCompleto = apiGeoDto.name().official();
+        this.nombre = apiGeoDto.spa().common();
+        this.nombreCompleto = apiGeoDto.spa().official();
         this.nombreContinente = apiGeoDto.region();
         this.sigla = apiGeoDto.cca3();
         this.poblacion = apiGeoDto.population();
