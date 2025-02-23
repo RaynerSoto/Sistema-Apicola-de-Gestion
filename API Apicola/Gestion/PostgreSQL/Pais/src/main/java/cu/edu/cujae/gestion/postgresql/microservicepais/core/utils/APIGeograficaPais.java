@@ -20,7 +20,7 @@ import java.lang.reflect.Type;
 @Component
 public class APIGeograficaPais {
 
-    @Value("${enlaces.geografia_pais}")
+    @Value("${enlaces.geografia_estado}")
     private String urlInyectada;
 
     private static String url; // Esta será la que se usará en el método estático
@@ -43,7 +43,7 @@ public class APIGeograficaPais {
         HttpRequest httpRequest = HttpRequest.
                 newBuilder().
                 header("Content-Type", "application/json").
-                uri(URI.create(url+nombre)).
+                uri(URI.create(url+nombre.toUpperCase())).
                 build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         try{

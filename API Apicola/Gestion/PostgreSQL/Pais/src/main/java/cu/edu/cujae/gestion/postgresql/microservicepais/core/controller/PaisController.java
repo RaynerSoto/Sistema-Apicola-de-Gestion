@@ -70,4 +70,15 @@ public class PaisController {
             return ResponseEntity.badRequest().body(new RespuestaEstandar(e.getMessage()));
         }
     }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Existe el país o no",
+    description = "Conocer si un país por su id existe o no")
+    public ResponseEntity<RespuestaEstandar> obtenerPaisSioNo(@PathVariable Long id){
+        try {
+            return ResponseEntity.ok(new RespuestaEstandar(paisRepository.existsById(id)));
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(new RespuestaEstandar("Error al buscar país. Contactar con el servicio técnico"));
+        }
+    }
 }
