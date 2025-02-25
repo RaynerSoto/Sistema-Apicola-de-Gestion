@@ -15,6 +15,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Apicultores/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Localidad/pom.xml" />
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Prueba/pom.xml" />
       </set>
     </option>

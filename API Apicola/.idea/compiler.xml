@@ -12,7 +12,6 @@
         <module name="microservice-excel" />
         <module name="microservicio-municipio" />
         <module name="ConfigServer" />
-        <module name="microservice-localidad" />
         <module name="microservice-eureka" />
         <module name="microservice-continente" />
         <module name="microservice-estado" />
@@ -22,6 +21,7 @@
     <bytecodeTargetLevel>
       <module name="Apicultores" target="21" />
       <module name="microservice-gestion-estado" target="17" />
+      <module name="microservice-localidad" target="21" />
       <module name="Prueba" target="21" />
     </bytecodeTargetLevel>
   </component>
