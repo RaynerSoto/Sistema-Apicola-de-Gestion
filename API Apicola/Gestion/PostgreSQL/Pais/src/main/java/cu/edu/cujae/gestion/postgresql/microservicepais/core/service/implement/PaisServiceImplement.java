@@ -1,6 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.enviar.PaisDtoSent;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
@@ -41,7 +42,7 @@ public class PaisServiceImplement implements PaisService {
             paisRepository.save(pais);
         }
         else {
-            throw new IllegalArgumentException("No se encontró ningún país a modificar");
+            throw new SearchException("No se encontró ningún país a modificar");
         }
     }
 
@@ -50,7 +51,7 @@ public class PaisServiceImplement implements PaisService {
         if (paisRepository.existsById(id))
             paisRepository.deleteById(id);
         else
-            throw new IllegalArgumentException("No se encuentra ningún país a eliminar");
+            throw new SearchException("No se encuentra ningún país a eliminar");
     }
 
     @Override
@@ -61,9 +62,10 @@ public class PaisServiceImplement implements PaisService {
     }
 
     @Override
-    public PaisDtoSent buscarPaisPorNombre(String nombre) {
-        //Antes de proceder con este método se debe validar el anterior
-        return null;
+    public PaisDtoSent buscarPaisPorNombre(String nombre) throws SearchException {
+        if (paisRepository.existsPaisByNombre(nombre))
+            return PaisDtoSent.convertirPaisDtoSent(paisRepository.findByNombreEquals(nombre).get());
+        throw new SearchException("No se ha podido encontrar el país por su nombre");
     }
 
     @Override

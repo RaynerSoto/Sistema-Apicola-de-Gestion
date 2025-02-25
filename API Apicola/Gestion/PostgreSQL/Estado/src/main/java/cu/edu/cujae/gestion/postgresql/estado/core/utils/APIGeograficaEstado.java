@@ -3,6 +3,7 @@ package cu.edu.cujae.gestion.postgresql.estado.core.utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.APIGeoEstadoDto;
+import cu.edu.cujae.gestion.postgresql.estado.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -28,17 +29,21 @@ public class APIGeograficaEstado {
         url = urlInyectada;
     }
 
-    public static APIGeoEstadoDto obtenerDatosEstado(String nombre) throws IOException, InterruptedException {
-        APIGeoEstadoDto estados;
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url.replace("%s",nombre))).
-                GET().
-                build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        estados = new Gson().fromJson(response.body(), APIGeoEstadoDto.class);
-        return estados;
+    public static APIGeoEstadoDto obtenerDatosEstado(String nombre) throws IOException, InterruptedException, APIException {
+        try {
+            APIGeoEstadoDto estados;
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url.replace("%s",nombre))).
+                    GET().
+                    build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            estados = new Gson().fromJson(response.body(), APIGeoEstadoDto.class);
+            return estados;
+        }catch (Exception e){
+            throw new APIException("La conexión con la API de GeoName ha sido defectuosa. Por favor contacte con la API o contacte al servicio técnico del sistema");
+        }
     }
 }

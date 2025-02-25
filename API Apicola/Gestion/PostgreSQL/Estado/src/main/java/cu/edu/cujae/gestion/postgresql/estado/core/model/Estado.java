@@ -1,12 +1,10 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.model;
 
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.GeonamesDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.enviar.PaisEnviarDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.utils.APIGeograficaEstado;
+import cu.edu.cujae.gestion.postgresql.estado.core.dto.enviar.PaisEnviadoDto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -55,10 +53,10 @@ public class Estado {
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private double areaKm2;
 
-    public Estado(PaisEnviarDto paisEnviarDto, GeonamesDto geonamesDto) {
+    public Estado(PaisEnviadoDto paisEnviadoDto, GeonamesDto geonamesDto) {
         this.nombre = geonamesDto.toponymName();
         this.codigo = geonamesDto.adminCode1();
         this.poblacion = geonamesDto.population();
-        this.idPais = paisEnviarDto.id();
+        this.idPais = paisEnviadoDto.id();
     }
 }

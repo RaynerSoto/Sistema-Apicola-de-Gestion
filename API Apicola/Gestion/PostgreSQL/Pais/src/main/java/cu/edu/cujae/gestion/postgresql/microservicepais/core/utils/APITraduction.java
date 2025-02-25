@@ -2,6 +2,7 @@ package cu.edu.cujae.gestion.postgresql.microservicepais.core.utils;
 
 import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.traduccion.TraduccionRecibirPeticionDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -34,16 +35,21 @@ public class APITraduction {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static String traduccionESEN(String nombre) throws IOException, InterruptedException {
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
-                GET().build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
-        return pais.responseData().translatedText();
+    public static String traduccionESEN(String nombre) throws IOException, InterruptedException, APIException {
+        try {
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
+                    GET().build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
+            return pais.responseData().translatedText();
+        }
+        catch (Exception e) {
+            throw new APIException("La conexión con la API de mymemory para traducir ha sido defectuosa, contactar con el servicio técnico");
+        }
     }
 
     /**
@@ -54,15 +60,20 @@ public class APITraduction {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static String traduccionESEN(HttpClient httpClient, String nombre) throws IOException, InterruptedException {
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
-                GET().build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
-        return pais.responseData().translatedText();
+    public static String traduccionESEN(HttpClient httpClient, String nombre) throws IOException, InterruptedException, APIException {
+        try {
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=es|en".replace("|", "%7C"))).
+                    GET().build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
+            return pais.responseData().translatedText();
+        }
+        catch (Exception e) {
+            throw new APIException("La conexión con la API de mymemory para traducir ha sido defectuosa, contactar con el servicio técnico");
+        }
     }
 
     /**
@@ -72,16 +83,21 @@ public class APITraduction {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static String traduccionENES(String nombre) throws IOException, InterruptedException {
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
-                GET().build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
-        return pais.responseData().translatedText();
+    public static String traduccionENES(String nombre) throws IOException, InterruptedException, APIException {
+        try {
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
+                    GET().build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
+            return pais.responseData().translatedText();
+        }
+        catch (Exception e) {
+            throw new APIException("La conexión con la API de mymemory para traducir ha sido defectuosa, contactar con el servicio técnico");
+        }
     }
 
     /**
@@ -92,15 +108,21 @@ public class APITraduction {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static String traduccionENES(HttpClient httpClient, String nombre) throws IOException, InterruptedException {
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
-                GET().build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
-        return pais.responseData().translatedText();
+    public static String traduccionENES(HttpClient httpClient, String nombre) throws IOException, InterruptedException, APIException {
+        try {
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair=en|es".replace("|", "%7C"))).
+                    GET().build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
+            return pais.responseData().translatedText();
+        }
+        catch (Exception e) {
+            throw new APIException("La conexión con la API de mymemory para traducir ha sido defectuosa, contactar con el servicio técnico");
+        }
+
     }
 
     /**
@@ -112,16 +134,20 @@ public class APITraduction {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static String traduccion(String nombre, String idiomaActual, String idiomaATraduccion) throws IOException, InterruptedException {
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual+"|".replace("|", "%7C")+idiomaATraduccion)).
-                GET().build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
-        return pais.responseData().translatedText();
+    public static String traduccion(String nombre, String idiomaActual, String idiomaATraduccion) throws IOException, InterruptedException, APIException {
+        try {
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual+"|".replace("|", "%7C")+idiomaATraduccion)).
+                    GET().build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
+            return pais.responseData().translatedText();
+        } catch (Exception e) {
+            throw new APIException("La conexión con la API de mymemory para traducir ha sido defectuosa, contactar con el servicio técnico");
+        }
     }
 
     /**
@@ -134,14 +160,18 @@ public class APITraduction {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static String traduccion(HttpClient httpClient, String nombre, String idiomaActual, String idiomaATraduccion) throws IOException, InterruptedException {
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual.toLowerCase()+"|".replace("|", "%7C")+idiomaATraduccion.toLowerCase())).
-                GET().build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
-        return pais.responseData().translatedText();
+    public static String traduccion(HttpClient httpClient, String nombre, String idiomaActual, String idiomaATraduccion) throws IOException, InterruptedException, APIException {
+        try{
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url + URLEncoder.encode(nombre, StandardCharsets.UTF_8) + "&langpair="+idiomaActual.toLowerCase()+"|".replace("|", "%7C")+idiomaATraduccion.toLowerCase())).
+                    GET().build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            TraduccionRecibirPeticionDto pais = new Gson().fromJson(response.body(), TraduccionRecibirPeticionDto.class);
+            return pais.responseData().translatedText();
+        } catch (Exception e) {
+            throw new APIException("La conexión con la API de mymemory para traducir ha sido defectuosa, contactar con el servicio técnico");
+        }
     }
 }

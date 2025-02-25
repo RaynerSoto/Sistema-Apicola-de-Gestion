@@ -11,16 +11,21 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.reflect.TypeToken;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import jakarta.annotation.PostConstruct;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Type;
+import java.util.stream.Collectors;
 
 @Component
 public class APIGeograficaPais {
 
-    @Value("${enlaces.geografia_estado}")
+    @Value("${enlaces.geografia_pais}")
     private String urlInyectada;
 
     private static String url; // Esta será la que se usará en el método estático
@@ -37,21 +42,41 @@ public class APIGeograficaPais {
      * @throws IOException
      * @throws InterruptedException
      */
-    public static APIGeoPaisDto obtenerDatosPaises(String nombre) throws IOException, InterruptedException {
-        List<APIGeoPaisDto> pais = new ArrayList<>();
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.
-                newBuilder().
-                header("Content-Type", "application/json").
-                uri(URI.create(url+nombre.toUpperCase())).
-                build();
-        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        try{
-            Type listType = new TypeToken<List<APIGeoPaisDto>>() {}.getType();
-            pais = new Gson().fromJson(response.body(), listType);
-        }catch (Exception e){
-            pais.add(new Gson().fromJson(response.body(), APIGeoPaisDto.class));
+    public static APIGeoPaisDto obtenerDatosPaises(String nombre) throws IOException, InterruptedException, APIException,IOException, InterruptedException {
+        try {
+            List<APIGeoPaisDto> paises = new ArrayList<>();
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpRequest httpRequest = HttpRequest.
+                    newBuilder().
+                    header("Content-Type", "application/json").
+                    uri(URI.create(url+nombre.toUpperCase())).
+                    build();
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            try{
+                Type listType = new TypeToken<List<APIGeoPaisDto>>() {}.getType();
+                paises = new Gson().fromJson(response.body(), listType);
+            }catch (Exception e){
+                paises.add(new Gson().fromJson(response.body(), APIGeoPaisDto.class));
+            }
+           try {
+               APIGeoPaisDto pais = paises.stream()
+                       .map(apiGeoPaisDto -> {
+                           try {
+                               return apiGeoPaisDto.toEspañol();
+                           } catch (IOException e) {
+                               throw new RuntimeException(e);
+                           } catch (InterruptedException e) {
+                               throw new RuntimeException(e);
+                           } catch (APIException e) {
+                               throw new RuntimeException(e);
+                           }
+                       }).filter(apiGeoPaisDto -> apiGeoPaisDto.name().common().equals(nombre)).collect(Collectors.toList()).getFirst();
+               return pais;
+           } catch (Exception e) {
+               throw new SearchException("No se encontró el país específico");
+           }
+        } catch (Exception e) {
+            throw new APIException("La conexión con la API de RestCountries a sido defectuosa. Por favor contacte con la API o contacte al servicio técnico del sistema");
         }
-        return pais.getFirst();
     }
 }

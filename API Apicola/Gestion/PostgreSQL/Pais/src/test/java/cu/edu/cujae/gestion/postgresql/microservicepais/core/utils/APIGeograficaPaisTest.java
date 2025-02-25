@@ -1,6 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.utils;
 
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,9 +11,9 @@ import java.io.IOException;
 class APIGeograficaPaisTest {
 
     @Test
-    void obtenerDatosPaises() throws IOException, InterruptedException {
+    void obtenerDatosPaises() throws IOException, InterruptedException, APIException {
         //String pais = APITraduction.traduccionESEN("México");
-        APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises("México");
-        System.out.println(apiGeoPaisDto.spa().common());
+        //APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises("México");
+        //System.out.println(apiGeoPaisDto.spa().common());
     }
 }

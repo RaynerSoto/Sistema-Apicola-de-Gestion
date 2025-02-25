@@ -6,6 +6,7 @@ import org.locationtech.jts.geom.Geometry;
 import java.util.Optional;
 
 public record PaisDtoSent(Long idPais,String nombre, String sigla, Long poblacion, Geometry geometry, String nombre_continente, Double areaKM2, Geometry centroide){
+
     public static PaisDtoSent convertirPaisDtoSent(Pais pais){
         return new PaisDtoSent(pais.getIdPais(),pais.getNombre(),pais.getSigla(),pais.getPoblacion(),pais.getGeometry(),pais.getNombreContinente(),pais.getAreaKM2(),pais.getCentroide());
     }

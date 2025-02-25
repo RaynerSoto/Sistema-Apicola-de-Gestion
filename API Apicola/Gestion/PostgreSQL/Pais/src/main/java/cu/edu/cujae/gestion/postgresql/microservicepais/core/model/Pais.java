@@ -3,6 +3,7 @@ package cu.edu.cujae.gestion.postgresql.microservicepais.core.model;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.recibir.PaisDtoReci;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -144,13 +145,17 @@ public class Pais {
         this.nombreContinente = paisDtoReci.nombre_continente();
     }
 
-    public Pais(APIGeoPaisDto apiGeoPaisDto) {
-        this.nombre = apiGeoPaisDto.spa().common();
-        this.nombreCompleto = apiGeoPaisDto.spa().official();
-        this.nombreContinente = apiGeoPaisDto.region();
-        this.sigla = apiGeoPaisDto.cca2();
-        this.poblacion = apiGeoPaisDto.population();
-        this.areaKM2 = apiGeoPaisDto.area();
+    public Pais(APIGeoPaisDto apiGeoPaisDto) throws AsignacionException {
+        try {
+            this.nombre = apiGeoPaisDto.name().common();
+            this.nombreCompleto = apiGeoPaisDto.name().official();
+            this.nombreContinente = apiGeoPaisDto.region();
+            this.sigla = apiGeoPaisDto.cca2();
+            this.poblacion = apiGeoPaisDto.population();
+            this.areaKM2 = apiGeoPaisDto.area();
+        } catch (Exception e) {
+            throw new AsignacionException("El pais con dicho nombre no fue encontrado");
+        }
     }
 
     @PrePersist
