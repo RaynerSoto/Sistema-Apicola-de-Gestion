@@ -21,6 +21,10 @@ public class ExceptionCotroller {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País con dicho nombre completo ya insertado"));
         else if(ex.getMessage().contains("siglas_unik_pais"))
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País con dicha sigla ya insertado"));
+        else if(ex.getMessage().contains("fk_pais_continente_nombre"))
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("Continente no registrado"));
+        else if (ex.getMessage().contains("pais_pkey"))
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("El id del país ya ha sido insertado"));
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar(ex.getMessage()));
     }
 
