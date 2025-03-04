@@ -21,7 +21,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/pais")
@@ -29,9 +28,7 @@ import java.util.List;
 public class PaisController {
     private final PaisService paisService;
     private final ContinentService continentService;
-
     private final PaisRepository paisRepository;
-
     private final EstadoOpenFeing estadoOpenFeing;
 
     @Autowired
@@ -48,8 +45,6 @@ public class PaisController {
         return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(paisService.buscarPaises()));
     }
 
-
-    //Haciendo cambios para el insertar País a través de una API
     @PostMapping("/{nombre}")
     @Operation(summary = "Insertar país",
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
@@ -66,8 +61,9 @@ public class PaisController {
     @Operation(summary = "Actualizar país",
             description = "Método que permite actualizar un país en el sistema, mediante la conexión a una API externa")
     public ResponseEntity<RespuestaEstandar> actualizarPais(@PathVariable String nombre) throws Exception {
-        //List<APIGeoPaisDto> apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre);
-        //paisService.actualizarPais(new Pais(apiGeoPaisDto));
+        String nombre_español = APITraduction.traduccionENES(nombre);
+        APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre_español);
+        paisService.actualizarPais(new Pais(apiGeoPaisDto));
         return ResponseEntity.ok(new RespuestaEstandar(String.format("País %s con datos actualizados", nombre)));
     }
 

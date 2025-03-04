@@ -1,7 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.model;
-
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.recibir.PaisDtoReci;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
@@ -13,7 +11,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.Polygon;
 
 @Entity
 @Table(name = "paises")
@@ -49,10 +48,10 @@ public class Pais {
     private Long poblacion;
 
     @Column(name = "geometria",columnDefinition = "geometry")
-    private Geometry geometry;
+    private Polygon geometry;
 
     @Column(name = "centroide",columnDefinition = "geometry")
-    private Geometry centroide;
+    private Point centroide;
 
     @Column(name = "nombre_continente",nullable = false)
     @Size(min = 4,max = 100,message = "El nombre del continente se encuentra entre 4 y 100 caracteres")
@@ -62,22 +61,6 @@ public class Pais {
     @Column(name = "areakm2",nullable = false)
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private Double areaKM2;
-
-    public Pais(PaisDtoReci paisDtoReci, ContinenteDto continente) {
-        this.nombre = paisDtoReci.nombre();
-        this.sigla = paisDtoReci.sigla();
-        if (paisDtoReci.poblacion() != null)
-            this.poblacion = paisDtoReci.poblacion();
-        else
-            this.poblacion = 0L;
-        this.geometry = paisDtoReci.geometry();
-        this.centroide = paisDtoReci.centroide();
-        if (paisDtoReci.areaKM2() != null)
-            this.areaKM2 = paisDtoReci.areaKM2();
-        else
-            this.areaKM2 = 0D;
-        this.nombreContinente = continente.getNombre();
-    }
 
     public Pais(PaisDtoReci paisDtoReci, String continente) {
         this.nombre = paisDtoReci.nombre();

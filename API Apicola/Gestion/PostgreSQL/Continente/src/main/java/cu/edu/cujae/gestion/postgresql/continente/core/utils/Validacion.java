@@ -1,11 +1,15 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.utils;
-
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 
 public class Validacion {
 
+    /**
+     *
+     * @param elemento
+     * @return
+     */
     public static String comprobacionValidador(Object elemento){
         Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
         if (validator.validate(elemento).isEmpty() == false){
@@ -16,6 +20,10 @@ public class Validacion {
         return "";
     }
 
+    /**
+     *
+     * @param elemento
+     */
     public static void validarUnsupportedOperationException(Object elemento){
         String validacion = Validacion.comprobacionValidador(elemento);
         if (validacion.isBlank() == false)

@@ -1,5 +1,4 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.dto.respuesta;
-
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;

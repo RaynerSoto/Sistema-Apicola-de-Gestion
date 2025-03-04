@@ -1,5 +1,4 @@
 package cu.edu.cujae.gestion.postgresql.continente.core.dto.standar;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

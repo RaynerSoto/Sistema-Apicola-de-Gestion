@@ -1,11 +1,9 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.controllerExcepcion;
-
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;
 import feign.FeignException;
-import feign.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -33,6 +31,6 @@ public class ExceptionCotroller {
 
     @ExceptionHandler(FeignException.class)
     public ResponseEntity<RespuestaEstandar> handleExceptionFeignException(UnsupportedOperationException ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("Microservicio caído o en mantenimiento, no se puede acceder a él"));
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País insertado, pero microservicio caído o en mantenimiento, no se puede acceder a él"));
     }
 }

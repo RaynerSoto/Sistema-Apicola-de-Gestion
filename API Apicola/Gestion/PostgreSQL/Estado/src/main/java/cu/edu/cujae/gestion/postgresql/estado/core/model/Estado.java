@@ -1,5 +1,4 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.model;
-
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.GeonamesDto;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.enviar.PaisEnviadoDto;
 import jakarta.persistence.*;
@@ -10,7 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.Polygon;
 
 @Entity
 @Table(name = "estados")
@@ -36,10 +36,10 @@ public class Estado {
     private Long poblacion;
 
     @Column(name = "geometria",columnDefinition = "geometry")
-    private Geometry geometry;
+    private Polygon geometry;
 
     @Column(name = "centroide",columnDefinition = "geometry")
-    private Geometry centroide;
+    private Point centroide;
 
     @Min(value = 1, message = "El ID del país debe ser igual o mayor que 1")
     private Long idPais;
