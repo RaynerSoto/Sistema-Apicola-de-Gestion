@@ -15,12 +15,10 @@ import java.sql.SQLException;
 public class ExceptionCotroller {
     @ExceptionHandler(SQLException.class)
     public ResponseEntity<RespuestaEstandar> handleExceptionSQL(SQLException ex) {
-        if (ex.getMessage().contains("nombre_unik_pais"))
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País con dicho nombre ya insertado"));
-        else if(ex.getMessage().contains("nombre_completo_unik_pais"))
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País con dicho nombre completo ya insertado"));
-        else if(ex.getMessage().contains("siglas_unik_pais"))
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País con dicha sigla ya insertado"));
+        if (ex.getMessage().contains("fk_estado_pais_id"))
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("País no reconocido"));
+        else if(ex.getMessage().contains("estados_pkey"))
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar("El id del estado ya ha sido insertado o tiene algún error"));
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar(ex.getMessage()));
     }
 
