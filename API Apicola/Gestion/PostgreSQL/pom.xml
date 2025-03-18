@@ -18,7 +18,6 @@
 		<module>Pais</module>
 		<module>Continente</module>
 		<module>Estado</module>
-		<module>Localidad</module>
 		<module>Municipio</module>
 	</modules>
 	<licenses>

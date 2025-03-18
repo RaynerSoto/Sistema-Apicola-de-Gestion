@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
+        <module name="microservice-gestion-pais" />
         <module name="microservice-configserver" />
         <module name="microservice-excel" />
         <module name="microservicio-municipio" />
@@ -38,6 +39,7 @@
       <module name="microservice-excel" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-gestion-estado" options="-parameters" />
+      <module name="microservice-gestion-pais" options="-parameters" />
       <module name="microservice-localidad" options="-parameters" />
       <module name="microservice-pais" options="-parameters" />
       <module name="microservicio-municipio" options="-parameters" />

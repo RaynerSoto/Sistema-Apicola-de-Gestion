@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RespuestaEstandar {
+public class RespuestaEstandar<T> {
     @NotBlank(message = "El valor de la respuesta no puede ser nulo")
-    private Object respuesta;
+    private T respuesta;
 }

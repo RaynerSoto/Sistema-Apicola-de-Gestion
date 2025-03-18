@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Gestion/PostgreSQL/Localidad/Localidad.iml" filepath="$PROJECT_DIR$/Gestion/PostgreSQL/Localidad/Localidad.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Gestion/PostgreSQL/Continente/microservice-continente.iml" filepath="$PROJECT_DIR$/Gestion/PostgreSQL/Continente/microservice-continente.iml" />
       <module fileurl="file://$PROJECT_DIR$/Gestion/PostgreSQL/Pais/microservice-pais.iml" filepath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/microservice-pais.iml" />
     </modules>
   </component>
