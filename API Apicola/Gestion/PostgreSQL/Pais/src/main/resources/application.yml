@@ -45,3 +45,7 @@ springdoc:
 enlaces:
   traduccion: "https://api.mymemory.translated.net/get?q="
   geografia_pais: "https://restcountries.com/v3.1/translation/"
+  microservice-continente: "http://localhost:8085/api/v1/gestion/1/continente/"
+  microservice-pais: "http://localhost:8085/api/v1/gestion/1/pais/"
+  microservice-estado: "http://localhost:8085/api/v1/gestion/1/estado/"
+  microservice-municipio: "http://localhost:8085/api/v1/gestion/1/municipio/"

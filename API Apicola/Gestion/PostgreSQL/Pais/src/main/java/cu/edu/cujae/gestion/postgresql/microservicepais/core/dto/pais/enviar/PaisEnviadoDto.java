@@ -10,4 +10,9 @@ public record PaisEnviadoDto(Long id, String codigo) {
     public static PaisEnviadoDto convertirPais(Pais pais) {
         return new PaisEnviadoDto(pais.getIdPais(), pais.getSigla());
     }
+
+    @Override
+    public String toString(){
+        return String.format("{id=%d, codigo='%s'}",id,codigo);
+    }
 }

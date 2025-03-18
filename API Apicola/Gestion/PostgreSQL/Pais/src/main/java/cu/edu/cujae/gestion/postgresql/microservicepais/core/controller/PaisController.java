@@ -6,7 +6,7 @@ import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIExcept
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.EstadoOpenFeing;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.openfeign.EstadoOpenFeing;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;

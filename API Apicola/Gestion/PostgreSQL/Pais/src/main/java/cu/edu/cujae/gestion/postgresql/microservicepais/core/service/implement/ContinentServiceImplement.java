@@ -2,7 +2,7 @@ package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.continente.ContinenteDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.ConversionObjetos;
 import feign.FeignException;

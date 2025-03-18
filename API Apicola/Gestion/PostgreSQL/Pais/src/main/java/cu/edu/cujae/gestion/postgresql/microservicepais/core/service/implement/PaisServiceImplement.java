@@ -3,7 +3,7 @@ package cu.edu.cujae.gestion.postgresql.microservicepais.core.service.implement;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.enviar.PaisDtoSent;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign.ContinenteOpenFeign;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.openfeign.ContinenteOpenFeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;

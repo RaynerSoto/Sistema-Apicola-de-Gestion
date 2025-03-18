@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.microservicepais.core.openfeign;
+package cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.openfeign;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.enviar.PaisEnviadoDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
 import org.springframework.cloud.openfeign.FeignClient;
