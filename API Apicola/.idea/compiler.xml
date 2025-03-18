@@ -14,6 +14,7 @@
         <module name="microservicio-municipio" />
         <module name="ConfigServer" />
         <module name="microservice-eureka" />
+        <module name="microservice-usuarios" />
         <module name="microservice-continente" />
         <module name="microservice-estado" />
         <module name="microservice-pais" />
@@ -42,6 +43,7 @@
       <module name="microservice-gestion-pais" options="-parameters" />
       <module name="microservice-localidad" options="-parameters" />
       <module name="microservice-pais" options="-parameters" />
+      <module name="microservice-usuarios" options="-parameters" />
       <module name="microservicio-municipio" options="-parameters" />
     </option>
   </component>

@@ -19,6 +19,7 @@
 		<module>Continente</module>
 		<module>Estado</module>
 		<module>Municipio</module>
+		<module>Usuarios</module>
 	</modules>
 	<licenses>
 		<license/>

@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a4e4b69-400a-4b55-9608-f18a08f4919a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/conexion/apiExterna/APITraduction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/exception/APIException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/exception/AsignacionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/exception/SearchException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/utils/ConversionObjetos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/utils/Validacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/controller/EstadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/controller/EstadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/exception/APIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/exception/APIException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/exception/AsignacionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/exception/AsignacionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/exception/SearchException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/exception/SearchException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/utils/APIGeograficaEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/main/java/cu/edu/cujae/gestion/postgresql/estado/core/conexion/apiExterna/APIGeograficaEstado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/test/java/cu/edu/cujae/gestion/postgresql/estado/core/utils/APIGeograficaEstadoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/src/test/java/cu/edu/cujae/gestion/postgresql/estado/core/utils/APIGeograficaEstadoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/controller/PaisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/controller/PaisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/dto/apiGeografica/APIGeoPaisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/dto/apiGeografica/APIGeoPaisDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/utils/APIGeograficaPais.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/conexion/apiExterna/APIGeograficaPais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/utils/APITraduction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Pais/src/main/java/cu/edu/cujae/gestion/postgresql/microservicepais/core/conexion/apiExterna/APITraduction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/src/main/java/cu/edu/cujae/gestion/postgresql/municio/core/model/Municipio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +137,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "Municipio",
+    "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "jdk.selected.JAVA_MODULE": "22",
     "kotlin-language-version-configured": "true",
@@ -206,6 +193,7 @@
   <component name="RubyModuleManagerSettings">
     <option name="blackListedRootsPaths">
       <list>
+        <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios" />
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Estado" />
         <option value="$PROJECT_DIR$" />
         <option value="$PROJECT_DIR$/Eureka Server" />
@@ -226,14 +214,6 @@
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <set>
-              <option value="ApiGatewayApplication" />
-              <option value="ConfigServerApplication" />
-              <option value="ContinenteApplication" />
-              <option value="EstadoApplication" />
-              <option value="EurekaServerApplication" />
-              <option value="ExcelApplication" />
-              <option value="LocalidadApplication" />
-              <option value="MunicipioApplication" />
               <option value="PaisApplication" />
             </set>
           </value>
@@ -485,6 +465,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsuariosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="microservice-usuarios" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cu.edu.cujae.gestion.postgresql.usuarios.UsuariosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PaisApplication" type="springBootConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
         <env name="spring_profiles_active" value="default" />
@@ -516,6 +503,7 @@
       <item itemvalue="Spring Boot.EurekaServerApplication" />
       <item itemvalue="Spring Boot.ExcelApplication" />
       <item itemvalue="Spring Boot.PaisApplication" />
+      <item itemvalue="Spring Boot.UsuariosApplication" />
     </list>
     <recent_temporary>
       <list>
