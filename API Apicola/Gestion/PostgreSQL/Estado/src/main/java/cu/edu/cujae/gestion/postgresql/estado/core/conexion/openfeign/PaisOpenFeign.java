@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.estado.core.openfeign;
+package cu.edu.cujae.gestion.postgresql.estado.core.conexion.openfeign;
 
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.respuestaGenerica.RespuestaEstandar;
 import org.springframework.cloud.openfeign.FeignClient;
