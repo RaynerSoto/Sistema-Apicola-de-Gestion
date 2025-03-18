@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.model;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.GeonamesDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.enviar.PaisEnviadoDto;
+import cu.edu.cujae.gestion.postgresql.estado.core.dto.recibir.PaisEnviadoDto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

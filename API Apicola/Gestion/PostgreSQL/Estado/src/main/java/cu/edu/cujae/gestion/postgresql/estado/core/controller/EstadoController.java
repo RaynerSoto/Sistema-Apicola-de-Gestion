@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.controller;
 
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.APIGeoEstadoDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.enviar.PaisEnviadoDto;
+import cu.edu.cujae.gestion.postgresql.estado.core.dto.recibir.PaisEnviadoDto;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.estado.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.estado.core.model.Estado;

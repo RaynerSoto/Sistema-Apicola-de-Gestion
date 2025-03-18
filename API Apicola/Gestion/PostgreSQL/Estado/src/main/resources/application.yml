@@ -46,6 +46,7 @@ enlaces:
   traduccion: "https://api.mymemory.translated.net/get?q="
   geografia_pais: "https://restcountries.com/v3.1/translation/"
   geografia_estado: "http://api.geonames.org/searchJSON?country=%s&featureCode=ADM1&username=raynerdr"
+  geografia_municipio: "https://secure.geonames.org/searchJSON?formatted=true&adminCode1=%s&country=%s&featureCode=ADM2&maxRows=1000&username=raynerdr"
   microservice-continente: "http://localhost:8085/api/v1/gestion/1/continente/"
   microservice-pais: "http://localhost:8086/api/v1/gestion/1/pais/"
   microservice-estado: "http://localhost:8087/api/v1/gestion/1/estado/"
