@@ -1,4 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.controller;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.standard.EstadoConexion;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.enviar.PaisEnviadoDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.respuestaGenerica.RespuestaEstandar;
@@ -53,13 +54,14 @@ public class PaisController {
         APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre_español);
         Pais pais = new Pais(apiGeoPaisDto);
         paisService.insertarPais(pais);
-        RespuestaEstandar respuestaEstandar = estadoOpenFeing.insertarEstado(PaisEnviadoDto.convertirPaisDtoSent(paisService.buscarPaisPorNombre(pais.getNombre())));
+        RespuestaEstandar respuestaEstandar = EstadoConexion.insertarEstado(PaisEnviadoDto.convertirPaisDtoSent(paisService.buscarPaisPorNombre(pais.getNombre())));
         return ResponseEntity.ok(new RespuestaEstandar("País: "+ nombre +" insertado. " + respuestaEstandar.getRespuesta().toString()));
     }
 
     @PutMapping("/{nombre}")
     @Operation(summary = "Actualizar país",
             description = "Método que permite actualizar un país en el sistema, mediante la conexión a una API externa")
+    @Deprecated
     public ResponseEntity<RespuestaEstandar> actualizarPais(@PathVariable String nombre) throws Exception {
         String nombre_español = APITraduction.traduccionENES(nombre);
         APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre_español);
@@ -70,6 +72,7 @@ public class PaisController {
     @GetMapping("/{id}")
     @Operation(summary = "Existe el país o no",
     description = "Conocer si un país por su id existe o no")
+    @Deprecated
     public ResponseEntity<RespuestaEstandar> obtenerPaisSioNo(@PathVariable Long id){
         return ResponseEntity.ok(new RespuestaEstandar(paisRepository.existsById(id)));
     }

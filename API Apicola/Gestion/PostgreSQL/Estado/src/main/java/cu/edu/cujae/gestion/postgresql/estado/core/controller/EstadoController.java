@@ -1,7 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.controller;
 
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.APIGeoEstadoDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.GeonamesDto;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.enviar.PaisEnviadoDto;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.estado.core.exception.APIException;
@@ -17,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/estado")
@@ -34,21 +32,14 @@ public class EstadoController {
     @PostMapping("/")
     public ResponseEntity<RespuestaEstandar> insertarEstados(@RequestBody PaisEnviadoDto paisEnviadoDto) throws APIException, IOException, InterruptedException {
         APIGeoEstadoDto apiGeoEstadoDto = APIGeograficaEstado.obtenerDatosEstado(paisEnviadoDto.codigo());
-        List<GeonamesDto> estados = apiGeoEstadoDto.geonames()
-                .stream()
-                .map(estado -> {
-                    try {
-                        estadoService.insertarEstado(new Estado(paisEnviadoDto,estado));
-                        return null;
-                    }catch (Exception e){
-                        return estado;
-                    }
-                })
-                .filter(Objects::nonNull)
-                .toList();
-        if (estados.isEmpty())
+        AtomicReference<Long> contador = new AtomicReference<>(0L);
+        apiGeoEstadoDto.geonames().stream().forEach(estado -> {
+            estadoService.insertarEstado(new Estado(paisEnviadoDto, estado));
+            contador.getAndSet(contador.get() + 1);
+        });
+        if (apiGeoEstadoDto.totalResultsCount() - contador.get() == 0)
             return ResponseEntity.ok(new RespuestaEstandar(String.format("Cargado datos los estados %s del país",apiGeoEstadoDto.totalResultsCount())));
         else
-            return ResponseEntity.ok(new RespuestaEstandar(String.format("Solamente se han podido cargar los %s estados del país",estados.size())));
+            return ResponseEntity.ok(new RespuestaEstandar(String.format("Solamente se han podido cargar los %s estados del país",contador)));
     }
 }
