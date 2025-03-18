@@ -1,5 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.exception;
 
+/**
+ * Es una excepción genérica para cualquier conexión con la API
+ */
 public class APIException extends Exception {
     public APIException() {
     }

@@ -1,5 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.exception;
 
+/**
+ * Esta es una excepción para cuando se busca un determinado artículo, pero no se encuentra
+ */
 public class SearchException extends Exception{
     public SearchException() {
     }

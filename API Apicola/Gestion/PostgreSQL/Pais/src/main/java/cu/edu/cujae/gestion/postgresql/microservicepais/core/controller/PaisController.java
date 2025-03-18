@@ -10,8 +10,8 @@ import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.openfeign.
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.ContinentService;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.service.PaisService;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APIGeograficaPais;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APITraduction;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.apiExterna.APIGeograficaPais;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.apiExterna.APITraduction;
 import io.micrometer.core.instrument.config.validate.ValidationException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

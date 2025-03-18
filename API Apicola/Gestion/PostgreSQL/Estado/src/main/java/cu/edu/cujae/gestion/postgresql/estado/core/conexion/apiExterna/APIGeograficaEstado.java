@@ -1,7 +1,6 @@
-package cu.edu.cujae.gestion.postgresql.estado.core.utils;
+package cu.edu.cujae.gestion.postgresql.estado.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.APIGeoEstadoDto;
 import cu.edu.cujae.gestion.postgresql.estado.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
@@ -9,13 +8,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class APIGeograficaEstado {

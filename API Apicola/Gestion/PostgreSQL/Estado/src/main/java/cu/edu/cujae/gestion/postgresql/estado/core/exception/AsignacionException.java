@@ -1,5 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.estado.core.exception;
 
+/**
+ * Esta es una excepción para la conversión entre objetos
+ */
 public class AsignacionException extends Exception{
     public AsignacionException() {
     }

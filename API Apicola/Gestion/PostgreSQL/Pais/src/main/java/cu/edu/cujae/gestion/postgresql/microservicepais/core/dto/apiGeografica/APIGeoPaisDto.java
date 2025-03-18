@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica;
 
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APITraduction;
+import cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.apiExterna.APITraduction;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.microservicepais.core.utils;
+package cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
@@ -13,9 +13,7 @@ import java.util.List;
 import com.google.gson.reflect.TypeToken;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.model.Pais;
 import jakarta.annotation.PostConstruct;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 

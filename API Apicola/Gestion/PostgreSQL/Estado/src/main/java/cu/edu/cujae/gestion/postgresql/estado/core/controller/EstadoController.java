@@ -7,7 +7,7 @@ import cu.edu.cujae.gestion.postgresql.estado.core.dto.respuestaGenerica.Respues
 import cu.edu.cujae.gestion.postgresql.estado.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.estado.core.model.Estado;
 import cu.edu.cujae.gestion.postgresql.estado.core.service.EstadoService;
-import cu.edu.cujae.gestion.postgresql.estado.core.utils.APIGeograficaEstado;
+import cu.edu.cujae.gestion.postgresql.estado.core.conexion.apiExterna.APIGeograficaEstado;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
