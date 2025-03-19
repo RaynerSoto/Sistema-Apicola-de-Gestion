@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.municio.core.controller;
 
+import cu.edu.cujae.gestion.postgresql.municio.core.dto.apiGeografica.APIGeoMunicipioDto;
 import cu.edu.cujae.gestion.postgresql.municio.core.dto.recibir.PaisEstadoDto;
 import cu.edu.cujae.gestion.postgresql.municio.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.municio.core.service.MunicipioService;
@@ -22,5 +23,6 @@ public class MunicipioController {
 
     @PostMapping("/")
     public ResponseEntity<RespuestaEstandar> insertarMunicipios(@RequestBody PaisEstadoDto paisEstadoDto){
+        APIGeoMunicipioDto apiGeoMunicipioDto =
     }
 }
