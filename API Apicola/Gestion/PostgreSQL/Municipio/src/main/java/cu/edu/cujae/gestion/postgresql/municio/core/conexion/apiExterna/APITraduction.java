@@ -1,8 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.traduccion.TraduccionRecibirPeticionDto;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.municio.core.dto.traduccion.TraduccionRecibirPeticionDto;
+import cu.edu.cujae.gestion.postgresql.municio.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

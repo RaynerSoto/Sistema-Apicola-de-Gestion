@@ -1,6 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
+import cu.edu.cujae.gestion.postgresql.municio.core.dto.apiGeografica.APIGeoMunicipioDto;
 import cu.edu.cujae.gestion.postgresql.municio.core.dto.recibir.PaisEstadoDto;
 import cu.edu.cujae.gestion.postgresql.municio.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
@@ -25,9 +26,9 @@ public class APIGeograficaMunicipio {
         url = urlInyectada;
     }
 
-    public static APIGeograficaMunicipio obtenerDatosMunicipio(PaisEstadoDto paisEstadoDto) throws IOException, InterruptedException, APIException {
+    public static APIGeoMunicipioDto obtenerDatosMunicipio(PaisEstadoDto paisEstadoDto) throws IOException, InterruptedException, APIException {
         try {
-            APIGeograficaMunicipio municipios;
+            APIGeoMunicipioDto municipios;
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
                     newBuilder().
@@ -36,11 +37,10 @@ public class APIGeograficaMunicipio {
                     GET().
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            municipios = new Gson().fromJson(response.body(), APIGeograficaMunicipio.class);
+            municipios = new Gson().fromJson(response.body(), APIGeoMunicipioDto.class);
             return municipios;
         }catch (Exception e){
             throw new APIException("La conexión con la API de GeoName ha sido defectuosa. Por favor contacte con la API o contacte al servicio técnico del sistema");
         }
     }
-
 }
