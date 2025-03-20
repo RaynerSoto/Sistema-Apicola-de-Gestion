@@ -2,7 +2,7 @@ spring:
   banner:
     location: banner/banner.txt
   application:
-    name: Municipio
+    name: Municipiopush
   datasource:
     url: jdbc:postgresql:${GestionApicola}
     username: ${DB_USER}

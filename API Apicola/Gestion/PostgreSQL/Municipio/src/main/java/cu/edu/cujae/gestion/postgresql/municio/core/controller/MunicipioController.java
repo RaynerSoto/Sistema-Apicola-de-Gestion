@@ -2,6 +2,7 @@ package cu.edu.cujae.gestion.postgresql.municio.core.controller;
 
 import cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna.APIGeograficaMunicipio;
 import cu.edu.cujae.gestion.postgresql.municio.core.dto.apiGeografica.APIGeoMunicipioDto;
+import cu.edu.cujae.gestion.postgresql.municio.core.dto.apiGeografica.GeonamesDto;
 import cu.edu.cujae.gestion.postgresql.municio.core.dto.recibir.PaisEstadoDto;
 import cu.edu.cujae.gestion.postgresql.municio.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.municio.core.exception.APIException;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.security.Principal;
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/municipio")
@@ -28,13 +33,19 @@ public class MunicipioController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<RespuestaEstandar> insertarMunicipios(@RequestBody PaisEstadoDto paisEstadoDto) throws APIException, IOException, InterruptedException {
+    public ResponseEntity<RespuestaEstandar> insertarMunicipios(@RequestBody PaisEstadoDto paisEstadoDto, Principal principal) throws APIException, IOException, InterruptedException {
         APIGeoMunicipioDto apiGeoMunicipioDto = APIGeograficaMunicipio.obtenerDatosMunicipio(paisEstadoDto);
-        AtomicInteger atomicInteger = new AtomicInteger(0);
-        apiGeoMunicipioDto.geonames().stream().forEach(estado -> {
-            atomicInteger.incrementAndGet();
-            municipioService.insertarMunicipio(new Municipio());
-        });
-        return ResponseEntity.ok(new RespuestaEstandar("Insertados " + apiGeoMunicipioDto.totalResultsCount() + " municipios"));
+        List<GeonamesDto> geonamesDtos = apiGeoMunicipioDto.geonames().stream().map(municipio -> {
+            try {
+                municipioService.insertarMunicipio(new Municipio());
+                return null;
+            }catch (Exception e){
+                return municipio;
+            }
+        }).filter(Objects::nonNull).toList();
+        if (geonamesDtos.isEmpty())
+            return ResponseEntity.ok(new RespuestaEstandar("Insertados " + apiGeoMunicipioDto.totalResultsCount() + " municipios"));
+        else
+            return ResponseEntity.ok(new RespuestaEstandar("Insertados " + (apiGeoMunicipioDto.totalResultsCount() - geonamesDtos.size())  + " municipios. Los fallos han sido" + geonamesDtos));
     }
 }

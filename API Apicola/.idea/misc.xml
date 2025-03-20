@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Municipio/pom.xml" />
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Estado/pom.xml" />
         <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

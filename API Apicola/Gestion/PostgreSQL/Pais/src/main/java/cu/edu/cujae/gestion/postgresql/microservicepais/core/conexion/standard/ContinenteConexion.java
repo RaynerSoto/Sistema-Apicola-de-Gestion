@@ -30,7 +30,7 @@ public class ContinenteConexion {
                 newBuilder().
                 header("Content-Type", "application/json").
                 uri(URI.create(url+nombre)).
-                timeout(Duration.ofSeconds(80)).
+                timeout(Duration.ofMinutes(80)).
                 build();
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         return new RespuestaEstandar(new Gson().fromJson(response.body(), RespuestaEstandar.class));
