@@ -9,22 +9,22 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
         <module name="microservice-geografia" />
-        <module name="microservice-gestion-pais" />
         <module name="microservice-configserver" />
         <module name="microservice-excel" />
-        <module name="microservicio-municipio" />
         <module name="ConfigServer" />
         <module name="microservice-eureka" />
         <module name="microservice-usuarios" />
-        <module name="microservice-continente" />
-        <module name="microservice-estado" />
         <module name="microservice-pais" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Apicultores" target="21" />
+      <module name="microservice-continente" target="21" />
+      <module name="microservice-estado" target="21" />
       <module name="microservice-gestion-estado" target="17" />
+      <module name="microservice-gestion-pais" target="21" />
       <module name="microservice-localidad" target="21" />
+      <module name="microservicio-municipio" target="21" />
       <module name="Prueba" target="21" />
     </bytecodeTargetLevel>
   </component>

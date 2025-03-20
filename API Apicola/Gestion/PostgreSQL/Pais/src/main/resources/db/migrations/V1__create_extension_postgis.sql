@@ -1,4 +1,0 @@
-CREATE EXTENSION postgis
-    SCHEMA public
-    VERSION "3.4.2"
-    CASCADE;
