@@ -15,10 +15,7 @@
 	<description>PostgreSQL</description>
 	<url/>
 	<modules>
-		<module>Pais</module>
-		<module>Continente</module>
-		<module>Estado</module>
-		<module>Municipio</module>
+		<module>Geografia</module>
 		<module>Usuarios</module>
 	</modules>
 	<licenses>

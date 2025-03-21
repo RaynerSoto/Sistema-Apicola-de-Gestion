@@ -1,0 +1,53 @@
+spring:
+  banner:
+    location: banner/banner.txt
+  application:
+    name: Geografia
+  datasource:
+    url: jdbc:postgresql:${GestionApicola}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 60000
+    jpa:
+      format-sql: true
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          format_sql: true
+        javax:
+          persistence:
+            query:
+              timeout: 60000
+      database: postgresql
+      show-sql: true
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+server:
+  port: 8087
+  error:
+    include-stacktrace: never
+  address: localhost
+  tomcat:
+    connection-timeout: 40000
+    max-wait: 100000
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /
+
+enlaces:
+  traduccion: "https://api.mymemory.translated.net/get?q="
+  geografia_pais: "https://restcountries.com/v3.1/translation/"
+  geografia_estado: "http://api.geonames.org/searchJSON?country=%s&featureCode=ADM1&username=raynerdr"
+  geografia_municipio: "https://secure.geonames.org/searchJSON?formatted=true&adminCode1=%s&country=%s&featureCode=ADM2&maxRows=1000&username=raynerdr"
+  microservice-continente: "http://localhost:8085/api/v1/gestion/1/continente/"
+  microservice-pais: "http://localhost:8085/api/v1/gestion/1/pais/"
+  microservice-estado: "http://localhost:8085/api/v1/gestion/1/estado/"
+  microservice-municipio: "http://localhost:8085/api/v1/gestion/1/municipio/"

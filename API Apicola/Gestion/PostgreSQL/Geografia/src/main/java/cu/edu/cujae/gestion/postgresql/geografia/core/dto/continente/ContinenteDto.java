@@ -1,9 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.dto.continente;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,6 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controller;
-import cu.edu.cujae.gestion.postgresql.continente.core.dto.respuesta.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.continente.core.service.ContinenteService;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
