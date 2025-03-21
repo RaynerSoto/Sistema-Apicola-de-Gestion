@@ -27,13 +27,4 @@ public class ContinenteController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new RespuestaEstandar("No se pudo acceder al listado de países. Compruebe con el servicio técnico"));
         }
     }
-
-    @GetMapping("/{nombre}")
-    public ResponseEntity<RespuestaEstandar> obternerContinenteXNombre(@PathVariable(value = "nombre") String nombre) {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(continenteService.isCorrectContinente(nombre)));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new RespuestaEstandar(e.getMessage()));
-        }
-    }
 }

@@ -1,4 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.GeonamesDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -56,6 +57,13 @@ public class Estado {
     @Column(name = "areakm2",nullable = false)
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private double areaKm2;
+
+    public Estado(GeonamesDto e, Pais pais) {
+        this.nombre = e.toponymName();
+        this.codigo = e.adminCode1();
+        this.poblacion = e.population();
+        this.pais = pais;
+    }
 
     @PrePersist
     @PreUpdate

@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
 
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.GeonamesDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -52,6 +53,11 @@ public class Municipio {
     @NotBlank(message = "El código del municipio no puede ser nulo o estar vacío")
     private String codigo;
 
+    public Municipio(GeonamesDto geonamesDto) {
+        this.nombre = geonamesDto.toponymName();
+        this.codigo = geonamesDto.adminCode1();
+        this.poblacion = geonamesDto.population();
+    }
 
     @PrePersist
     @PreUpdate

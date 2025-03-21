@@ -1,4 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -52,7 +54,7 @@ public class Pais {
     @Column(name = "centroide",columnDefinition = "geometry")
     private Point centroide;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Continente continente;
 
     @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL)
@@ -61,6 +63,20 @@ public class Pais {
     @Column(name = "areakm2",nullable = false)
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private Double areaKM2;
+
+    public Pais(APIGeoPaisDto apiGeoPaisDto,Continente continente) throws AsignacionException {
+        try {
+            this.nombre = apiGeoPaisDto.name().common();
+            this.nombreCompleto = apiGeoPaisDto.name().official();
+            this.continente = continente;
+            this.sigla = apiGeoPaisDto.cca2();
+            this.poblacion = apiGeoPaisDto.population();
+            this.areaKM2 = apiGeoPaisDto.area();
+        } catch (Exception e) {
+            throw new AsignacionException("El pais con dicho nombre no fue encontrado");
+        }
+    }
+
 
     @PrePersist
     @PreUpdate
