@@ -1,6 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.repository;
-
-import cu.edu.cujae.gestion.postgresql.continente.core.model.Continente;
+import cu.edu.cujae.gestion.postgresql.geografia.core.model.Continente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

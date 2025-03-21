@@ -1,9 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.service.implement;
-
-import cu.edu.cujae.gestion.postgresql.estado.core.model.Estado;
-import cu.edu.cujae.gestion.postgresql.estado.core.repository.EstadoRepository;
-import cu.edu.cujae.gestion.postgresql.estado.core.service.EstadoService;
-import cu.edu.cujae.gestion.postgresql.estado.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.geografia.core.model.Estado;
+import cu.edu.cujae.gestion.postgresql.geografia.core.repository.EstadoRepository;
+import cu.edu.cujae.gestion.postgresql.geografia.core.service.EstadoService;
+import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

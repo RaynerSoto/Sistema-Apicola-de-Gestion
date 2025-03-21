@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controller;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.service.ContinenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class ContinenteController {
     @GetMapping("/")
     public ResponseEntity<RespuestaEstandar> obtenerContinentes() {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(continenteService.getAllContinentes()));
+            return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(continenteService.listarContinentes()));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new RespuestaEstandar("No se pudo acceder al listado de países. Compruebe con el servicio técnico"));
         }
