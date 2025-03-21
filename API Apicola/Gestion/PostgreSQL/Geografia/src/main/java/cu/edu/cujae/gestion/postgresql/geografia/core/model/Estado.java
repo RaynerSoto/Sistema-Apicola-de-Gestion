@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.GeonamesDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.recibir.PaisEnviadoDto;
+import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
+
+import java.util.List;
 
 @Entity
 @Table(name = "estados")
@@ -40,8 +42,11 @@ public class Estado {
     @Column(name = "centroide",columnDefinition = "geometry")
     private Point centroide;
 
-    @Min(value = 1, message = "El ID del país debe ser igual o mayor que 1")
-    private Long idPais;
+    @ManyToOne
+    private Pais pais;
+
+    @OneToMany(mappedBy = "estado",cascade = CascadeType.ALL)
+    private List<Municipio> municipios;
 
     @Column(name = "codigo",unique = true,nullable = false,length = 100)
     @Size(min = 1,max = 10,message = "El código del estado se encuentra entre 1 y 10 caracteres")
@@ -52,10 +57,9 @@ public class Estado {
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private double areaKm2;
 
-    public Estado(PaisEnviadoDto paisEnviadoDto, GeonamesDto geonamesDto) {
-        this.nombre = geonamesDto.toponymName();
-        this.codigo = geonamesDto.adminCode1();
-        this.poblacion = geonamesDto.population();
-        this.idPais = paisEnviadoDto.id();
+    @PrePersist
+    @PreUpdate
+    public void prePersist(){
+        Validacion.validarElemento(this);
     }
 }

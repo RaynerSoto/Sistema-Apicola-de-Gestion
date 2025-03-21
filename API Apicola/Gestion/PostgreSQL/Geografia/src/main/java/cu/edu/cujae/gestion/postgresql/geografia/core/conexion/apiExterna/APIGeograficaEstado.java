@@ -1,8 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
-import cu.edu.cujae.gestion.postgresql.estado.core.dto.apiGeografica.APIGeoEstadoDto;
-import cu.edu.cujae.gestion.postgresql.estado.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoEstadoDto;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

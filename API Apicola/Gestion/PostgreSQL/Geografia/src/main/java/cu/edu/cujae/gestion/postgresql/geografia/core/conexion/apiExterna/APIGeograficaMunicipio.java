@@ -1,9 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
-import cu.edu.cujae.gestion.postgresql.municio.core.dto.apiGeografica.APIGeoMunicipioDto;
-import cu.edu.cujae.gestion.postgresql.municio.core.dto.recibir.PaisEstadoDto;
-import cu.edu.cujae.gestion.postgresql.municio.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoMunicipioDto;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -26,14 +25,14 @@ public class APIGeograficaMunicipio {
         url = urlInyectada;
     }
 
-    public static APIGeoMunicipioDto obtenerDatosMunicipio(PaisEstadoDto paisEstadoDto) throws IOException, InterruptedException, APIException {
+    public static APIGeoMunicipioDto obtenerDatosMunicipio(String adminCode, String paisCode) throws IOException, InterruptedException, APIException {
         try {
             APIGeoMunicipioDto municipios;
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
                     newBuilder().
                     header("Content-Type", "application/json").
-                    uri(URI.create(String.format(url,paisEstadoDto.adminCode(),paisEstadoDto.paisCode()))).
+                    uri(URI.create(String.format(url,adminCode,paisCode))).
                     GET().
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());

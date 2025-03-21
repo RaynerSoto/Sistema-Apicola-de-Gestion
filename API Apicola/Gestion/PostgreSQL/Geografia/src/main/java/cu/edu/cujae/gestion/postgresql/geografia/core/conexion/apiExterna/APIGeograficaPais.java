@@ -2,6 +2,9 @@ package cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.SearchException;

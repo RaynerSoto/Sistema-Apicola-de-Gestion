@@ -1,8 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.apiGeografica.APIGeoPaisDto;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.dto.pais.recibir.PaisDtoReci;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.exception.AsignacionException;
-import cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -12,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
+
+import java.util.List;
 
 @Entity
 @Table(name = "paises")
@@ -52,93 +52,15 @@ public class Pais {
     @Column(name = "centroide",columnDefinition = "geometry")
     private Point centroide;
 
-    @Column(name = "nombre_continente",nullable = false)
-    @Size(min = 4,max = 100,message = "El nombre del continente se encuentra entre 4 y 100 caracteres")
-    @NotBlank(message = "El nombre del continente no puede ser nulo o estar vacío")
-    private String nombreContinente;
+    @ManyToOne
+    private Continente continente;
+
+    @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL)
+    List<Estado> estados;
 
     @Column(name = "areakm2",nullable = false)
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private Double areaKM2;
-
-    public Pais(PaisDtoReci paisDtoReci, String continente) {
-        this.nombre = paisDtoReci.nombre();
-        this.sigla = paisDtoReci.sigla();
-        if (paisDtoReci.poblacion() != null)
-            this.poblacion = paisDtoReci.poblacion();
-        else
-            this.poblacion = 0L;
-        this.geometry = paisDtoReci.geometry();
-        this.centroide = paisDtoReci.centroide();
-        if (paisDtoReci.areaKM2() != null)
-            this.areaKM2 = paisDtoReci.areaKM2();
-        else
-            this.areaKM2 = 0D;
-        this.nombreContinente = continente;
-    }
-
-    public Pais(PaisDtoReci paisDtoReci, String continente, Long id) {
-        this.idPais = id;
-        this.nombre = paisDtoReci.nombre();
-        this.sigla = paisDtoReci.sigla();
-        if (paisDtoReci.poblacion() != null)
-            this.poblacion = paisDtoReci.poblacion();
-        else
-            this.poblacion = 0L;
-        this.geometry = paisDtoReci.geometry();
-        this.centroide = paisDtoReci.centroide();
-        if (paisDtoReci.areaKM2() != null)
-            this.areaKM2 = paisDtoReci.areaKM2();
-        else
-            this.areaKM2 = 0D;
-        this.nombreContinente = continente;
-    }
-
-    public Pais(PaisDtoReci paisDtoReci) {
-        this.nombre = paisDtoReci.nombre();
-        this.sigla = paisDtoReci.sigla();
-        if (paisDtoReci.poblacion() != null)
-            this.poblacion = paisDtoReci.poblacion();
-        else
-            this.poblacion = 0L;
-        this.geometry = paisDtoReci.geometry();
-        this.centroide = paisDtoReci.centroide();
-        if (paisDtoReci.areaKM2() != null)
-            this.areaKM2 = paisDtoReci.areaKM2();
-        else
-            this.areaKM2 = 0D;
-        this.nombreContinente = paisDtoReci.nombre_continente();
-    }
-
-    public Pais(PaisDtoReci paisDtoReci, Long id) {
-        this.idPais = id;
-        this.nombre = paisDtoReci.nombre();
-        this.sigla = paisDtoReci.sigla();
-        if (paisDtoReci.poblacion() != null)
-            this.poblacion = paisDtoReci.poblacion();
-        else
-            this.poblacion = 0L;
-        this.geometry = paisDtoReci.geometry();
-        this.centroide = paisDtoReci.centroide();
-        if (paisDtoReci.areaKM2() != null)
-            this.areaKM2 = paisDtoReci.areaKM2();
-        else
-            this.areaKM2 = 0D;
-        this.nombreContinente = paisDtoReci.nombre_continente();
-    }
-
-    public Pais(APIGeoPaisDto apiGeoPaisDto) throws AsignacionException {
-        try {
-            this.nombre = apiGeoPaisDto.name().common();
-            this.nombreCompleto = apiGeoPaisDto.name().official();
-            this.nombreContinente = apiGeoPaisDto.region();
-            this.sigla = apiGeoPaisDto.cca2();
-            this.poblacion = apiGeoPaisDto.population();
-            this.areaKM2 = apiGeoPaisDto.area();
-        } catch (Exception e) {
-            throw new AsignacionException("El pais con dicho nombre no fue encontrado");
-        }
-    }
 
     @PrePersist
     @PreUpdate

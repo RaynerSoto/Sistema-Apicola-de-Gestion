@@ -1,8 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controllerExcepcion;
-import cu.edu.cujae.gestion.postgresql.municio.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.municio.core.exception.APIException;
-import cu.edu.cujae.gestion.postgresql.municio.core.exception.AsignacionException;
-import cu.edu.cujae.gestion.postgresql.municio.core.exception.SearchException;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.AsignacionException;
+import cu.edu.cujae.gestion.postgresql.geografia.core.exception.SearchException;
 import feign.FeignException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

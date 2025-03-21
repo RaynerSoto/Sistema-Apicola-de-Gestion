@@ -1,9 +1,12 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "continentes")
@@ -22,4 +25,7 @@ public class Continente {
     @Size(min = 4,max = 100,message = "El nombre del continente se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "El nombre del continente no puede ser nulo o estar vacío")
     private String nombre;
+
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "continente")
+    private List<Pais> paises;
 }

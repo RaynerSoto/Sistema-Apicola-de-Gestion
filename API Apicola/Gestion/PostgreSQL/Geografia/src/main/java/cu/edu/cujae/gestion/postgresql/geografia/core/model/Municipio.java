@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
 
+import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -43,11 +44,18 @@ public class Municipio {
     @Min(value = 0, message = "Los valores del área deben 0 o positivos")
     private Double areaKM2;
 
-    @Min(value = 1, message = "El ID del país debe ser igual o mayor que 1")
-    private Long id_estado;
+    @ManyToOne
+    private Estado estado;
 
     @Column(name = "codigo",nullable = false,length = 100)
     @Size(min = 1,max = 10,message = "El código del municipio se encuentra entre 1 y 10 caracteres")
     @NotBlank(message = "El código del municipio no puede ser nulo o estar vacío")
     private String codigo;
+
+
+    @PrePersist
+    @PreUpdate
+    public void prePersist(){
+        Validacion.validarElemento(this);
+    }
 }
