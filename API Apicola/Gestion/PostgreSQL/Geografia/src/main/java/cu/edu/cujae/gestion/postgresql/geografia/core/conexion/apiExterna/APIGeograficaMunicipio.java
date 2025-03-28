@@ -27,7 +27,6 @@ public class APIGeograficaMunicipio {
 
     public static APIGeoMunicipioDto obtenerDatosMunicipio(String adminCode, String paisCode) throws IOException, InterruptedException, APIException {
         try {
-            APIGeoMunicipioDto municipios;
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
                     newBuilder().
@@ -36,8 +35,7 @@ public class APIGeograficaMunicipio {
                     GET().
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            municipios = new Gson().fromJson(response.body(), APIGeoMunicipioDto.class);
-            return municipios;
+            return new Gson().fromJson(response.body(), APIGeoMunicipioDto.class);
         }catch (Exception e){
             throw new APIException("La conexión con la API de GeoName ha sido defectuosa. Por favor contacte con la API o contacte al servicio técnico del sistema");
         }

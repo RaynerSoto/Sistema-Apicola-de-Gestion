@@ -44,6 +44,7 @@ public class Estado {
     private Point centroide;
 
     @ManyToOne
+    @JoinColumn(name = "id_pais")
     private Pais pais;
 
     @OneToMany(mappedBy = "estado",cascade = CascadeType.ALL)

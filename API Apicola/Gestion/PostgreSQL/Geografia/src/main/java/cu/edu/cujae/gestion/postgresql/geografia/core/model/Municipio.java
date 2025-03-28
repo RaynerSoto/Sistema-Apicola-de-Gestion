@@ -46,6 +46,7 @@ public class Municipio {
     private Double areaKM2;
 
     @ManyToOne
+    @JoinColumn(name = "id_estado")
     private Estado estado;
 
     @Column(name = "codigo",nullable = false,length = 100)

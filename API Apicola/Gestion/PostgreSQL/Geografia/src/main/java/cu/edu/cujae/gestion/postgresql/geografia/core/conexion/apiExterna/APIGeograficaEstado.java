@@ -27,7 +27,6 @@ public class APIGeograficaEstado {
 
     public static APIGeoEstadoDto obtenerDatosEstado(String nombre) throws IOException, InterruptedException, APIException {
         try {
-            APIGeoEstadoDto estados;
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
                     newBuilder().
@@ -36,8 +35,7 @@ public class APIGeograficaEstado {
                     GET().
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            estados = new Gson().fromJson(response.body(), APIGeoEstadoDto.class);
-            return estados;
+            return new Gson().fromJson(response.body(), APIGeoEstadoDto.class);
         }catch (Exception e){
             throw new APIException("La conexión con la API de GeoName ha sido defectuosa. Por favor contacte con la API o contacte al servicio técnico del sistema");
         }

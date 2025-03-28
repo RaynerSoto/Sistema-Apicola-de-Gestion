@@ -55,6 +55,7 @@ public class Pais {
     private Point centroide;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "nombre_continente",referencedColumnName = "nombre")
     private Continente continente;
 
     @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL)
