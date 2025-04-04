@@ -13,8 +13,11 @@
       <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/SexoRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/SexoService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/model/Continente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/model/Continente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/resources/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -661,7 +664,7 @@
       <workItem from="1743449956640" duration="3263000" />
       <workItem from="1743611247868" duration="281000" />
       <workItem from="1743630080417" duration="1015000" />
-      <workItem from="1743777546017" duration="844000" />
+      <workItem from="1743777546017" duration="1168000" />
     </task>
     <servers />
   </component>
