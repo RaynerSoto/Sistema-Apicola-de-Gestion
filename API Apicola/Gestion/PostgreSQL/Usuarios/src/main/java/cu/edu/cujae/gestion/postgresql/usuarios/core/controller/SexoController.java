@@ -17,8 +17,8 @@ import java.util.List;
 @RequestMapping("/api/v1/gestion/1/sexo")
 @Tag(name = "Controlador de sexo")
 public class SexoController {
-    private SexoService sexoService;
-    private SexoRepository sexoRepository;
+    private final SexoService sexoService;
+    private final SexoRepository sexoRepository;
 
     @Autowired
     public SexoController(SexoService sexoService,SexoRepository sexoRepository) {
