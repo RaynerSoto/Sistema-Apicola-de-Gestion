@@ -5,12 +5,16 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APIGeo
 import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APITraduction;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoEstadoDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoComprobar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar2doNivel;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.model.Estado;
 import cu.edu.cujae.gestion.postgresql.geografia.core.model.Pais;
+import cu.edu.cujae.gestion.postgresql.geografia.core.repository.EstadoRepository;
+import cu.edu.cujae.gestion.postgresql.geografia.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.ContinenteService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.EstadoService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.MunicipioService;
@@ -19,16 +23,15 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.management.OperationsException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
@@ -39,13 +42,17 @@ public class GeografiaController {
     private ContinenteService continenteService;
     private MunicipioService municipioService;
     private EstadoService estadoService;
+    private EstadoRepository estadoRepository;
+    private PaisRepository paisRepository;
 
     @Autowired
-    public GeografiaController(PaisService paisService, ContinenteService continenteService, MunicipioService municipioService, EstadoService estadoService) {
+    public GeografiaController(PaisService paisService, ContinenteService continenteService, MunicipioService municipioService, EstadoService estadoService, EstadoRepository estadoRepository, PaisRepository paisRepository) {
         this.paisService = paisService;
         this.continenteService = continenteService;
         this.municipioService = municipioService;
         this.estadoService = estadoService;
+        this.estadoRepository = estadoRepository;
+        this.paisRepository = paisRepository;
     }
 
     @PostMapping("/{nombre}")
@@ -67,6 +74,27 @@ public class GeografiaController {
         }
         else {
             throw new OperationsException("No se ha podioo completar la operación debido a que no se han podido cargar todos los datos");
+        }
+    }
+
+    @PostMapping("/PaisEstado")
+    @Operation(summary = "Comprobación de país-estado",
+            description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
+    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoComprobar paisEstado){
+        try {
+            if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
+                throw new SearchException("No ha podido encontrar el país");
+            else{
+                Pais pais = paisRepository.findByNombreEquals(paisEstado.nombrePais()).get();
+                Boolean encontrado = pais.getEstados().stream().anyMatch(estado -> estado.getNombre().equals(paisEstado.nombreEstado()));
+                if(encontrado){
+                    return ResponseEntity.ok(new RespuestaEstandar(true));
+                }
+                else
+                    throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
+            }
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(new RespuestaEstandar2doNivel(true,e.getMessage()));
         }
     }
 }
