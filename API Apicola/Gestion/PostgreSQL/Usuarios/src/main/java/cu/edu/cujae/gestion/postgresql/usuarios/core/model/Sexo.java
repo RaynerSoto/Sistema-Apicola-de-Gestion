@@ -17,7 +17,7 @@ public class Sexo {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sexo_seq")
     @SequenceGenerator(name = "sexo_seq", sequenceName = "sexos_id_sexo_seq",initialValue = 1,allocationSize = 1)
-    @Column(name = "id_continente",nullable = false,unique = true,updatable = false)
+    @Column(name = "id_sexo",nullable = false,unique = true,updatable = false)
     private Long id_sexo;
 
 

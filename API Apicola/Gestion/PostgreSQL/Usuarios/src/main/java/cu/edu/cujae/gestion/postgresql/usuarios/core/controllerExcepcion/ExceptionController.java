@@ -1,8 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.controllerExcepcion;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
-import cu.edu.cujae.gestion.postgresql.geografia.core.exception.AsignacionException;
-import cu.edu.cujae.gestion.postgresql.geografia.core.exception.SearchException;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.*;
 import feign.FeignException;
 import jakarta.persistence.PersistenceException;
 import org.springframework.dao.DataAccessException;

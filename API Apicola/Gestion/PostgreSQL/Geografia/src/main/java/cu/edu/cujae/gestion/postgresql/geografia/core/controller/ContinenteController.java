@@ -1,6 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controller;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.ContinenteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/continente")
+@Tag(name = "Controlador del contienente")
 public class ContinenteController {
     private ContinenteService continenteService;
 
@@ -20,6 +23,7 @@ public class ContinenteController {
     }
 
     @GetMapping("/")
+    @Operation(summary = "Listado de los continentes",description = "Permite listar a todos los continentes del sistema")
     public ResponseEntity<RespuestaEstandar> obtenerContinentes() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(continenteService.listarContinentes()));
