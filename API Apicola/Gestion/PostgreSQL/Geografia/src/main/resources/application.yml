@@ -29,7 +29,7 @@ spring:
       import-check:
         enabled: false
 server:
-  port: 8087
+  port: 8085
   error:
     include-stacktrace: never
   address: localhost

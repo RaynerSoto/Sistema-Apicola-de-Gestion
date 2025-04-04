@@ -16,8 +16,8 @@ import java.util.List;
 public class Continente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_seq")
-    @SequenceGenerator(name = "pais_seq", sequenceName = "secuence_id_continente",initialValue = 1,allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "continente_seq")
+    @SequenceGenerator(name = "continente_seq", sequenceName = "continentes_id_continente_seq",initialValue = 1,allocationSize = 1)
     @Column(name = "id_continente",nullable = false,unique = true,updatable = false)
     private Long idContinente;
 
