@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement;
 
+import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Sexo;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.SexoRepository;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.service.SexoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,6 @@ public class SexoServiceImplement implements SexoService {
 
     @Override
     public List<String> listadoSexos() {
-        return sexoRepository.findAll().stream().map(s -> s.getSexo()).collect(Collectors.toList());
+        return sexoRepository.findAll().stream().map(Sexo::getSexo).collect(Collectors.toList());
     }
 }
