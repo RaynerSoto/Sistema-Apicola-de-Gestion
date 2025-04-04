@@ -20,7 +20,6 @@ public class Sexo {
     @Column(name = "id_sexo",nullable = false,unique = true,updatable = false)
     private Long id_sexo;
 
-
     @Column(name = "nombre",unique = true,nullable = false,length = 100)
     @Size(min = 4,max = 100,message = "El nombre del sexo se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "El nombre del sexo no puede ser nulo o estar vacío")
