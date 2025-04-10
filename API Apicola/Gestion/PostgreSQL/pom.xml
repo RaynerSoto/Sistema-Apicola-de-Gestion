@@ -17,6 +17,7 @@
 	<modules>
 		<module>Geografia</module>
 		<module>Usuarios</module>
+		<module>Apicola</module>
 	</modules>
 	<licenses>
 		<license/>
