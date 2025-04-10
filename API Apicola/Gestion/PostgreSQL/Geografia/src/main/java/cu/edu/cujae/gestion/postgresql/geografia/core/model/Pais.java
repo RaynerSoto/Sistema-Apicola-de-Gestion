@@ -16,7 +16,7 @@ import org.locationtech.jts.geom.Polygon;
 import java.util.List;
 
 @Entity
-@Table(name = "paises")
+@Table(name = "paises",schema = "public")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

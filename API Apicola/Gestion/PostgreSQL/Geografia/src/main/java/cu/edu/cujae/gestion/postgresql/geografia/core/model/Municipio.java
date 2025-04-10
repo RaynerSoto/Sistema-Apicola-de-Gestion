@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
 
+@Deprecated
 @Entity
 @Table(name = "municipios")
 @Data

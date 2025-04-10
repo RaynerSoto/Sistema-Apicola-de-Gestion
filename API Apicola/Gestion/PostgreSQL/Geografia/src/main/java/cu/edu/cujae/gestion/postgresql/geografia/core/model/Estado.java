@@ -15,7 +15,7 @@ import org.locationtech.jts.geom.Polygon;
 import java.util.List;
 
 @Entity
-@Table(name = "estados")
+@Table(name = "estados",schema = "public")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -46,9 +46,6 @@ public class Estado {
     @ManyToOne
     @JoinColumn(name = "id_pais")
     private Pais pais;
-
-    @OneToMany(mappedBy = "estado",cascade = CascadeType.ALL)
-    private List<Municipio> municipios;
 
     @Column(name = "codigo",unique = true,nullable = false,length = 100)
     @Size(min = 1,max = 10,message = "El código del estado se encuentra entre 1 y 10 caracteres")
