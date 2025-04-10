@@ -2,8 +2,7 @@ package cu.edu.cujae.gestion.postgresql.usuarios.core.controller;
 
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.rol.RolDto;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.sexo.SexoDto;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.RolRepositiry;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.RolRepository;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.service.RolService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,18 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Controllador del Rol")
 public class RolController {
     private RolService rolService;
-    private RolRepositiry rolRepositiry;
+    private RolRepository rolRepository;
 
     @Autowired
-    public RolController(RolService rolService, RolRepositiry rolRepositiry) {
+    public RolController(RolService rolService, RolRepository rolRepository) {
         this.rolService = rolService;
-        this.rolRepositiry = rolRepositiry;
+        this.rolRepository = rolRepository;
     }
 
     @GetMapping("/")
     @Operation(summary = "Listado de roles",description = "Permite listar los roles")
     public RespuestaEstandar listadoRoles() {
-        return new RespuestaEstandar(rolRepositiry.findAll().stream().map(rol -> RolDto.toDto(rol)).toList());
+        return new RespuestaEstandar(rolRepository.findAll().stream().map(rol -> RolDto.toDto(rol)).toList());
     }
 
     @GetMapping("/nombre")
