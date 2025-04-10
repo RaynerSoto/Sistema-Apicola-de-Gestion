@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "sexos",schema = "public")
 @Data
@@ -24,4 +26,7 @@ public class Sexo {
     @Size(min = 4,max = 100,message = "El nombre del sexo se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "El nombre del sexo no puede ser nulo o estar vacío")
     private String sexo;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "sexo")
+    private List<Usuario> usuarios;
 }

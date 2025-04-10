@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "sexos",schema = "public")
 @Data
@@ -28,4 +30,7 @@ public class Rol {
     @Size(min = 4,max = 100,message = "La descripcion del rol se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "La descripcion del rol no puede ser nulo o estar vacío")
     private String rol_descripcion;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "rol")
+    private List<Usuario> usuarios;
 }

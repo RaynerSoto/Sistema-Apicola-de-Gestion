@@ -49,8 +49,9 @@ public class Usuario {
     @Column(name = "telefono", nullable = false, length = 50)
     private String telefono;
 
-    @Column(name = "sexo", nullable = false)
-    private Long sexo;
+    @ManyToOne
+    @JoinColumn(name = "sexo",nullable = false)
+    private Sexo sexo;
 
     @Column(name = "marca_apicola")
     private Boolean marcaApicola;
@@ -58,6 +59,7 @@ public class Usuario {
     @Column(name = "certificado")
     private Boolean certificado;
 
-    @Column(name = "id_rol", nullable = false)
-    private Long idRol;
+    @ManyToOne
+    @JoinColumn(name = "id_rol",nullable = false)
+    private Rol rol;
 }
