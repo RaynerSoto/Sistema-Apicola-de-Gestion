@@ -47,3 +47,4 @@ enlaces:
   geografia_pais: "https://restcountries.com/v3.1/translation/"
   geografia_estado: "http://api.geonames.org/searchJSON?country=%s&featureCode=ADM1&username=raynerdr"
   geografia_municipio: "https://secure.geonames.org/searchJSON?formatted=true&adminCode1=%s&country=%s&featureCode=ADM2&maxRows=1000&username=raynerdr"
+  geografia_microservicio_geo: "http://localhost:8085/api/v1/gestion/1/geografia/"
