@@ -11,7 +11,7 @@
 49169||-9223372036854775808|T|G
 49169||10|T|G
 49169||50256|T|G</Grants>
-      <IntrospectionStateNumber>2371</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2374</IntrospectionStateNumber>
       <ServerVersion>12.20</ServerVersion>
       <StartupTime>1744512570</StartupTime>
       <TimeZones>true ACDT
@@ -830,7 +830,7 @@ true posixrules
 13018||10|C|G
 13018||-9223372036854775808|U|G
 13018||10|U|G</Grants>
-      <IntrospectionStateNumber>2371</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2374</IntrospectionStateNumber>
       <ObjectId>49169</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -5418,8 +5418,8 @@ unpackaged</AvailableUpdates>
 50056||10|t|G
 50056||10|D|G
 50056||10|w|G</Grants>
-      <IntrospectionStateNumber>2371</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-04-14.18:25:32</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>2374</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-04-14.18:36:55</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>276</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -26945,11 +26945,11 @@ id_permiso</ColNames>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="3705" parent="1183" name="isactivo">
+    <column id="3705" parent="1183" name="isActivo">
       <Comment>Estado actual del usuario</Comment>
       <NotNull>1</NotNull>
       <Position>17</Position>
-      <StateNumber>2369</StateNumber>
+      <StateNumber>2373</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>

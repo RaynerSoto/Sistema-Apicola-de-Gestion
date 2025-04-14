@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a4e4b69-400a-4b55-9608-f18a08f4919a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f63c60b6-9605-4191-881d-4ab37606a4f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f63c60b6-9605-4191-881d-4ab37606a4f6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -476,6 +477,11 @@
       </envs>
       <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.microservicepais.PaisApplication" />
       <module name="microservice-gestion-pais" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="springBootConfigurationType" factoryName="Spring Boot">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
