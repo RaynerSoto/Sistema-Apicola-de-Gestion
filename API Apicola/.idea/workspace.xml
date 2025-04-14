@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="2a4e4b69-400a-4b55-9608-f18a08f4919a" name="Changes" comment="" />
+=======
+<<<<<<< HEAD
+    <list default="true" id="2a4e4b69-400a-4b55-9608-f18a08f4919a" name="Changes" comment="" />
+=======
+    <list default="true" id="2a4e4b69-400a-4b55-9608-f18a08f4919a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/AutenticacionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/AutentificacionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/CorsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/SecurityConfigurations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/SecurityFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/SimpleCorsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/security/TokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/swagger/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> e5cc9952c918d4a74b07d963d3a59fef8afb1267
+>>>>>>> master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,6 +119,70 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Mapper.executor": "Run",
+    "JUnit.APIGeograficaEstadoTest.test.executor": "Debug",
+    "JUnit.APIGeograficaMunicipioTest.obtenerDatosMunicipio.executor": "Debug",
+    "JUnit.APIGeograficaTest.obtenerDatosPaises.executor": "Debug",
+    "JUnit.MapperTest.executor": "Run",
+    "JUnit.MapperTest.map.executor": "Run",
+    "NIXITCH_NIXPKGS_CONFIG": "",
+    "NIXITCH_NIX_CONF_DIR": "",
+    "NIXITCH_NIX_OTHER_STORES": "",
+    "NIXITCH_NIX_PATH": "",
+    "NIXITCH_NIX_PROFILES": "",
+    "NIXITCH_NIX_REMOTE": "",
+    "NIXITCH_NIX_USER_PROFILE_DIR": "",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.ContinenteApplication.executor": "Run",
+    "Spring Boot.EstadoApplication.executor": "Debug",
+    "Spring Boot.GeografiaApplication.executor": "Run",
+    "Spring Boot.MunicipioApplication.executor": "Run",
+    "Spring Boot.PaisApplication.executor": "Run",
+    "Spring Boot.PruebaApplication.executor": "Run",
+    "Spring Boot.UsuariosApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+<<<<<<< HEAD
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "jdk.selected.JAVA_MODULE": "22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Rayner/Proyectos/arkon-bosphorus",
+=======
+    "git-widget-placeholder": "Usuarios",
+    "go.import.settings.migrated": "true",
+    "jdk.selected.JAVA_MODULE": "22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Rayner/Proyectos/Sistema-Apicola-de-Gestion/API Apicola/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/config/swagger",
+>>>>>>> e5cc9952c918d4a74b07d963d3a59fef8afb1267
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
+=======
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Mapper.executor&quot;: &quot;Run&quot;,
@@ -155,24 +237,25 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> Apicola
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: []
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": []
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Rayner\Proyectos\Sistema-Apicola-de-Gestion\API Apicola\Gestion\PostgreSQL\Usuarios\src\main\java\cu\edu\cujae\gestion\postgresql\usuarios\core\config\swagger" />
+      <recent name="C:\Rayner\Proyectos\Sistema-Apicola-de-Gestion\API Apicola\Gestion\PostgreSQL\Usuarios\src\main\java\cu\edu\cujae\gestion\postgresql\usuarios\core\config\security" />
       <recent name="C:\Rayner\Proyectos\Sistema-Apicola-de-Gestion\API Apicola\Gestion\PostgreSQL\Usuarios\src\main\java\cu\edu\cujae\gestion\postgresql\usuarios" />
       <recent name="C:\Rayner\Proyectos\Sistema-Apicola-de-Gestion\API Apicola\Gestion\PostgreSQL\Geografia\src\main\java\cu\edu\cujae\gestion\postgresql\geografia" />
       <recent name="C:\Rayner\Proyectos\Sistema-Apicola-de-Gestion\API Apicola\Gestion\PostgreSQL\Municipio\src\main\java\cu\edu\cujae\gestion\postgresql\municio\core\dto" />
-      <recent name="C:\Rayner\Proyectos\Sistema-Apicola-de-Gestion\API Apicola\Gestion\PostgreSQL\Municipio\src\main\java\cu\edu\cujae\gestion\postgresql\municio\core" />
-      <recent name="C:\Rayner\Proyectos\Sistema Apicola de Gestion\API Apicola\Gestion\PostgreSQL\Estado\src\main\java\cu\edu\cujae\gestion\postgresql\estado\core" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -498,6 +581,11 @@
       </envs>
       <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.microservicepais.PaisApplication" />
       <module name="microservice-gestion-pais" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="springBootConfigurationType" factoryName="Spring Boot">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
