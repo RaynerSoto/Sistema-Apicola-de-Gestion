@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
         <module name="microservice-geografia" />
+        <module name="microservice-apicola" />
         <module name="microservice-configserver" />
         <module name="microservice-excel" />
         <module name="ConfigServer" />
@@ -19,7 +20,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Apicultores" target="21" />
-      <module name="microservice-apicola" target="17" />
       <module name="microservice-continente" target="21" />
       <module name="microservice-estado" target="21" />
       <module name="microservice-gestion-estado" target="17" />
@@ -35,6 +35,7 @@
       <module name="Apicultores" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="Prueba" options="-parameters" />
+      <module name="microservice-apicola" options="-parameters" />
       <module name="microservice-configserver" options="-parameters" />
       <module name="microservice-continente" options="-parameters" />
       <module name="microservice-estado" options="-parameters" />
