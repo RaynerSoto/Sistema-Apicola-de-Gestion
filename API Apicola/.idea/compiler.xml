@@ -19,6 +19,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Apicultores" target="21" />
+      <module name="microservice-apicola" target="17" />
       <module name="microservice-continente" target="21" />
       <module name="microservice-estado" target="21" />
       <module name="microservice-gestion-estado" target="17" />

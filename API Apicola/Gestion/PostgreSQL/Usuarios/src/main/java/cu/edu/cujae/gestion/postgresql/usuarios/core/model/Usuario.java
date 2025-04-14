@@ -6,14 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 
-import java.awt.geom.Point2D;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "usuarios", schema = "public")
-public class Usuario {
+public class Usuario{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "usuario_seq")
@@ -73,8 +71,11 @@ public class Usuario {
     @NotBlank(message = "El valor de si es un apicultor certificado no puede ser null")
     private Boolean certificado;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_rol",nullable = false)
     @NotNull(message = "El valor del rol no puede ser nulo")
     private Rol rol;
+
+    @Column(name = "isActivo", nullable = false)
+    private Boolean isActivo;
 }
