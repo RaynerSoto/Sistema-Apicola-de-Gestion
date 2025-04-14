@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "registros")
+@Table(name = "registros",schema = "public")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Registro {
