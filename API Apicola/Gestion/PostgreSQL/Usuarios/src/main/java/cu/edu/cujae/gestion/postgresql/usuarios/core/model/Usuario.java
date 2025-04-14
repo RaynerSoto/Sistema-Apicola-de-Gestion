@@ -73,7 +73,7 @@ public class Usuario {
     @NotBlank(message = "El valor de si es un apicultor certificado no puede ser null")
     private Boolean certificado;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_rol",nullable = false)
     @NotNull(message = "El valor del rol no puede ser nulo")
     private Rol rol;
