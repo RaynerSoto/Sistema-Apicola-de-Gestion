@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-13317||-9223372036854775808|c|G
-13317||10|c|G
-13317||10|C|G
-13317||10|T|G
-49169||-9223372036854775808|c|G
+      <Grants>49169||-9223372036854775808|c|G
 49169||10|c|G
 49169||50256|c|G
 49169||10|C|G
@@ -19,7 +11,7 @@
 49169||-9223372036854775808|T|G
 49169||10|T|G
 49169||50256|T|G</Grants>
-      <IntrospectionStateNumber>2367</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2371</IntrospectionStateNumber>
       <ServerVersion>12.20</ServerVersion>
       <StartupTime>1744512570</StartupTime>
       <TimeZones>true ACDT
@@ -838,7 +830,7 @@ true posixrules
 13018||10|C|G
 13018||-9223372036854775808|U|G
 13018||10|U|G</Grants>
-      <IntrospectionStateNumber>2367</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2371</IntrospectionStateNumber>
       <ObjectId>49169</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -5426,8 +5418,8 @@ unpackaged</AvailableUpdates>
 50056||10|t|G
 50056||10|D|G
 50056||10|w|G</Grants>
-      <IntrospectionStateNumber>2367</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-04-14.16:15:12</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>2371</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-04-14.18:25:32</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>276</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -16105,7 +16097,7 @@ unpackaged</AvailableUpdates>
     </table>
     <table id="1183" parent="282" name="usuarios">
       <ObjectId>74882</ObjectId>
-      <StateNumber>2354</StateNumber>
+      <StateNumber>2369</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -26953,7 +26945,15 @@ id_permiso</ColNames>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="3705" parent="1183" name="fk_usuarios_estados_id">
+    <column id="3705" parent="1183" name="isactivo">
+      <Comment>Estado actual del usuario</Comment>
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+      <StateNumber>2369</StateNumber>
+      <StoredType>boolean|0s</StoredType>
+      <TypeId>16</TypeId>
+    </column>
+    <foreign-key id="3706" parent="1183" name="fk_usuarios_estados_id">
       <ColNames>id_estado</ColNames>
       <ObjectId>74919</ObjectId>
       <OnDelete>restrict</OnDelete>
@@ -26962,7 +26962,7 @@ id_permiso</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>58498</RefTableId>
     </foreign-key>
-    <foreign-key id="3706" parent="1183" name="fk_usuarios_paises_id">
+    <foreign-key id="3707" parent="1183" name="fk_usuarios_paises_id">
       <ColNames>id_pais</ColNames>
       <ObjectId>74924</ObjectId>
       <OnDelete>restrict</OnDelete>
@@ -26971,7 +26971,7 @@ id_permiso</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>50261</RefTableId>
     </foreign-key>
-    <foreign-key id="3707" parent="1183" name="fk_usuarios_sexos_id">
+    <foreign-key id="3708" parent="1183" name="fk_usuarios_sexos_id">
       <ColNames>sexo</ColNames>
       <ObjectId>75102</ObjectId>
       <OnDelete>restrict</OnDelete>
@@ -26980,7 +26980,7 @@ id_permiso</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>75094</RefTableId>
     </foreign-key>
-    <foreign-key id="3708" parent="1183" name="fk_usuarios_rol_id">
+    <foreign-key id="3709" parent="1183" name="fk_usuarios_rol_id">
       <ColNames>id_rol</ColNames>
       <ObjectId>91601</ObjectId>
       <OnDelete>restrict</OnDelete>
@@ -26989,7 +26989,7 @@ id_permiso</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>74899</RefTableId>
     </foreign-key>
-    <index id="3709" parent="1183" name="users_pkey">
+    <index id="3710" parent="1183" name="users_pkey">
       <ColNames>id_usuario</ColNames>
       <ObjectId>74889</ObjectId>
       <Primary>1</Primary>
@@ -26997,7 +26997,7 @@ id_permiso</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="3710" parent="1183" name="unik_usuarios_identificacion">
+    <index id="3711" parent="1183" name="unik_usuarios_identificacion">
       <ColNames>identificacion</ColNames>
       <ObjectId>74891</ObjectId>
       <StateNumber>2082</StateNumber>
@@ -27007,7 +27007,7 @@ id_permiso</ColNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="3711" parent="1183" name="unik_usuarios_username">
+    <index id="3712" parent="1183" name="unik_usuarios_username">
       <ColNames>username</ColNames>
       <ObjectId>74893</ObjectId>
       <StateNumber>2083</StateNumber>
@@ -27017,7 +27017,7 @@ id_permiso</ColNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="3712" parent="1183" name="unik_usuarios_email">
+    <index id="3713" parent="1183" name="unik_usuarios_email">
       <ColNames>email</ColNames>
       <ObjectId>74895</ObjectId>
       <StateNumber>2083</StateNumber>
@@ -27027,112 +27027,112 @@ id_permiso</ColNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="3713" parent="1183" name="users_pkey">
+    <key id="3714" parent="1183" name="users_pkey">
       <ObjectId>74890</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2079</StateNumber>
       <UnderlyingIndexId>74889</UnderlyingIndexId>
     </key>
-    <key id="3714" parent="1183" name="unik_usuarios_identificacion">
+    <key id="3715" parent="1183" name="unik_usuarios_identificacion">
       <ObjectId>74892</ObjectId>
       <StateNumber>2082</StateNumber>
       <UnderlyingIndexId>74891</UnderlyingIndexId>
     </key>
-    <key id="3715" parent="1183" name="unik_usuarios_username">
+    <key id="3716" parent="1183" name="unik_usuarios_username">
       <ObjectId>74894</ObjectId>
       <StateNumber>2083</StateNumber>
       <UnderlyingIndexId>74893</UnderlyingIndexId>
     </key>
-    <key id="3716" parent="1183" name="unik_usuarios_email">
+    <key id="3717" parent="1183" name="unik_usuarios_email">
       <ObjectId>74896</ObjectId>
       <StateNumber>2083</StateNumber>
       <UnderlyingIndexId>74895</UnderlyingIndexId>
     </key>
-    <column id="3717" parent="1184" name="f_table_catalog">
+    <column id="3718" parent="1184" name="f_table_catalog">
       <Position>1</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3718" parent="1184" name="f_table_schema">
+    <column id="3719" parent="1184" name="f_table_schema">
       <Position>2</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3719" parent="1184" name="f_table_name">
+    <column id="3720" parent="1184" name="f_table_name">
       <Position>3</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3720" parent="1184" name="f_geography_column">
+    <column id="3721" parent="1184" name="f_geography_column">
       <Position>4</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3721" parent="1184" name="coord_dimension">
+    <column id="3722" parent="1184" name="coord_dimension">
       <Position>5</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="3722" parent="1184" name="srid">
+    <column id="3723" parent="1184" name="srid">
       <Position>6</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="3723" parent="1184" name="type">
+    <column id="3724" parent="1184" name="type">
       <Position>7</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="3724" parent="1185" name="f_table_catalog">
+    <column id="3725" parent="1185" name="f_table_catalog">
       <Position>1</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>varchar(256)|0s</StoredType>
     </column>
-    <column id="3725" parent="1185" name="f_table_schema">
+    <column id="3726" parent="1185" name="f_table_schema">
       <Position>2</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3726" parent="1185" name="f_table_name">
+    <column id="3727" parent="1185" name="f_table_name">
       <Position>3</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3727" parent="1185" name="f_geometry_column">
+    <column id="3728" parent="1185" name="f_geometry_column">
       <Position>4</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>name|0s</StoredType>
     </column>
-    <column id="3728" parent="1185" name="coord_dimension">
+    <column id="3729" parent="1185" name="coord_dimension">
       <Position>5</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="3729" parent="1185" name="srid">
+    <column id="3730" parent="1185" name="srid">
       <Position>6</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="3730" parent="1185" name="type">
+    <column id="3731" parent="1185" name="type">
       <Position>7</Position>
       <StateNumber>1994</StateNumber>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <rule id="3731" parent="1185" name="geometry_columns_insert">
+    <rule id="3732" parent="1185" name="geometry_columns_insert">
       <Events>I</Events>
       <ObjectId>50061</ObjectId>
       <SourceTextLength>92</SourceTextLength>
       <StateNumber>1994</StateNumber>
       <Turn>instead-of</Turn>
     </rule>
-    <rule id="3732" parent="1185" name="geometry_columns_update">
+    <rule id="3733" parent="1185" name="geometry_columns_update">
       <Events>U</Events>
       <ObjectId>50062</ObjectId>
       <SourceTextLength>92</SourceTextLength>
       <StateNumber>1994</StateNumber>
       <Turn>instead-of</Turn>
     </rule>
-    <rule id="3733" parent="1185" name="geometry_columns_delete">
+    <rule id="3734" parent="1185" name="geometry_columns_delete">
       <Events>D</Events>
       <ObjectId>50063</ObjectId>
       <SourceTextLength>92</SourceTextLength>
