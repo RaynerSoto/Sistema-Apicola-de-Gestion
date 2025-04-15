@@ -1,5 +1,9 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.config.security;
 
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.token.TokenDto;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.TokenUtils;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,20 +12,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
 @Component
 public class SecurityFilter{
-    /*
+
     @Autowired
     private UsuarioRepository usuarioRepository;
     @Autowired
     private TokenService tokenService;
 
     @SneakyThrows
-    @Override
+    //@Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         System.out.println("Inicio doFilter");
         TokenDto token = TokenUtils.requestToken(request);
@@ -33,15 +36,15 @@ public class SecurityFilter{
         System.out.println(request.getServerPort());
         System.out.println(request.getContextPath());
         if (token.getToken() != null){
-            Validacion.validarUnsupportedOperationException(token);
+            Validacion.validarElemento(token);
             token.setToken(token.getToken().replace("Bearer ", "").replaceAll(" ","").replaceAll("\"",""));
             var user = tokenService.getSubjetc(token.getToken());
             System.out.println(token);
             if(user != null){
                 var usuario = usuarioRepository.findByUsernameEqualsIgnoreCase(user);
                 //Forzar inicio de sesión
-                System.out.println(usuario.getAuthorities());
-                var autenticacion = new UsernamePasswordAuthenticationToken(usuario,null,usuario.getAuthorities());
+                System.out.println(usuario.get().getAuthorities());
+                var autenticacion = new UsernamePasswordAuthenticationToken(usuario,null,usuario.get().getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(autenticacion);
             }
             else {
@@ -49,5 +52,5 @@ public class SecurityFilter{
             }
         }
         filterChain.doFilter(request, response);
-    }*/
+    }
 }
