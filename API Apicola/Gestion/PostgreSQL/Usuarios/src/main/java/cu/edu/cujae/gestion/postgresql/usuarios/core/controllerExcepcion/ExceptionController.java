@@ -29,11 +29,11 @@ public class ExceptionController {
         ERROR_MAP.put("users_pkey", "El usuario viola la clave primaria");
         ERROR_MAP.put("unik_roles_descricion", "La descripción del rol ya existe");
         ERROR_MAP.put("unik_roles_nombre", "La nombre del rol ya existe");
+        ERROR_MAP.put("unik_sexos_nombre","El sexo ya existe");
     }
 
     @ExceptionHandler({SQLException.class, PersistenceException.class, DataAccessException.class})
     public ResponseEntity<RespuestaEstandar> handleSQLException(SQLException ex) {
-        // Manejo de excepciones específicas de SQL
         String errorMessage = ERROR_MAP.entrySet().stream()
                 .filter(s -> s.getKey().contains(ex.getMessage()))
                 .map(Map.Entry::getValue).findFirst().orElse(ex.getMessage());
