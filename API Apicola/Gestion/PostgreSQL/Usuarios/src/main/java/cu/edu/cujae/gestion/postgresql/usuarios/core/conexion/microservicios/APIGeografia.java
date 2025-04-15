@@ -37,7 +37,7 @@ public class APIGeografia {
                     newBuilder().
                     header("Content-Type", "application/json").
                     uri(URI.create(url + "/PaisEstado")).
-                    POST(HttpRequest.BodyPublishers.ofString(paisEstado.toString())).
+                    POST(HttpRequest.BodyPublishers.ofString(paisEstado.toJSON())).
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), RespuestaEstandar.class);
