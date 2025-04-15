@@ -1,21 +1,27 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.config.security;
+import com.auth0.jwt.exceptions.JWTCreationException;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Usuario;
 import org.springframework.stereotype.Service;
-
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 @Service
 public class TokenService {
-    /*
+
     public String generarToken(Usuario usuario){
         try {
             Algorithm algorithm = Algorithm.HMAC256("${jwt.secreto}");
             String token = JWT.create()
-                    .withIssuer("Sistema Geo Backend")
-                    .withClaim("id",usuario.getUuid())
+                    .withIssuer("Sistema Apicola de Gestión")
+                    .withClaim("id",usuario.getIdUsuario())
                     .withSubject(usuario.getUsername())
-                    .withClaim("Rol",usuario.getRol().getRol())
+                    .withClaim("Rol",usuario.getRol().getRol_nombre())
                     .withClaim("correo",usuario.getEmail())
                     .withExpiresAt(generarFechaExpiracion())
                     .sign(algorithm);
@@ -37,7 +43,7 @@ public class TokenService {
             Algorithm algorithm = Algorithm.HMAC256("${jwt.secreto}");
             JWTVerifier verifier = JWT.require(algorithm)
                     // specify any specific claim validations
-                    .withIssuer("Sistema Geo Backend")
+                    .withIssuer("Sistema Apicola de Gestión")
                     // reusable verifier instance
                     .build();
             decodedJWT = verifier.verify(token);
@@ -58,5 +64,5 @@ public class TokenService {
         }catch (Exception e){
             return false;
         }
-    }*/
+    }
 }
