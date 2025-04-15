@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.model;
 
+import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -36,5 +37,11 @@ public class Registro {
     private Timestamp fecha;
 
     private long usuarioId;
+
+    @PrePersist
+    @PreUpdate
+    public void prePersistUpdate(){
+        Validacion.validarElemento(this);
+    }
 
 }

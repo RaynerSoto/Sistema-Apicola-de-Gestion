@@ -1,4 +1,5 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.model;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -110,6 +111,9 @@ public class Usuario implements UserDetails {
         return this.isActivo;
     }
 
-
-
+    @PrePersist
+    @PreUpdate
+    public void prePersistUpdate(){
+        Validacion.validarElemento(this);
+    }
 }
