@@ -10,29 +10,34 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 @ControllerAdvice
 public class ExceptionController {
+    private static final Map<String, String> ERROR_MAP = new HashMap<>();
+
+    // Clase que se carga en memoria automaticamente una vez al ejecutarse
+    static {
+        ERROR_MAP.put("unik_usuarios_email", "Email del usuario ya insertado");
+        ERROR_MAP.put("unik_usuarios_identificacion", "Identificación del usuario ya insertado");
+        ERROR_MAP.put("unik_usuarios_username", "Nombre del usuario ya insertado");
+        ERROR_MAP.put("fk_usuarios_estados_id", "El estado no existe");
+        ERROR_MAP.put("fk_usuarios_paises_id", "El país no existe");
+        ERROR_MAP.put("fk_usuarios_rol_id", "El rol no existe");
+        ERROR_MAP.put("fk_usuarios_sexos_id", "El sexo no existe");
+        ERROR_MAP.put("users_pkey", "El usuario viola la clave primaria");
+        ERROR_MAP.put("unik_roles_descricion", "La descripción del rol ya existe");
+        ERROR_MAP.put("unik_roles_nombre", "La nombre del rol ya existe");
+    }
 
     @ExceptionHandler({SQLException.class, PersistenceException.class, DataAccessException.class})
     public ResponseEntity<RespuestaEstandar> handleSQLException(SQLException ex) {
         // Manejo de excepciones específicas de SQL
-        String errorMessage = getSQLExceptionMessage(ex.getMessage());
+        String errorMessage = ERROR_MAP.entrySet().stream()
+                .filter(s -> s.getKey().contains(ex.getMessage()))
+                .map(Map.Entry::getValue).findFirst().orElse(ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RespuestaEstandar(errorMessage));
-    }
-
-    private String getSQLExceptionMessage(String errorMessage) {
-        if (errorMessage.contains("nombre_unik_pais"))
-            return "País con dicho nombre ya insertado";
-        else if (errorMessage.contains("nombre_completo_unik_pais"))
-            return "País con dicho nombre completo ya insertado";
-        else if (errorMessage.contains("siglas_unik_pais"))
-            return "País con dicha sigla ya insertado";
-        else if (errorMessage.contains("fk_pais_continente_nombre"))
-            return "Continente no registrado";
-        else if (errorMessage.contains("pais_pkey"))
-            return "El id del país ya ha sido insertado o tiene algún error";
-        return errorMessage; // Mensaje genérico en caso de no coincidir con los patrones
     }
 
     @ExceptionHandler({UnsupportedOperationException.class, APIException.class, Exception.class, SearchException.class, RuntimeException.class, AsignacionException.class})
