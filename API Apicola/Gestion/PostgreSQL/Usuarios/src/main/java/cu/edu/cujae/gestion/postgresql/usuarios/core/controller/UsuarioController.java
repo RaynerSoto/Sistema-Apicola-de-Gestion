@@ -1,7 +1,10 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.controller;
 
+import cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios.APIGeografia;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoComprobar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDto;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Usuario;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/usuario")
@@ -29,8 +34,10 @@ public class UsuarioController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDto usuario) throws SearchException {
-
+    public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDto usuario) throws SearchException, APIException, IOException, InterruptedException {
+        if (!(Boolean) APIGeografia.comprobarPaisEstado(new PaisEstadoComprobar(usuario.pais(), usuario.estado())).getRespuesta()){
+            throw new SearchException("No se ha podido comprobar que el país y el estado existan o que pertenezcan el uno al otro")
+        }
         return ResponseEntity.ok(new RespuestaEstandar("Usuario insertado"));
     }
 }

@@ -30,7 +30,7 @@ public class APIGeografia {
         url = urlInyectada; // Se asigna el valor inyectado a la variable estática
     }
 
-    public RespuestaEstandar comprobarPaisEstado(PaisEstadoComprobar paisEstado) throws IOException, InterruptedException, APIException {
+    public static RespuestaEstandar comprobarPaisEstado(PaisEstadoComprobar paisEstado) throws IOException, InterruptedException, APIException {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
