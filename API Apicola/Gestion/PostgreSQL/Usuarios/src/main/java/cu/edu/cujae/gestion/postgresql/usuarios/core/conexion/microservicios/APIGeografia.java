@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -27,7 +28,7 @@ public class APIGeografia {
         url = urlInyectada; // Se asigna el valor inyectado a la variable estática
     }
 
-    public static RespuestaEstandar comprobarPaisEstado(PaisEstadoDtoComprobar paisEstado) throws IOException, InterruptedException, APIException {
+    public static RespuestaEstandar comprobarPaisEstado(PaisEstadoDtoComprobar paisEstado) throws IOException, InterruptedException, APIException, SearchException {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
@@ -37,7 +38,13 @@ public class APIGeografia {
                     POST(HttpRequest.BodyPublishers.ofString(paisEstado.toJSON())).
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            return new Gson().fromJson(response.body(), RespuestaEstandar.class);
+            RespuestaEstandar respuestaEstandar = new Gson().fromJson(response.body(), RespuestaEstandar.class);
+            if (respuestaEstandar.getRespuesta() instanceof String) {
+                throw new SearchException((String) respuestaEstandar.getRespuesta());
+            }
+            return respuestaEstandar;
+        }catch (SearchException e){
+            throw new SearchException(e.getMessage());
         }catch (Exception e){
             throw new APIException("La conexión con la API de Geografia para la comprobación de los datos ha sido defectuosa, contactar con el servicio técnico");
         }

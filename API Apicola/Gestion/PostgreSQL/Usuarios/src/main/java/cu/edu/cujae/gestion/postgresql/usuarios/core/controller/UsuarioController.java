@@ -2,6 +2,7 @@ package cu.edu.cujae.gestion.postgresql.usuarios.core.controller;
 
 import cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios.APIGeografia;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDto;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
@@ -41,11 +42,8 @@ public class UsuarioController {
 
     @PostMapping("/")
     public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDto usuario) throws SearchException, APIException, IOException, InterruptedException {
-        if (!(Boolean) APIGeografia.comprobarPaisEstado(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta()){
-            throw new SearchException("No se ha podido comprobar que el país y el estado existan o que pertenezcan el uno al otro");
-        }
-
-        Rol rol = rolRepository.findByRol_nombreEquals(usuario.nombre());
+        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstado(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
+        Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         return ResponseEntity.ok(new RespuestaEstandar("Usuario insertado"));
     }

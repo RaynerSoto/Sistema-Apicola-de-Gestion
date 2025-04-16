@@ -24,12 +24,12 @@ public class Rol {
     @Column(name = "nombre",unique = true,nullable = false,length = 100)
     @Size(min = 4,max = 100,message = "El nombre del rol se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "El nombre del rol no puede ser nulo o estar vacío")
-    private String rol_nombre;
+    private String nombre;
 
     @Column(name = "descripcion",unique = true,nullable = false,length = 100)
     @Size(min = 4,max = 100,message = "La descripcion del rol se encuentra entre 4 y 100 caracteres")
     @NotBlank(message = "La descripcion del rol no puede ser nulo o estar vacío")
-    private String rol_descripcion;
+    private String descripcion;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "rol")
     private List<Usuario> usuarios;

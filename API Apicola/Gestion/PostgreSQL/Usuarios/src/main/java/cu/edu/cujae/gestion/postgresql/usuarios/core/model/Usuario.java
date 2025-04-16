@@ -1,4 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.model;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDto;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -88,7 +90,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_"+this.rol.getRol_nombre()));
+        return List.of(new SimpleGrantedAuthority("ROLE_"+this.rol.getNombre()));
     }
 
     @Override
@@ -115,5 +117,23 @@ public class Usuario implements UserDetails {
     @PreUpdate
     public void prePersistUpdate(){
         Validacion.validarElemento(this);
+    }
+
+    public Usuario(UsuarioDto usuario, PaisEstadoDtoID paisEstadoDtoID,Rol rol,Sexo sexo) {
+        this.identificacion = usuario.identificacion();
+        this.nombre = usuario.nombre();
+        this.username = usuario.username();
+        this.password = usuario.password();
+        this.email = usuario.email();
+        this.idEstado = paisEstadoDtoID.idEstado();
+        this.idPais = paisEstadoDtoID.idPais();
+        this.direccionParticular = usuario.direccionParticular();
+        this.geoPosicion = null;
+        this.telefono = usuario.telefono();
+        this.sexo = sexo;
+        this.marcaApicola = usuario.marcaApicola();
+        this.certificado = usuario.certificado();
+        this.rol = rol;
+        this.isActivo = true;
     }
 }
