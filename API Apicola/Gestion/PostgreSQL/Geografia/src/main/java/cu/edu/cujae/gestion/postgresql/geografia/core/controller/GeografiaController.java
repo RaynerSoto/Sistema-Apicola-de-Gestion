@@ -5,7 +5,8 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APIGeo
 import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APITraduction;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoEstadoDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoComprobar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoComprobar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoID;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar2doNivel;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
@@ -31,8 +32,7 @@ import javax.management.OperationsException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/geografia")
@@ -80,7 +80,8 @@ public class GeografiaController {
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoComprobar paisEstado){
+    @Deprecated
+    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoDtoComprobar paisEstado){
         try {
             if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
                 throw new SearchException("No ha podido encontrar el país");
@@ -95,6 +96,23 @@ public class GeografiaController {
             }
         }catch (Exception e){
             return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(new RespuestaEstandar2doNivel(true,e.getMessage()));
+        }
+    }
+
+    @PostMapping("/PaisEstado")
+    @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
+            description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstado(@RequestBody PaisEstadoDtoComprobar paisEstado) throws SearchException {
+        if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
+            throw new SearchException("No ha podido encontrar el país");
+        else{
+            Optional<Pais> pais = paisRepository.findByNombreEquals(paisEstado.nombrePais());
+            Optional<Estado> estado = pais.get().getEstados().stream().filter(s-> s.getNombre().equals(paisEstado.nombreEstado())).findFirst();
+            if(pais.isPresent() && estado.isPresent()){
+                return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoID(pais.get().getIdPais(), estado.get().getIdEstado())));
+            }else{
+                throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
+            }
         }
     }
 }

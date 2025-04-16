@@ -1,9 +1,8 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios;
 
 import com.google.gson.Gson;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoComprobar;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.traduccion.TraduccionRecibirPeticionDto;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,11 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 
 @Component
 public class APIGeografia {
@@ -30,7 +27,7 @@ public class APIGeografia {
         url = urlInyectada; // Se asigna el valor inyectado a la variable estática
     }
 
-    public static RespuestaEstandar comprobarPaisEstado(PaisEstadoComprobar paisEstado) throws IOException, InterruptedException, APIException {
+    public static RespuestaEstandar comprobarPaisEstado(PaisEstadoDtoComprobar paisEstado) throws IOException, InterruptedException, APIException {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
