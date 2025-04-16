@@ -21,7 +21,7 @@ public class TokenService {
                     .withIssuer("Sistema Apicola de Gestión")
                     .withClaim("id",usuario.getIdUsuario())
                     .withSubject(usuario.getUsername())
-                    .withClaim("Rol",usuario.getRol().getRol_nombre())
+                    .withClaim("Rol",usuario.getRol().getNombre())
                     .withClaim("correo",usuario.getEmail())
                     .withExpiresAt(generarFechaExpiracion())
                     .sign(algorithm);

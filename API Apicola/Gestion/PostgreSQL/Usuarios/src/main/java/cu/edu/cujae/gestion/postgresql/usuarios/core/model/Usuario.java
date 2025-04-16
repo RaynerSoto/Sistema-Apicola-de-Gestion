@@ -88,6 +88,44 @@ public class Usuario implements UserDetails {
     @Column(name = "isActivo", nullable = false)
     private Boolean isActivo;
 
+    public Usuario(Long id, UsuarioDto usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {
+        this.idUsuario = id;
+        this.identificacion = usuario.identificacion();
+        this.nombre = usuario.nombre();
+        this.username = usuario.username();
+        this.password = usuario.password();
+        this.email = usuario.email();
+        this.idEstado = paisEstadoDtoID.idEstado();
+        this.idPais = paisEstadoDtoID.idPais();
+        this.direccionParticular = usuario.direccionParticular();
+        this.geoPosicion = null;
+        this.telefono = usuario.telefono();
+        this.sexo = sexo;
+        this.marcaApicola = usuario.marcaApicola();
+        this.certificado = usuario.certificado();
+        this.rol = rol;
+        this.isActivo = true;
+    }
+
+    public Usuario(UsuarioDto usuario, PaisEstadoDtoID paisEstadoDtoID,Rol rol,Sexo sexo) {
+        this.identificacion = usuario.identificacion();
+        this.nombre = usuario.nombre();
+        this.username = usuario.username();
+        this.password = usuario.password();
+        this.email = usuario.email();
+        this.idEstado = paisEstadoDtoID.idEstado();
+        this.idPais = paisEstadoDtoID.idPais();
+        this.direccionParticular = usuario.direccionParticular();
+        this.geoPosicion = null;
+        this.telefono = usuario.telefono();
+        this.sexo = sexo;
+        this.marcaApicola = usuario.marcaApicola();
+        this.certificado = usuario.certificado();
+        this.rol = rol;
+        this.isActivo = true;
+    }
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_"+this.rol.getNombre()));
@@ -119,21 +157,5 @@ public class Usuario implements UserDetails {
         Validacion.validarElemento(this);
     }
 
-    public Usuario(UsuarioDto usuario, PaisEstadoDtoID paisEstadoDtoID,Rol rol,Sexo sexo) {
-        this.identificacion = usuario.identificacion();
-        this.nombre = usuario.nombre();
-        this.username = usuario.username();
-        this.password = usuario.password();
-        this.email = usuario.email();
-        this.idEstado = paisEstadoDtoID.idEstado();
-        this.idPais = paisEstadoDtoID.idPais();
-        this.direccionParticular = usuario.direccionParticular();
-        this.geoPosicion = null;
-        this.telefono = usuario.telefono();
-        this.sexo = sexo;
-        this.marcaApicola = usuario.marcaApicola();
-        this.certificado = usuario.certificado();
-        this.rol = rol;
-        this.isActivo = true;
-    }
+
 }
