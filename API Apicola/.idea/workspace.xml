@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/UsuarioServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/UsuarioServiceImplement.java" afterDir="false" />
-    </list>
+    <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -509,7 +505,7 @@
       <option name="presentableId" value="Default" />
       <updated>1745805978373</updated>
       <workItem from="1745805979714" duration="5887000" />
-      <workItem from="1745851208738" duration="4364000" />
+      <workItem from="1745851208738" duration="4518000" />
     </task>
     <servers />
   </component>

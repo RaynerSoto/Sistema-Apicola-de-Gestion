@@ -19,6 +19,6 @@ public class RolServiceImplement implements RolService {
 
     @Override
     public List<String> listadoRoles() {
-        return rolRepository.findAll().stream().map(Rol::getRol_nombre).toList();
+        return rolRepository.findAll().stream().map(Rol::getNombre).toList();
     }
 }

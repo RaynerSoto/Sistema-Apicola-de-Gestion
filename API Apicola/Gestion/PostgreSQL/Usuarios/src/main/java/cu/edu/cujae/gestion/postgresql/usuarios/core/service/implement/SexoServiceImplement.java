@@ -20,6 +20,6 @@ public class SexoServiceImplement implements SexoService {
 
     @Override
     public List<String> listadoSexos() {
-        return sexoRepository.findAll().stream().map(Sexo::getSexo).collect(Collectors.toList());
+        return sexoRepository.findAll().stream().map(Sexo::getNombre).collect(Collectors.toList());
     }
 }
