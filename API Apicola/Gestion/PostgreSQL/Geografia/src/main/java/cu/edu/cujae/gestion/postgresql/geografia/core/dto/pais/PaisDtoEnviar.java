@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.geografia.core.dto;
+package cu.edu.cujae.gestion.postgresql.geografia.core.dto.pais;
 import cu.edu.cujae.gestion.postgresql.geografia.core.model.Pais;
 
 public record PaisDtoEnviar(String nombrePais, String nombreCompleto, String sigla, Long poblacion,

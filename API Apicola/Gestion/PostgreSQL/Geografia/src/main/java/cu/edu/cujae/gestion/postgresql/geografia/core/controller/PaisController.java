@@ -1,13 +1,12 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controller;
 
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.PaisDtoEnviar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.pais.PaisDtoEnviar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.geografia.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.PaisService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

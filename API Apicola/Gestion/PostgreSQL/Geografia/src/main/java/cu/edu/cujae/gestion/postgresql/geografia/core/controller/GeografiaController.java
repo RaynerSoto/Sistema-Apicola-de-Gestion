@@ -7,6 +7,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoEs
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoComprobar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoID;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar2doNivel;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
@@ -102,7 +103,7 @@ public class GeografiaController {
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstado(@RequestBody PaisEstadoDtoComprobar paisEstado) throws SearchException {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoComprobar paisEstado) throws SearchException {
         if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
             throw new SearchException("No ha podido encontrar el país");
         else{
@@ -113,6 +114,22 @@ public class GeografiaController {
             }else{
                 throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
             }
+        }
+    }
+
+    @GetMapping("/PaisEstado/{idPais}/{idEstado}")
+    @Operation(summary = "Comprobación de país-estado y retorno de los nombres",
+            description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(@PathVariable Long idPais, @PathVariable Long idEstado) throws SearchException {
+        if (!paisRepository.existsPaisByIdPais(idPais))
+            throw new SearchException("No ha podido encontrar el país");
+        else {
+            Optional<Pais> pais = paisRepository.findByIdPaisEquals(idPais);
+            if(!pais.get().getEstados().stream().anyMatch(estado -> estado.getIdEstado().equals(idEstado))){
+                throw new SearchException("No ha podido encontrar el estado");
+            }
+            else
+                return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoNombre(pais.get().getNombre(), pais.get().getEstados().stream().filter(estado -> estado.getIdEstado().equals(idEstado)).findFirst().get().getNombre())));
         }
     }
 }

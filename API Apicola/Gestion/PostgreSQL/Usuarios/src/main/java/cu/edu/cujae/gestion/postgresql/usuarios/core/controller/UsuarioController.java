@@ -3,7 +3,9 @@ package cu.edu.cujae.gestion.postgresql.usuarios.core.controller;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios.APIGeografia;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoEnviar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoRecibir;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/gestion/1/usuario")
@@ -41,7 +44,7 @@ public class UsuarioController {
 
     @PostMapping("/")
     public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDtoRecibir usuario) throws SearchException, APIException, IOException, InterruptedException {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstado(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
+        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
         Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
@@ -51,7 +54,7 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<RespuestaEstandar> modificarUsuario(@RequestBody UsuarioDtoRecibir usuario, @PathVariable Long id) throws SearchException, APIException, IOException, InterruptedException {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstado(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
+        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
         Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         Usuario user = new Usuario(id,usuario, paisEstadoDtoID, rol, sexo);
@@ -73,6 +76,16 @@ public class UsuarioController {
 
     @GetMapping("/listar")
     public ResponseEntity<RespuestaEstandar> obtenerUsuarios() throws SearchException, APIException, IOException, InterruptedException {
-        List<UsuarioDtoRecibir> =
+        List<UsuarioDtoRecibir> listadoUsuarios = (List<UsuarioDtoRecibir>) usuarioRepository.findAll().stream().map(usuario -> {
+            try {
+                PaisEstadoDtoNombre paisEstadoDtoNombre = ((PaisEstadoDtoNombre) APIGeografia.comprobarPaisEstadoNombre(usuario.getIdPais(),usuario.getIdEstado()).getRespuesta());
+                return UsuarioDtoEnviar.obtenerUsuarioDtoEnviar(usuario, paisEstadoDtoNombre.nombrePais(), paisEstadoDtoNombre.nombreEstado());
+            } catch (Exception e) {
+                return UsuarioDtoEnviar.obtenerUsuarioDtoEnviarNull();
+            }
+        });
+        if (listadoUsuarios.stream().anyMatch(usuarioDtoRecibir -> usuarioDtoRecibir.nombre() == null))
+            throw new SearchException("Usuarios encontrados con errores consulte a su administrador del sistema");
+        return ResponseEntity.ok(new RespuestaEstandar(listadoUsuarios));
     }
 }

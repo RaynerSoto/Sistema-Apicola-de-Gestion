@@ -16,7 +16,4 @@ public record UsuarioDtoRecibir(String identificacion,
                                 Boolean certificado,
                                 String rol
 ) {
-    public UsuarioDtoRecibir(Usuario usuario,String estado,String pais){
-        return new UsuarioDtoRecibir();
-    }
 }
