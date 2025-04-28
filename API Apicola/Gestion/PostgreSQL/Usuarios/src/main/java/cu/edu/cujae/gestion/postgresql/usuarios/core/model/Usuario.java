@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.model;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDto;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoRecibir;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -88,7 +88,7 @@ public class Usuario implements UserDetails {
     @Column(name = "isActivo", nullable = false)
     private Boolean isActivo;
 
-    public Usuario(Long id, UsuarioDto usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {
+    public Usuario(Long id, UsuarioDtoRecibir usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {
         this.idUsuario = id;
         this.identificacion = usuario.identificacion();
         this.nombre = usuario.nombre();
@@ -107,7 +107,7 @@ public class Usuario implements UserDetails {
         this.isActivo = true;
     }
 
-    public Usuario(UsuarioDto usuario, PaisEstadoDtoID paisEstadoDtoID,Rol rol,Sexo sexo) {
+    public Usuario(UsuarioDtoRecibir usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {
         this.identificacion = usuario.identificacion();
         this.nombre = usuario.nombre();
         this.username = usuario.username();

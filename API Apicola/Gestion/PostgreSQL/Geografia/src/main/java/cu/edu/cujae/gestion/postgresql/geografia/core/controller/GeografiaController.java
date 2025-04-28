@@ -77,7 +77,7 @@ public class GeografiaController {
         }
     }
 
-    @PostMapping("/PaisEstado")
+    @PostMapping("/PaisEstado/Deprecated")
     @Operation(summary = "Comprobación de país-estado",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
     @Deprecated
