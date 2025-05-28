@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplementTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaEstado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaMunicipio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaMunicipio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaPais.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaPais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APITraduction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APITraduction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/ContinenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/ContinenteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/EstadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/EstadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplementTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/ContinenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/ContinenteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/EstadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/EstadoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/MunicipioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/MunicipioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/PaisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/PaisRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/ContinenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/ContinenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/EstadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/EstadoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/MunicipioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/MunicipioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/PaisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/PaisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/ConversionObjetos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/ConversionObjetos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/Validacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/Validacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" afterDir="false" />
     </list>
@@ -593,7 +594,7 @@
       <workItem from="1746196483972" duration="2764000" />
       <workItem from="1746552651985" duration="632000" />
       <workItem from="1746893579710" duration="826000" />
-      <workItem from="1748439259074" duration="10117000" />
+      <workItem from="1748439259074" duration="10445000" />
     </task>
     <servers />
   </component>
@@ -648,22 +649,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java</url>
-          <line>28</line>
+          <line>34</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java</url>
-          <line>23</line>
+          <line>29</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java</url>
-          <line>43</line>
+          <line>49</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java</url>
-          <line>49</line>
+          <line>55</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

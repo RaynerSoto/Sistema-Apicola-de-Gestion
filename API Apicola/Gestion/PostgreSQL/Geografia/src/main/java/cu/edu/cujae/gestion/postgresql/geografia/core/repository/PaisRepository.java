@@ -4,6 +4,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
+/**
+ * Repositorio para gestionar las operaciones CRUD de la entidad Pais.
+ * Este repositorio extiende JpaRepository para proporcionar métodos predefinidos
+ * para acceder a los datos de los países en la base de datos.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 public interface PaisRepository extends JpaRepository<Pais,Long> {
     public Optional<Pais> findByIdPaisEquals(Long id);
 

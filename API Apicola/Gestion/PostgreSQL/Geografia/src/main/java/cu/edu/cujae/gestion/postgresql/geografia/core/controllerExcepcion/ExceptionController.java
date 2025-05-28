@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.sql.SQLException;
 
+/**
+ * Controlador de excepciones que maneja las excepciones lanzadas por los controladores de la aplicación.
+ * Este controlador captura excepciones específicas y devuelve una respuesta estandarizada con un mensaje de error.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @ControllerAdvice
 public class ExceptionController {
 

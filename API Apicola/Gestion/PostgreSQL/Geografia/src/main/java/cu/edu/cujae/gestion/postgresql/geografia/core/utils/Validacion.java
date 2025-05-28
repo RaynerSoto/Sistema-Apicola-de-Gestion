@@ -8,6 +8,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Clase de utilidades para la validación de elementos utilizando Jakarta Bean Validation.
+ * Proporciona métodos para listar las validaciones no cumplidas y validar un elemento.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 public class Validacion{
     private static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
