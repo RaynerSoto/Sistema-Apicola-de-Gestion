@@ -108,7 +108,7 @@ public class GeografiaController {
             throw new SearchException("No ha podido encontrar el país");
         else{
             Optional<Pais> pais = paisRepository.findByNombreEquals(paisEstado.nombrePais());
-            Optional<Estado> estado = pais.get().getEstados().stream().filter(s-> s.getNombre().equals(paisEstado.nombreEstado())).findFirst();
+            Optional<Estado> estado = pais.get().getEstados().stream().filter(s-> s.getNombre().equalsIgnoreCase(paisEstado.nombreEstado())).findFirst();
             if(pais.isPresent() && estado.isPresent()){
                 return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoID(pais.get().getIdPais(), estado.get().getIdEstado())));
             }else{

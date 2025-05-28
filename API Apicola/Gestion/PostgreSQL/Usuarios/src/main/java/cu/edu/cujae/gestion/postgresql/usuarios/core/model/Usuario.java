@@ -5,6 +5,7 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
@@ -24,6 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "usuarios", schema = "public")
+@Builder
 public class Usuario implements UserDetails {
 
     @Id
@@ -77,11 +79,11 @@ public class Usuario implements UserDetails {
     private Sexo sexo;
 
     @Column(name = "marca_apicola")
-    @NotBlank(message = "El valor de si es una marca Apícola no puede ser null")
+    @NotNull(message = "El valor de si es una marca Apícola no puede ser null")
     private Boolean marcaApicola;
 
     @Column(name = "certificado")
-    @NotBlank(message = "El valor de si es un apicultor certificado no puede ser null")
+    @NotNull(message = "El valor de si es un apicultor certificado no puede ser null")
     private Boolean certificado;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -89,7 +91,7 @@ public class Usuario implements UserDetails {
     @NotNull(message = "El valor del rol no puede ser nulo")
     private Rol rol;
 
-    @Column(name = "isActivo", nullable = false)
+    @Column(name = "is_activo", nullable = false)
     private Boolean isActivo;
 
     public Usuario(Long id, UsuarioDtoRecibir usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {

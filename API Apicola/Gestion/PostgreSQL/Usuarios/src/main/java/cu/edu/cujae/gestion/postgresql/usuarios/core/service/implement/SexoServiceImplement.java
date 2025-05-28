@@ -19,6 +19,10 @@ public class SexoServiceImplement implements SexoService {
     }
 
     @Override
+    /**
+     * Lista todos los sexos disponibles en el sistema.
+     * @return List<String> - Lista de nombres de sexos.
+     */
     public List<String> listadoSexos() {
         return sexoRepository.findAll().stream().map(Sexo::getNombre).collect(Collectors.toList());
     }

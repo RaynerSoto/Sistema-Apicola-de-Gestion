@@ -17,6 +17,10 @@ public class RolServiceImplement implements RolService {
         this.rolRepository = rolRepository;
     }
 
+    /**
+     * Lista todos los roles disponibles en el sistema.
+     * @return List<String> - Lista de nombres de roles.
+     */
     @Override
     public List<String> listadoRoles() {
         return rolRepository.findAll().stream().map(Rol::getNombre).toList();

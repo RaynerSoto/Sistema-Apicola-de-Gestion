@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="" />
+    <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/UsuarioRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f63c60b6-9605-4191-881d-4ab37606a4f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f63c60b6-9605-4191-881d-4ab37606a4f6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/EstadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/EstadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/model/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/model/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/model/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/model/Pais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/conexion/microservicios/APIGeografia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/conexion/microservicios/APIGeografia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/dto/paisEstado/PaisEstadoDtoComprobar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/dto/paisEstado/PaisEstadoDtoComprobar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Permiso.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Permiso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Registro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Rol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Sexo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Sexo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/UsuarioServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/UsuarioServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -61,6 +85,11 @@
       </ProjectWorkspaceSettings>
     </option>
   </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="UsuarioRepositoryTest" />
+    </enabled-run-configurations>
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -100,6 +129,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JUnit.UsuarioRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UsuarioRepositoryTest.insertUsuario.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UsuarioRepositoryTest.listarUsuarios.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -112,7 +144,9 @@
     &quot;RunOnceActivity.restore.workspace.module&quot;: &quot;true&quot;,
     &quot;Spring Boot.ApicolaApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.GeografiaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UsuariosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UsuariosApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Usuarios&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
@@ -122,6 +156,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3047427&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -142,11 +179,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
       <recent name="cu.edu.cujae.gestion.postgresql.estado.core.conexion.standard" />
       <recent name="cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna" />
       <recent name="cu.edu.cujae.gestion.postgresql.estado.core.utils" />
       <recent name="cu.edu.cujae.gestion.postgresql.microservicepais.core.utils" />
-      <recent name="cu.edu.cujae.gestion.postgresql.continente.core.utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica" />
@@ -167,6 +204,36 @@
     </option>
     <option name="hiddenConfigurations">
       <map>
+        <entry key="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="JBossConfiguration">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="KtorApplicationConfigurationType">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="MicronautRunConfigurationType">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="QuarkusRunConfigurationType">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <set>
@@ -174,18 +241,45 @@
               <option value="ApicolaApplication" />
               <option value="ConfigServerApplication" />
               <option value="ContinenteApplication" />
-              <option value="EstadoApplication" />
               <option value="EurekaServerApplication" />
               <option value="ExcelApplication" />
-              <option value="GeografiaApplication" />
               <option value="MunicipioApplication" />
+              <option value="UsuariosApplication" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TomeeConfiguration">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="shownConfigurations">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <set>
+              <option value="GeografiaApplication" />
             </set>
           </value>
         </entry>
       </map>
     </option>
+    <option name="excludedNewTypes">
+      <set>
+        <option value="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" />
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+        <option value="JBossConfiguration" />
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+        <option value="TomeeConfiguration" />
+      </set>
+    </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ContinenteApplication">
+  <component name="RunManager" selected="JUnit.UsuarioRepositoryTest.insertUsuario">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -286,54 +380,6 @@
       <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="APIGeograficaEstadoTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-estado" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.estado.core.conexion.apiExterna.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.estado.core.utils" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.estado.core.utils.APIGeograficaEstadoTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="APIGeograficaMunicipioTest.obtenerDatosMunicipio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservicio-municipio" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna.APIGeograficaMunicipioTest" />
-      <option name="METHOD_NAME" value="obtenerDatosMunicipio" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="APIGeograficaPaisTest.obtenerDatosPaises" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-pais" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.microservicepais.core.conexion.apiExterna.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.microservicepais.core.utils" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.microservicepais.core.utils.APIGeograficaPaisTest" />
-      <option name="METHOD_NAME" value="obtenerDatosPaises" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-continente" />
       <extension name="coverage">
@@ -365,6 +411,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsuarioRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-usuarios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioRepositoryTest.insertUsuario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-usuarios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepositoryTest" />
+      <option name="METHOD_NAME" value="insertUsuario" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioRepositoryTest.listarUsuarios" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-usuarios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepositoryTest" />
+      <option name="METHOD_NAME" value="listarUsuarios" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="microservice-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cu.edu.cujae.microservicegateway.ApiGatewayApplication" />
@@ -389,14 +482,6 @@
     <configuration name="ContinenteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="microservice-continente" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cu.edu.cujae.gestion.postgresql.continente.ContinenteApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EstadoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="microservice-estado" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cu.edu.cujae.gestion.postgresql.estado.EstadoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -446,11 +531,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PaisApplication" type="springBootConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
         <env name="spring_profiles_active" value="default" />
@@ -463,14 +543,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.APIGeograficaMunicipioTest.obtenerDatosMunicipio" />
-      <item itemvalue="JUnit.APIGeograficaEstadoTest.test" />
-      <item itemvalue="JUnit.APIGeograficaPaisTest.obtenerDatosPaises" />
+      <item itemvalue="JUnit.UsuarioRepositoryTest" />
+      <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
+      <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
       <item itemvalue="JUnit.MapperTest" />
       <item itemvalue="JUnit.MapperTest.map" />
       <item itemvalue="Spring Boot.ApicolaApplication" />
       <item itemvalue="Spring Boot.GeografiaApplication" />
-      <item itemvalue="Spring Boot.EstadoApplication" />
       <item itemvalue="Spring Boot.MunicipioApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
@@ -482,11 +561,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
+        <item itemvalue="JUnit.UsuarioRepositoryTest" />
+        <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
         <item itemvalue="JUnit.MapperTest.map" />
         <item itemvalue="JUnit.MapperTest" />
-        <item itemvalue="JUnit.APIGeograficaPaisTest.obtenerDatosPaises" />
-        <item itemvalue="JUnit.APIGeograficaMunicipioTest.obtenerDatosMunicipio" />
-        <item itemvalue="JUnit.APIGeograficaEstadoTest.test" />
       </list>
     </recent_temporary>
   </component>
@@ -505,7 +584,14 @@
       <option name="presentableId" value="Default" />
       <updated>1745805978373</updated>
       <workItem from="1745805979714" duration="5887000" />
-      <workItem from="1745851208738" duration="4518000" />
+      <workItem from="1745851208738" duration="5419000" />
+      <workItem from="1745938447690" duration="2468000" />
+      <workItem from="1746029072056" duration="46000" />
+      <workItem from="1746029766859" duration="13849000" />
+      <workItem from="1746196483972" duration="2764000" />
+      <workItem from="1746552651985" duration="632000" />
+      <workItem from="1746893579710" duration="826000" />
+      <workItem from="1748439259074" duration="1995000" />
     </task>
     <servers />
   </component>
@@ -577,6 +663,26 @@
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java</url>
           <line>49</line>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/controller/UsuarioController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/UsuarioRepositoryTest.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/conexion/microservicios/APIGeografia.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

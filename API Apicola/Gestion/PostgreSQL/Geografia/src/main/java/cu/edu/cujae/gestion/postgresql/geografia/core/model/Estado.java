@@ -43,7 +43,7 @@ public class Estado {
     @Column(name = "centroide",columnDefinition = "geometry")
     private Point centroide;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_pais")
     private Pais pais;
 

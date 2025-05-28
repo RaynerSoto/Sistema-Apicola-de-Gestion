@@ -58,7 +58,7 @@ public class Pais {
     @JoinColumn(name = "nombre_continente",referencedColumnName = "nombre")
     private Continente continente;
 
-    @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     List<Estado> estados;
 
     @Column(name = "areakm2",nullable = false)

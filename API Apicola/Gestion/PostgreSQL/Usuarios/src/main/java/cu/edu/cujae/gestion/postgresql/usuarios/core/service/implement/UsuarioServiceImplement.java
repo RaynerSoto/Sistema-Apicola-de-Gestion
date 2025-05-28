@@ -19,12 +19,26 @@ public class UsuarioServiceImplement implements UsuarioService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Inserta un nuevo usuario en el sistema.
+     * @param usuario
+     * El usuario a insertar, debe contener todos sus datos validados de manera correcta.
+     * El password del usuario se codifica antes de ser guardado en la base de datos.
+     * @return void
+     */
     @Override
     public void insertarUsuario(Usuario usuario) {
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         usuarioRepository.save(usuario);
     }
 
+    /**
+     * Lista todos los usuarios del sistema.
+     * @return List<Usuario>
+     * Devuelve una lista con todos los usuarios registrados en el sistema.
+     * @throws SearchException
+     * Si el usuario no existe, se lanza una excepción.
+     */
     @Override
     public void actualizarUsuario(Usuario usuario) throws SearchException {
         if (usuarioRepository.existsById(usuario.getIdUsuario())) {
@@ -34,6 +48,13 @@ public class UsuarioServiceImplement implements UsuarioService {
         throw new SearchException("No se ha encontrado al usuario especificado");
     }
 
+    /**
+     * Elimina un usuario del sistema.
+     * @param idUsuario
+     * El identificador del usuario a eliminar.
+     * @throws SearchException
+     * Si el usuario no existe, se lanza una excepción.
+     */
     @Override
     public void eliminarUsuario(Long idUsuario) throws SearchException {
         if (usuarioRepository.existsById(idUsuario)) {
@@ -42,6 +63,15 @@ public class UsuarioServiceImplement implements UsuarioService {
         throw new SearchException("No se ha encontrado al usuario especificado");
     }
 
+    /**
+     * Obtiene un usuario del sistema.
+     * @param idUsuario
+     * El identificador del usuario a buscar.
+     * @return Usuario
+     * Devuelve el usuario encontrado.
+     * @throws SearchException
+     * Si el usuario no existe, se lanza una excepción.
+     */
     @Override
     public Usuario getUsuario(Long idUsuario) throws SearchException {
         if (usuarioRepository.existsById(idUsuario)){
