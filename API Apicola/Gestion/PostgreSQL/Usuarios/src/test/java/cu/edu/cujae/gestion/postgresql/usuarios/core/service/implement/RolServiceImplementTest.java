@@ -4,6 +4,8 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Rol;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.RolRepository;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.service.RolService;
 import org.junit.jupiter.api.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -23,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class RolServiceImplementTest {
     private final RolService rolService;
+    private static final Logger logger = LoggerFactory.getLogger(SexoServiceImplementTest.class);
 
     @Autowired
     RolServiceImplementTest(RolService rolService) {
@@ -36,9 +39,10 @@ class RolServiceImplementTest {
     @Test
     @Order(1)
     void listadoRolesNombre() {
+        logger.info("Iniciando prueba de listado de roles por nombre");
         List<String> roles = rolService.listadoRoles();
         assertFalse(roles.isEmpty(), "La lista de roles no debe ser nula");
-
+        logger.info("Terminando la prueba con éxito");
     }
 
     /**
@@ -48,7 +52,9 @@ class RolServiceImplementTest {
     @Test
     @Order(2)
     void listadoRolesNotEmpty() {
+        logger.info("Iniciando prueba de listado de roles no vacío");
         List<String> roles = rolService.listadoRoles();
         assertFalse(roles.isEmpty(), "La lista de roles no debe estar vacía");
+        logger.info("Terminando la prueba con éxito");
     }
 }

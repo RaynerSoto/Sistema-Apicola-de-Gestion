@@ -35,6 +35,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Controlador REST para gestionar las operaciones relacionadas con la geografía.
+ * Este controlador proporciona endpoints para insertar datos geográficos de países y estados,
+ * así como para comprobar la relación entre países y estados.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/gestion/1/geografia")
 @Tag(name = "Controlador de la Geografía")
@@ -56,6 +63,17 @@ public class GeografiaController {
         this.paisRepository = paisRepository;
     }
 
+    /**
+     * Método que permite insertar un país en el sistema, mediante la conexión a una API externa.
+     * @param nombre El nombre del país que se desea insertar en el sistema.
+     * @return ResponseEntity con un mensaje de éxito que indica que el país ha sido insertado correctamente,
+     * @throws APIException si ocurre un error al conectar con la API externa o al procesar los datos.
+     * @throws IOException si ocurre un error de entrada/salida durante la conexión a la API.
+     * @throws InterruptedException si la operación es interrumpida durante la solicitud HTTP.
+     * @throws SearchException si ocurre un error al buscar datos relacionados con el país o estado.
+     * @throws AsignacionException si ocurre un error al asignar datos a los objetos del modelo.
+     * @throws OperationsException si ocurre un error al realizar operaciones relacionadas con la inserción de datos.
+     */
     @PostMapping("/{nombre}")
     @Operation(summary = "Insertar país",
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
@@ -78,6 +96,16 @@ public class GeografiaController {
         }
     }
 
+    /**
+     * Método que permite comprobar si un país y un estado tienen relación dentro del sistema.
+     * Este método verifica si el país existe en la base de datos y si el estado pertenece a ese país.
+     * @param paisEstado Un objeto que contiene el nombre del país y el nombre del estado a comprobar.
+     *                   El objeto debe contener los campos `nombrePais` y `nombreEstado`.
+     *                   Si alguno de estos campos es nulo o vacío, se lanzará una excepción.
+     * @return ResponseEntity con un objeto RespuestaEstandar que indica si la relación existe o no.
+     * @throws SearchException si no se encuentra el país o si el estado no pertenece al país especificado.
+     * @deprecated Este método está obsoleto y se recomienda utilizar el método `obtenerPaisEstadoID` en su lugar.
+     */
     @PostMapping("/PaisEstado/Deprecated")
     @Operation(summary = "Comprobación de país-estado",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
@@ -100,6 +128,17 @@ public class GeografiaController {
         }
     }
 
+    /**
+     * Método que permite comprobar si un país y un estado tienen relación dentro del sistema
+     * y retornar sus identificadores.
+     * Este método verifica si el país existe en la base de datos y si el estado pertenece a ese país,
+     * y devuelve los identificadores del país y del estado si la relación es válida.
+     * @param paisEstado Un objeto que contiene el nombre del país y el nombre del estado a comprobar.
+     *                   El objeto debe contener los campos `nombrePais` y `nombreEstado`.
+     *                   Si alguno de estos campos es nulo o vacío, se lanzará una excepción.
+     * @return ResponseEntity con un objeto RespuestaEstandar que contiene los identificadores del país y del estado.
+     * @throws SearchException si no se encuentra el país o si el estado no pertenece al país especificado.
+     */
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
@@ -117,6 +156,18 @@ public class GeografiaController {
         }
     }
 
+    /**
+     * Método que permite comprobar si un país y un estado tienen relación dentro del sistema
+     * y retornar sus nombres.
+     * @param idPais El identificador del país a comprobar.
+     *               Debe ser un valor numérico positivo.
+     *               Si el identificador es nulo o negativo, se lanzará una excepción.
+     * @param idEstado El identificador del estado a comprobar.
+     *                 Debe ser un valor numérico positivo.
+     *                 Si el identificador es nulo o negativo, se lanzará una excepción.
+     * @return ResponseEntity con un objeto RespuestaEstandar que contiene los nombres del país y del estado.
+     * @throws SearchException si no se encuentra el país o si el estado no pertenece al país especificado.
+     */
     @GetMapping("/PaisEstado/{idPais}/{idEstado}")
     @Operation(summary = "Comprobación de país-estado y retorno de los nombres",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")

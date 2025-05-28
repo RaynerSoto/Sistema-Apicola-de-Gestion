@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controlador REST para gestionar las operaciones relacionadas con los países.
+ * Este controlador proporciona endpoints para listar todos los países y sus nombres.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/gestion/1/pais")
 @Tag(name = "Controlador del país")
@@ -27,7 +33,12 @@ public class PaisController {
         this.paisService = paisService;
     }
 
-
+    /**
+     * Endpoint para obtener un listado de todos los países.
+     * @return ResponseEntity con el estado HTTP y la lista de países.
+     * Si ocurre un error al acceder a la lista, se devuelve un mensaje de error.
+     * Este método devuelve una lista de objetos PaisDtoEnviar que contienen información detallada de cada país.
+     */
     @GetMapping("/")
     @Operation(summary = "Listado de países",
             description = "Permite comprobar todo el listado de los paises")
@@ -35,6 +46,11 @@ public class PaisController {
         return ResponseEntity.ok(new RespuestaEstandar(paisRepository.findAll().stream().map(PaisDtoEnviar::toPais)));
     }
 
+    /**
+     * Endpoint para obtener un listado de los nombres de todos los países.
+     * @return ResponseEntity con el estado HTTP y la lista de nombres de países.
+     * Este método devuelve una lista de nombres de países como cadenas de texto.
+     */
     @GetMapping("/nombre")
     @Operation(summary = "Listado de países",
             description = "Permite comprobar todo el listado de los nombres de los paises")

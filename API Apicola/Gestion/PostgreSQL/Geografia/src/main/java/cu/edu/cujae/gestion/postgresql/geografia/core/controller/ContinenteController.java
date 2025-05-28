@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controlador REST para gestionar las operaciones relacionadas con los continentes.
+ * Este controlador proporciona un endpoint para listar todos los continentes disponibles en el sistema.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/gestion/1/continente")
 @Tag(name = "Controlador del contienente")
@@ -22,6 +28,11 @@ public class ContinenteController {
         this.continenteService = continenteService;
     }
 
+    /**
+     * Endpoint para obtener un listado de todos los continentes.
+     * @return ResponseEntity con el estado HTTP y la lista de continentes.
+     * Si ocurre un error al acceder a la lista, se devuelve un mensaje de error.
+     */
     @GetMapping("/")
     @Operation(summary = "Listado de los continentes",description = "Permite listar a todos los continentes del sistema")
     public ResponseEntity<RespuestaEstandar> obtenerContinentes() {

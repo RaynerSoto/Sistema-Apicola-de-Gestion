@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplementTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaEstado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaMunicipio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaMunicipio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaPais.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APIGeograficaPais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APITraduction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/conexion/apiExterna/APITraduction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/ContinenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/ContinenteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/EstadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/EstadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplementTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" afterDir="false" />
     </list>
@@ -112,6 +121,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.RolServiceImplementTest.executor": "Run",
+    "JUnit.SexoServiceImplementTest.executor": "Run",
     "JUnit.UsuarioRepositoryTest.executor": "Run",
     "JUnit.UsuarioRepositoryTest.insertUsuario.executor": "Debug",
     "JUnit.UsuarioRepositoryTest.listarUsuarios.executor": "Run",
@@ -262,7 +272,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RolServiceImplementTest">
+  <component name="RunManager" selected="JUnit.SexoServiceImplementTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -363,22 +373,6 @@
       <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="MapperTest.map" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-continente" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.continente.core.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.continente.core.utils" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.continente.core.utils.MapperTest" />
-      <option name="METHOD_NAME" value="map" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RolServiceImplementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-usuarios" />
       <extension name="coverage">
@@ -389,6 +383,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement" />
       <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement.RolServiceImplementTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SexoServiceImplementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-usuarios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement.SexoServiceImplementTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -530,12 +539,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="springBootConfigurationType" factoryName="Spring Boot">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JUnit.RolServiceImplementTest" />
+      <item itemvalue="JUnit.SexoServiceImplementTest" />
       <item itemvalue="JUnit.UsuarioRepositoryTest" />
       <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
       <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
-      <item itemvalue="JUnit.MapperTest.map" />
       <item itemvalue="Spring Boot.ApicolaApplication" />
       <item itemvalue="Spring Boot.GeografiaApplication" />
       <item itemvalue="Spring Boot.MunicipioApplication" />
@@ -549,11 +563,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SexoServiceImplementTest" />
         <item itemvalue="JUnit.RolServiceImplementTest" />
         <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
         <item itemvalue="JUnit.UsuarioRepositoryTest" />
         <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
-        <item itemvalue="JUnit.MapperTest.map" />
       </list>
     </recent_temporary>
   </component>
@@ -579,7 +593,7 @@
       <workItem from="1746196483972" duration="2764000" />
       <workItem from="1746552651985" duration="632000" />
       <workItem from="1746893579710" duration="826000" />
-      <workItem from="1748439259074" duration="6129000" />
+      <workItem from="1748439259074" duration="10117000" />
     </task>
     <servers />
   </component>
@@ -659,7 +673,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java</url>
-          <line>106</line>
+          <line>145</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
