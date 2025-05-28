@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/test/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/ContinenteRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controllerExcepcion/ExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/ContinenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/ContinenteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/EstadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/EstadoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/MunicipioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/MunicipioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/PaisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/repository/PaisRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/ContinenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/ContinenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/EstadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/EstadoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/MunicipioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/MunicipioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/PaisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/service/PaisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/ConversionObjetos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/ConversionObjetos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/Validacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/utils/Validacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" afterDir="false" />
     </list>
@@ -121,6 +111,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.ContinenteRepositoryTest.executor": "Run",
+    "JUnit.ContinenteRepositoryTest.findByNombreEqualsIgnoreCase.executor": "Run",
     "JUnit.RolServiceImplementTest.executor": "Run",
     "JUnit.SexoServiceImplementTest.executor": "Run",
     "JUnit.UsuarioRepositoryTest.executor": "Run",
@@ -173,11 +165,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="cu.edu.cujae.gestion.postgresql.geografia.core.repository" />
       <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement" />
       <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
       <recent name="cu.edu.cujae.gestion.postgresql.estado.core.conexion.standard" />
       <recent name="cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna" />
-      <recent name="cu.edu.cujae.gestion.postgresql.estado.core.utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica" />
@@ -273,7 +265,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SexoServiceImplementTest">
+  <component name="RunManager" selected="JUnit.ContinenteRepositoryTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -374,6 +366,37 @@
       <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="ContinenteRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-geografia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.geografia.core.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.geografia.core.repository" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.geografia.core.repository.ContinenteRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContinenteRepositoryTest.findByNombreEqualsIgnoreCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-geografia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.geografia.core.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.geografia.core.repository" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.geografia.core.repository.ContinenteRepositoryTest" />
+      <option name="METHOD_NAME" value="findByNombreEqualsIgnoreCase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RolServiceImplementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-usuarios" />
       <extension name="coverage">
@@ -404,21 +427,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsuarioRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-usuarios" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UsuarioRepositoryTest.insertUsuario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-usuarios" />
       <extension name="coverage">
@@ -430,22 +438,6 @@
       <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
       <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepositoryTest" />
       <option name="METHOD_NAME" value="insertUsuario" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioRepositoryTest.listarUsuarios" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-usuarios" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepositoryTest" />
-      <option name="METHOD_NAME" value="listarUsuarios" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -546,11 +538,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ContinenteRepositoryTest" />
+      <item itemvalue="JUnit.ContinenteRepositoryTest.findByNombreEqualsIgnoreCase" />
       <item itemvalue="JUnit.RolServiceImplementTest" />
       <item itemvalue="JUnit.SexoServiceImplementTest" />
-      <item itemvalue="JUnit.UsuarioRepositoryTest" />
       <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
-      <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
       <item itemvalue="Spring Boot.ApicolaApplication" />
       <item itemvalue="Spring Boot.GeografiaApplication" />
       <item itemvalue="Spring Boot.MunicipioApplication" />
@@ -564,11 +556,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContinenteRepositoryTest" />
+        <item itemvalue="JUnit.ContinenteRepositoryTest.findByNombreEqualsIgnoreCase" />
         <item itemvalue="JUnit.SexoServiceImplementTest" />
         <item itemvalue="JUnit.RolServiceImplementTest" />
         <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
-        <item itemvalue="JUnit.UsuarioRepositoryTest" />
-        <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
       </list>
     </recent_temporary>
   </component>
@@ -594,7 +586,7 @@
       <workItem from="1746196483972" duration="2764000" />
       <workItem from="1746552651985" duration="632000" />
       <workItem from="1746893579710" duration="826000" />
-      <workItem from="1748439259074" duration="10445000" />
+      <workItem from="1748439259074" duration="12085000" />
     </task>
     <servers />
   </component>
