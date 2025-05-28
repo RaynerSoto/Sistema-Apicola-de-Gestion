@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementación del servicio de roles.
+ * Proporciona métodos para listar todos los roles disponibles en el sistema.
+ */
 @Service
 public class RolServiceImplement implements RolService {
     private RolRepository rolRepository;
@@ -20,6 +24,7 @@ public class RolServiceImplement implements RolService {
     /**
      * Lista todos los roles disponibles en el sistema.
      * @return List<String> - Lista de nombres de roles.
+     * * Esta función utiliza el repositorio de roles para obtener todos los registros
      */
     @Override
     public List<String> listadoRoles() {

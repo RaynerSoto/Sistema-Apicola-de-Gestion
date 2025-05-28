@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03636c99-1df8-43e8-8332-cc520e5e92a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplementTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/RolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/RolService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/SexoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/SexoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/RolServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/SexoServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/UsuarioServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/service/implement/UsuarioServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/UsuarioRepositoryTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Casos de uso del sistema.vpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacion/Infomer V2.0 .docx" afterDir="false" />
     </list>
@@ -107,43 +116,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.UsuarioRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UsuarioRepositoryTest.insertUsuario.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UsuarioRepositoryTest.listarUsuarios.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.Workspaces.CheckRemotesActivity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.restore.workspace.module&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApicolaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.GeografiaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UsuariosApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Usuarios&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.3047427&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.RolServiceImplementTest.executor": "Run",
+    "JUnit.UsuarioRepositoryTest.executor": "Run",
+    "JUnit.UsuarioRepositoryTest.insertUsuario.executor": "Debug",
+    "JUnit.UsuarioRepositoryTest.listarUsuarios.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.Workspaces.CheckRemotesActivity": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.restore.workspace.module": "true",
+    "Spring Boot.ApicolaApplication.executor": "Run",
+    "Spring Boot.GeografiaApplication.executor": "Run",
+    "Spring Boot.UsuariosApplication.executor": "Debug",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "Usuarios",
+    "go.import.settings.migrated": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.3047427",
+    "run.configurations.included.in.services": "true",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -159,11 +169,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement" />
       <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.repository" />
       <recent name="cu.edu.cujae.gestion.postgresql.estado.core.conexion.standard" />
       <recent name="cu.edu.cujae.gestion.postgresql.municio.core.conexion.apiExterna" />
       <recent name="cu.edu.cujae.gestion.postgresql.estado.core.utils" />
-      <recent name="cu.edu.cujae.gestion.postgresql.microservicepais.core.utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica" />
@@ -259,7 +269,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UsuarioRepositoryTest.insertUsuario">
+  <component name="RunManager" selected="JUnit.RolServiceImplementTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -360,21 +370,6 @@
       <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="MapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-continente" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.continente.core.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.continente.core.utils" />
-      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.continente.core.utils.MapperTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MapperTest.map" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-continente" />
       <extension name="coverage">
@@ -387,6 +382,21 @@
       <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.continente.core.utils.MapperTest" />
       <option name="METHOD_NAME" value="map" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RolServiceImplementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-usuarios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement" />
+      <option name="MAIN_CLASS_NAME" value="cu.edu.cujae.gestion.postgresql.usuarios.core.service.implement.RolServiceImplementTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -436,6 +446,11 @@
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="NimRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="nim.task.build.to.cache" enabled="true" />
       </method>
     </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -523,10 +538,10 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.RolServiceImplementTest" />
       <item itemvalue="JUnit.UsuarioRepositoryTest" />
       <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
       <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
-      <item itemvalue="JUnit.MapperTest" />
       <item itemvalue="JUnit.MapperTest.map" />
       <item itemvalue="Spring Boot.ApicolaApplication" />
       <item itemvalue="Spring Boot.GeografiaApplication" />
@@ -541,11 +556,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RolServiceImplementTest" />
         <item itemvalue="JUnit.UsuarioRepositoryTest.insertUsuario" />
         <item itemvalue="JUnit.UsuarioRepositoryTest" />
         <item itemvalue="JUnit.UsuarioRepositoryTest.listarUsuarios" />
         <item itemvalue="JUnit.MapperTest.map" />
-        <item itemvalue="JUnit.MapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -571,7 +586,7 @@
       <workItem from="1746196483972" duration="2764000" />
       <workItem from="1746552651985" duration="632000" />
       <workItem from="1746893579710" duration="826000" />
-      <workItem from="1748439259074" duration="2232000" />
+      <workItem from="1748439259074" duration="5722000" />
     </task>
     <servers />
   </component>
@@ -648,11 +663,6 @@
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/main/java/cu/edu/cujae/gestion/postgresql/usuarios/core/controller/UsuarioController.java</url>
           <line>80</line>
           <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Usuarios/src/test/java/cu/edu/cujae/gestion/postgresql/usuarios/core/repository/UsuarioRepositoryTest.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Gestion/PostgreSQL/Geografia/src/main/java/cu/edu/cujae/gestion/postgresql/geografia/core/controller/GeografiaController.java</url>

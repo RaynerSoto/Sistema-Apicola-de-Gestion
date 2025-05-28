@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * Implementación del servicio de usuario.
+ * Esta clase maneja las operaciones relacionadas con los usuarios, como insertar, actualizar,
+ * eliminar y obtener usuarios del sistema.
+ */
 @Service
 public class UsuarioServiceImplement implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
@@ -25,6 +30,7 @@ public class UsuarioServiceImplement implements UsuarioService {
      * El usuario a insertar, debe contener todos sus datos validados de manera correcta.
      * El password del usuario se codifica antes de ser guardado en la base de datos.
      * @return void
+     * Esta función no devuelve ningún valor, simplemente guarda el usuario en la base de datos.
      */
     @Override
     public void insertarUsuario(Usuario usuario) {
@@ -38,6 +44,7 @@ public class UsuarioServiceImplement implements UsuarioService {
      * Devuelve una lista con todos los usuarios registrados en el sistema.
      * @throws SearchException
      * Si el usuario no existe, se lanza una excepción.
+     * Esta función utiliza el repositorio de usuarios para obtener todos los registros.
      */
     @Override
     public void actualizarUsuario(Usuario usuario) throws SearchException {
@@ -54,6 +61,7 @@ public class UsuarioServiceImplement implements UsuarioService {
      * El identificador del usuario a eliminar.
      * @throws SearchException
      * Si el usuario no existe, se lanza una excepción.
+     * Esta función utiliza el repositorio de usuarios para eliminar el registro.
      */
     @Override
     public void eliminarUsuario(Long idUsuario) throws SearchException {
@@ -71,6 +79,7 @@ public class UsuarioServiceImplement implements UsuarioService {
      * Devuelve el usuario encontrado.
      * @throws SearchException
      * Si el usuario no existe, se lanza una excepción.
+     * Esta función utiliza el repositorio de usuarios para obtener el registro.
      */
     @Override
     public Usuario getUsuario(Long idUsuario) throws SearchException {
