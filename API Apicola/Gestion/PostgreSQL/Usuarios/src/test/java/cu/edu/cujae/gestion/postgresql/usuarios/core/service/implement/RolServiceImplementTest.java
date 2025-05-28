@@ -11,6 +11,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Implementación del test de servicio de roles.
+ * Proporciona pruebas para verificar el correcto funcionamiento de los métodos del servicio de roles.
+ * Esta clase utiliza JUnit 5 para la ejecución de pruebas y Spring Boot para la configuración del contexto de la aplicación.
+ * @see cu.edu.cujae.gestion.postgresql.usuarios.core.service.RolService
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class RolServiceImplementTest {
@@ -21,6 +29,10 @@ class RolServiceImplementTest {
         this.rolService = rolService;
     }
 
+    /**
+     * Prueba para verificar que el listado de roles no sea nulo.
+     * Esta prueba asegura que el método listadoRoles() del servicio de roles
+     */
     @Test
     @Order(1)
     void listadoRolesNombre() {
@@ -29,6 +41,10 @@ class RolServiceImplementTest {
 
     }
 
+    /**
+     * Prueba para verificar que el listado de roles no esté vacío.
+     * Esta prueba asegura que el método listadoRoles() del servicio de roles
+     */
     @Test
     @Order(2)
     void listadoRolesNotEmpty() {
