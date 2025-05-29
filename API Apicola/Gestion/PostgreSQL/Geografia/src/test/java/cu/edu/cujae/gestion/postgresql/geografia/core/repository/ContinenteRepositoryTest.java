@@ -2,6 +2,7 @@ package cu.edu.cujae.gestion.postgresql.geografia.core.repository;
 
 import cu.edu.cujae.gestion.postgresql.geografia.core.model.Continente;
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ class ContinenteRepositoryTest {
     }
 
     @Test
+    @Order(1)
     void findByNombreEqualsIgnoreCase() {
         logger.info("Iniciando prueba findByNombreEqualsIgnoreCase en ContinenteRepositoryTest");
         var continente = continenteRepository.findByNombreEqualsIgnoreCase("América");

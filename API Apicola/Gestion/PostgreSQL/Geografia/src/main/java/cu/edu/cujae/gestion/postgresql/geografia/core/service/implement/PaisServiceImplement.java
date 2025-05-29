@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementación del servicio PaisService.
+ * Proporciona métodos para insertar, modificar, actualizar y eliminar países en la base de datos.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @Service
 public class PaisServiceImplement implements PaisService {
     private final PaisRepository paisRepository;
