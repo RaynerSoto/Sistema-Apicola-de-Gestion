@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.geografia.core.utils;
+package cu.edu.cujae.gestion.postgresql.geografia.utils;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;

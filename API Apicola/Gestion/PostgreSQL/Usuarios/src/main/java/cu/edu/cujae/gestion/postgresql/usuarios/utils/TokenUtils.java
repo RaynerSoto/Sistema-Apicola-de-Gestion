@@ -1,5 +1,5 @@
-package cu.edu.cujae.gestion.postgresql.usuarios.core.utils;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.config.security.TokenService;
+package cu.edu.cujae.gestion.postgresql.usuarios.utils;
+import cu.edu.cujae.gestion.postgresql.usuarios.config.security.TokenService;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.token.TokenDto;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

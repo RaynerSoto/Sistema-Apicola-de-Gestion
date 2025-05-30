@@ -15,6 +15,12 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+/**
+ * Clase que se encarga de realizar las peticiones a la API de Geografía.
+ * Esta clase contiene métodos estáticos que permiten comprobar la existencia de un país y estado
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @Component
 public class APIGeografia {
 

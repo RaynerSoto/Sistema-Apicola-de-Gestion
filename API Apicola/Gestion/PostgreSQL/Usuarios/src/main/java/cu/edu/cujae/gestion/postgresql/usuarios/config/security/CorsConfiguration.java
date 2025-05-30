@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.usuarios.core.config.security;
+package cu.edu.cujae.gestion.postgresql.usuarios.config.security;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

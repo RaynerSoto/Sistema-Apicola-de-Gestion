@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.usuarios.core.config.security;
+package cu.edu.cujae.gestion.postgresql.usuarios.config.security;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Usuario;
 import org.springframework.stereotype.Service;

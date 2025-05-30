@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.usuarios.core.utils;
+package cu.edu.cujae.gestion.postgresql.usuarios.utils;
 
 import java.sql.Date;
 import java.sql.Timestamp;

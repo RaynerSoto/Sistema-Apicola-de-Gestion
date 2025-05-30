@@ -15,6 +15,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Clase que se encarga de realizar las peticiones a la API de traducción MyMemory.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @Component
 public class APITraduction {
 

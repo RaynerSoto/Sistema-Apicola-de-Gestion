@@ -1,9 +1,9 @@
-package cu.edu.cujae.gestion.postgresql.usuarios.core.config.security;
+package cu.edu.cujae.gestion.postgresql.usuarios.config.security;
 
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.token.TokenDto;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.TokenUtils;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.usuarios.utils.TokenUtils;
+import cu.edu.cujae.gestion.postgresql.usuarios.utils.Validacion;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

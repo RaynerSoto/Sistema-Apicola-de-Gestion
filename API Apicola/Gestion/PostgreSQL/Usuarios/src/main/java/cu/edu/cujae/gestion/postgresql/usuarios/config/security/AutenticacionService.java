@@ -1,4 +1,4 @@
-package cu.edu.cujae.gestion.postgresql.usuarios.core.config.security;
+package cu.edu.cujae.gestion.postgresql.usuarios.config.security;
 
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

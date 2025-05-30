@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.model;
 
-import cu.edu.cujae.gestion.postgresql.usuarios.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.usuarios.utils.Validacion;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
