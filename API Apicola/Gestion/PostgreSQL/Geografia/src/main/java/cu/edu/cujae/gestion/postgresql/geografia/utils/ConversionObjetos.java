@@ -6,7 +6,6 @@ import java.util.HashMap;
 /**
  * Clase de utilidad para convertir un HashMap<String, Object> a un objeto de una clase específica.
  * Utiliza reflexión para asignar los valores del HashMap a los campos del objeto.
- *
  * @author Rayner Alejandro Soto Martínez
  * @version 1.0
  */
