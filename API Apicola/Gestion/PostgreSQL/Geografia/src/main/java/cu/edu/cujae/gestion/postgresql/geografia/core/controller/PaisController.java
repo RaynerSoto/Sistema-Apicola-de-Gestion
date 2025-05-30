@@ -5,6 +5,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.Resp
 import cu.edu.cujae.gestion.postgresql.geografia.core.model.Pais;
 import cu.edu.cujae.gestion.postgresql.geografia.core.repository.PaisRepository;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.PaisService;
+import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.PaisControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/gestion/1/pais")
 @Tag(name = "Controlador del país")
 public class PaisController {
-
-    private final PaisRepository paisRepository;
-    private final PaisService paisService;
+    private final PaisControllerService paisControllerService;
 
     @Autowired
-    public PaisController(PaisRepository paisRepository, PaisService paisService) {
-        this.paisRepository = paisRepository;
-        this.paisService = paisService;
+    public PaisController(PaisControllerService paisControllerService) {
+        this.paisControllerService = paisControllerService;
     }
+
 
     /**
      * Endpoint para obtener un listado de todos los países.
@@ -43,7 +42,7 @@ public class PaisController {
     @Operation(summary = "Listado de países",
             description = "Permite comprobar todo el listado de los paises")
     public ResponseEntity<RespuestaEstandar> obtenerPaises() {
-        return ResponseEntity.ok(new RespuestaEstandar(paisRepository.findAll().stream().map(PaisDtoEnviar::toPais)));
+        return paisControllerService.obtenerPaises();
     }
 
     /**
@@ -55,6 +54,6 @@ public class PaisController {
     @Operation(summary = "Listado de países",
             description = "Permite comprobar todo el listado de los nombres de los paises")
     public ResponseEntity<RespuestaEstandar> obtenerPaisesNombre() {
-        return ResponseEntity.ok(new RespuestaEstandar(paisRepository.findAll().stream().map(Pais::getNombre)));
+        return paisControllerService.obtenerPaisesNombre();
     }
 }

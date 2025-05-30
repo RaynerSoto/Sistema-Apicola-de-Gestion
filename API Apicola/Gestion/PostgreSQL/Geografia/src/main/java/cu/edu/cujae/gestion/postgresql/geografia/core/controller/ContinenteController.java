@@ -1,6 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controller;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.ContinenteService;
+import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.ContinenteControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/gestion/1/continente")
 @Tag(name = "Controlador del contienente")
 public class ContinenteController {
-    private ContinenteService continenteService;
+    private final ContinenteControllerService continenteControllerService;
 
     @Autowired
-    public ContinenteController(ContinenteService continenteService) {
-        this.continenteService = continenteService;
+    public ContinenteController(ContinenteControllerService continenteService) {
+        this.continenteControllerService = continenteService;
     }
 
     /**
@@ -36,10 +37,6 @@ public class ContinenteController {
     @GetMapping("/")
     @Operation(summary = "Listado de los continentes",description = "Permite listar a todos los continentes del sistema")
     public ResponseEntity<RespuestaEstandar> obtenerContinentes() {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(new RespuestaEstandar(continenteService.listarContinentes()));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new RespuestaEstandar("No se pudo acceder al listado de países. Compruebe con el servicio técnico"));
-        }
+        return continenteControllerService.obtenerContinentes();
     }
 }

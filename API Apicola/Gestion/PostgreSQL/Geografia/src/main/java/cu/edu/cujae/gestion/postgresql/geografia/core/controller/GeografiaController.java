@@ -21,6 +21,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.service.ContinenteService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.EstadoService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.MunicipioService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.PaisService;
+import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.GeografiaControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
@@ -46,21 +47,11 @@ import java.util.Optional;
 @RequestMapping("/api/v1/gestion/1/geografia")
 @Tag(name = "Controlador de la Geografía")
 public class GeografiaController {
-    private PaisService paisService;
-    private ContinenteService continenteService;
-    private MunicipioService municipioService;
-    private EstadoService estadoService;
-    private EstadoRepository estadoRepository;
-    private PaisRepository paisRepository;
+    private final GeografiaControllerService geografiaControllerService;
 
     @Autowired
-    public GeografiaController(PaisService paisService, ContinenteService continenteService, MunicipioService municipioService, EstadoService estadoService, EstadoRepository estadoRepository, PaisRepository paisRepository) {
-        this.paisService = paisService;
-        this.continenteService = continenteService;
-        this.municipioService = municipioService;
-        this.estadoService = estadoService;
-        this.estadoRepository = estadoRepository;
-        this.paisRepository = paisRepository;
+    public GeografiaController(GeografiaControllerService geografiaControllerService) {
+        this.geografiaControllerService = geografiaControllerService;
     }
 
     /**
@@ -77,23 +68,8 @@ public class GeografiaController {
     @PostMapping("/{nombre}")
     @Operation(summary = "Insertar país",
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
-    public ResponseEntity<RespuestaEstandar> insertarDatosGeograficos(@PathVariable @NotBlank(message = "El nombre a buscar no puede estar nulo o vacío") String nombre) throws APIException, IOException, InterruptedException, SearchException, AsignacionException, OperationsException {
-        String nombre_español = APITraduction.traduccionENES(nombre);
-        APIGeoPaisDto apiGeoPaisDto = APIGeograficaPais.obtenerDatosPaises(nombre_español);
-        Pais pais = new Pais(apiGeoPaisDto, continenteService.buscarContinente(APITraduction.traduccionENES(apiGeoPaisDto.region())));
-        APIGeoEstadoDto apiGeoEstadoDto = APIGeograficaEstado.obtenerDatosEstado(pais.getSigla());
-        List<Estado> estados = apiGeoEstadoDto.geonames().stream()
-                .map(e -> new Estado(e,pais))
-                .filter(Objects::nonNull)
-                .toList();
-        pais.setEstados(estados);
-        if (pais.getEstados().size() == apiGeoEstadoDto.totalResultsCount()){
-            paisService.insertarPais(pais);
-            return ResponseEntity.ok(new RespuestaEstandar(String.format("Insertado el país %s con un total de %d estados/provincias",pais.getNombre(),pais.getEstados().size())));
-        }
-        else {
-            throw new OperationsException("No se ha podioo completar la operación debido a que no se han podido cargar todos los datos");
-        }
+    public ResponseEntity<RespuestaEstandar> insertarDatosGeograficos(@PathVariable @NotBlank(message = "El nombre a buscar no puede estar nulo o vacío") String nombre) throws Exception {
+        return geografiaControllerService.insertarDatosGeograficos(nombre);
     }
 
     /**
@@ -111,21 +87,7 @@ public class GeografiaController {
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
     @Deprecated
     public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoDtoComprobar paisEstado){
-        try {
-            if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
-                throw new SearchException("No ha podido encontrar el país");
-            else{
-                Pais pais = paisRepository.findByNombreEquals(paisEstado.nombrePais()).get();
-                Boolean encontrado = pais.getEstados().stream().anyMatch(estado -> estado.getNombre().equals(paisEstado.nombreEstado()));
-                if(encontrado){
-                    return ResponseEntity.ok(new RespuestaEstandar(true));
-                }
-                else
-                    throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
-            }
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(new RespuestaEstandar2doNivel(true,e.getMessage()));
-        }
+        return geografiaControllerService.comprobarPaisEstado(paisEstado);
     }
 
     /**
@@ -142,18 +104,8 @@ public class GeografiaController {
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoComprobar paisEstado) throws SearchException {
-        if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
-            throw new SearchException("No ha podido encontrar el país");
-        else{
-            Optional<Pais> pais = paisRepository.findByNombreEquals(paisEstado.nombrePais());
-            Optional<Estado> estado = pais.get().getEstados().stream().filter(s-> s.getNombre().equalsIgnoreCase(paisEstado.nombreEstado())).findFirst();
-            if(pais.isPresent() && estado.isPresent()){
-                return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoID(pais.get().getIdPais(), estado.get().getIdEstado())));
-            }else{
-                throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
-            }
-        }
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoComprobar paisEstado) throws Exception {
+        return geografiaControllerService.obtenerPaisEstadoID(paisEstado);
     }
 
     /**
@@ -171,16 +123,7 @@ public class GeografiaController {
     @GetMapping("/PaisEstado/{idPais}/{idEstado}")
     @Operation(summary = "Comprobación de país-estado y retorno de los nombres",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(@PathVariable Long idPais, @PathVariable Long idEstado) throws SearchException {
-        if (!paisRepository.existsPaisByIdPais(idPais))
-            throw new SearchException("No ha podido encontrar el país");
-        else {
-            Optional<Pais> pais = paisRepository.findByIdPaisEquals(idPais);
-            if(!pais.get().getEstados().stream().anyMatch(estado -> estado.getIdEstado().equals(idEstado))){
-                throw new SearchException("No ha podido encontrar el estado");
-            }
-            else
-                return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoNombre(pais.get().getNombre(), pais.get().getEstados().stream().filter(estado -> estado.getIdEstado().equals(idEstado)).findFirst().get().getNombre())));
-        }
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(@PathVariable Long idPais, @PathVariable Long idEstado) throws Exception {
+        return geografiaControllerService.obtenerPaisEstadoNombre(idPais, idEstado);
     }
 }
