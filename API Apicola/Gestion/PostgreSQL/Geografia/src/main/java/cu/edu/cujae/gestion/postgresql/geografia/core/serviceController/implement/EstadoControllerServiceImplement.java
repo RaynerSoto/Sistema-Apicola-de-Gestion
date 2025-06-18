@@ -6,6 +6,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.repository.EstadoRepositor
 import cu.edu.cujae.gestion.postgresql.geografia.core.service.EstadoService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.EstadoControllerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,10 @@ public class EstadoControllerServiceImplement implements EstadoControllerService
      */
     @Override
     public ResponseEntity<RespuestaEstandar> obtenerEstados(String nombrePais) {
-        return ResponseEntity.ok(new RespuestaEstandar(estadoRepository.findAll().stream().filter(estado -> estado.getPais().getNombre().equals(nombrePais)).map(EstadoDtoEnviar::toEstado)));
+        try {
+            return ResponseEntity.ok(new RespuestaEstandar(estadoRepository.findAll().stream().filter(estado -> estado.getPais().getNombre().equals(nombrePais)).map(EstadoDtoEnviar::toEstado)));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new RespuestaEstandar("No se pudo acceder al listado de estados. Compruebe con el servicio técnico"));
+        }
     }
 }

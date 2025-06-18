@@ -16,76 +16,69 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.RolRepository;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.SexoRepository;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.service.UsuarioService;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.UsuarioControllerService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
+/**
+ * Controlador para manejar las operaciones relacionadas con los usuarios.
+ * Proporciona endpoints para insertar, modificar, eliminar y obtener usuarios,
+ * así como para listar todos los usuarios.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 0.3.0
+ */
 @RestController
 @RequestMapping("/api/v1/gestion/1/usuario")
 @Tag(name = "Controlador de los usuarios")
 public class UsuarioController {
-    private final UsuarioService usuarioService;
-    private final UsuarioRepository usuarioRepository;
-    private final SexoRepository sexoRepository;
-    private final RolRepository rolRepository;
+    private final UsuarioControllerService usuarioControllerService;
 
     @Autowired
-    public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository, SexoRepository sexoRepository, RolRepository rolRepository) {
-        this.usuarioService = usuarioService;
-        this.usuarioRepository = usuarioRepository;
-        this.sexoRepository = sexoRepository;
-        this.rolRepository = rolRepository;
+    public UsuarioController(UsuarioControllerService usuarioControllerService) {
+        this.usuarioControllerService = usuarioControllerService;
     }
 
     @PostMapping("/")
-    public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDtoRecibir usuario) throws SearchException, APIException, IOException, InterruptedException {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
-        Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
-        Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
-        Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
-        usuarioService.insertarUsuario(user);
-        return ResponseEntity.ok(new RespuestaEstandar("Usuario insertado"));
+    @Operation(summary = "Insertar un nuevo usuario",
+            description = "Permite insertar un nuevo usuario en el sistema. " +
+                    "Requiere los datos del usuario en el cuerpo de la solicitud.")
+    public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDtoRecibir usuario) throws Exception {
+        return ResponseEntity.ok(usuarioControllerService.insertarUsuario(usuario));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RespuestaEstandar> modificarUsuario(@RequestBody UsuarioDtoRecibir usuario, @PathVariable Long id) throws SearchException, APIException, IOException, InterruptedException {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
-        Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
-        Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
-        Usuario user = new Usuario(id,usuario, paisEstadoDtoID, rol, sexo);
-        usuarioService.actualizarUsuario(user);
-        return ResponseEntity.ok(new RespuestaEstandar("Usuario modificado"));
+    @Operation(summary = "Modificar un usuario existente",
+            description = "Permite modificar un usuario existente en el sistema. " +
+                    "Requiere los datos actualizados del usuario en el cuerpo de la solicitud y el ID del usuario a modificar.")
+    public ResponseEntity<RespuestaEstandar> modificarUsuario(@RequestBody UsuarioDtoRecibir usuario, @PathVariable Long id) throws Exception {
+        return ResponseEntity.ok(usuarioControllerService.modificarUsuario(usuario,id));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<RespuestaEstandar> eliminarUsuario(@PathVariable Long id) throws SearchException, APIException, IOException, InterruptedException {
-        usuarioService.eliminarUsuario(id);
-        return ResponseEntity.ok(new RespuestaEstandar("Usuario eliminado"));
+    @Operation(summary = "Eliminar un usuario",
+            description = "Permite eliminar un usuario del sistema. " +
+                    "Requiere el ID del usuario a eliminar en la ruta.")
+    public ResponseEntity<RespuestaEstandar> eliminarUsuario(@PathVariable Long id) throws Exception {
+        return ResponseEntity.ok(usuarioControllerService.eliminarUsuario(id));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RespuestaEstandar> obtenerUsuario(@PathVariable Long id) throws SearchException, APIException, IOException, InterruptedException {
-        Usuario user = usuarioService.getUsuario(id);
-        return ResponseEntity.ok(new RespuestaEstandar(user));
+    @Operation(summary = "Obtener un usuario por ID",
+            description = "Permite obtener los detalles de un usuario específico por su ID. " +
+                    "Requiere el ID del usuario en la ruta.")
+    public ResponseEntity<RespuestaEstandar> obtenerUsuario(@PathVariable Long id) throws Exception {
+        return ResponseEntity.ok(usuarioControllerService.obtenerUsuario(id));
     }
 
     @GetMapping("/listar")
+    @Operation(summary = "Obtener todos los usuarios",
+            description = "Permite obtener una lista de todos los usuarios registrados en el sistema.")
     public ResponseEntity<RespuestaEstandar> obtenerUsuarios() throws SearchException, APIException, IOException, InterruptedException {
-        List<UsuarioDtoRecibir> listadoUsuarios = (List<UsuarioDtoRecibir>) usuarioRepository.findAll().stream().map(usuario -> {
-            try {
-                PaisEstadoDtoNombre paisEstadoDtoNombre = ((PaisEstadoDtoNombre) APIGeografia.comprobarPaisEstadoNombre(usuario.getIdPais(),usuario.getIdEstado()).getRespuesta());
-                return UsuarioDtoEnviar.obtenerUsuarioDtoEnviar(usuario, paisEstadoDtoNombre.nombrePais(), paisEstadoDtoNombre.nombreEstado());
-            } catch (Exception e) {
-                return UsuarioDtoEnviar.obtenerUsuarioDtoEnviarNull();
-            }
-        });
-        if (listadoUsuarios.stream().anyMatch(usuarioDtoRecibir -> usuarioDtoRecibir.nombre() == null))
-            throw new SearchException("Usuarios encontrados con errores consulte a su administrador del sistema");
-        return ResponseEntity.ok(new RespuestaEstandar(listadoUsuarios));
+        return ResponseEntity.ok(usuarioControllerService.obtenerUsuarios());
     }
 }

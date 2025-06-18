@@ -1,39 +1,60 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.controller;
 
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.rol.RolDto;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.RolRepository;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.service.RolService;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.RolControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controlador para manejar las operaciones relacionadas con los roles.
+ * Proporciona endpoints para listar roles y sus nombres.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0.0
+ * @see cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.RolControllerService
+ */
 @RestController
 @RequestMapping("/api/v1/gestion/1/rol")
 @Tag(name = "Controllador del Rol")
 public class RolController {
-    private RolService rolService;
-    private RolRepository rolRepository;
+    private final RolControllerService rolControllerService;
 
     @Autowired
-    public RolController(RolService rolService, RolRepository rolRepository) {
-        this.rolService = rolService;
-        this.rolRepository = rolRepository;
+    public RolController(RolControllerService rolControllerService) {
+        this.rolControllerService = rolControllerService;
     }
 
+    /**
+     * Endpoint para listar todos los roles.
+     * @return ResponseEntity con la lista de roles.
+     * @throws SearchException si ocurre un error al buscar los roles.
+     * @autor Rayner Alejandro Soto Martínez
+     * @see cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.RolControllerService
+     * @version 1.0.0
+     */
     @GetMapping("/")
     @Operation(summary = "Listado de roles",description = "Permite listar los roles")
-    public RespuestaEstandar listadoRoles() {
-        return new RespuestaEstandar(rolRepository.findAll().stream().map(rol -> RolDto.toDto(rol)).toList());
+    public ResponseEntity<RespuestaEstandar> listadoRoles() throws SearchException {
+       return ResponseEntity.ok(rolControllerService.listadoRoles());
     }
 
+    /**
+     * Endpoint para listar los nombres de los roles.
+     * @autor Rayner Alejandro Soto Martínez
+     * @return ResponseEntity con la lista de nombres de roles.
+     * @throws SearchException si ocurre un error al buscar los nombres de los roles.
+     * @see cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.RolControllerService
+     * @version 1.0.0
+     */
     @GetMapping("/nombre")
     @Operation(summary = "Listado de nombre de los sexos",description = "Permite listar los nombres los roles")
-    public RespuestaEstandar listadoRolesNombre() {
-        return new RespuestaEstandar(rolService.listadoRoles());
+    public ResponseEntity<RespuestaEstandar> listadoRolesNombre() throws SearchException {
+        return ResponseEntity.ok(rolControllerService.listadoRolesNombre());
     }
 
 }
