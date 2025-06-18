@@ -31,12 +31,12 @@ public class SexoController {
     @GetMapping("/")
     @Operation(summary = "Listado de sexos",description = "Permite listar los sexos")
     public ResponseEntity<RespuestaEstandar> listadoSexos() throws SearchException {
-        return ResponseEntity.ok(sexoControllerService.listadoSexos());
+        return sexoControllerService.listadoSexos();
     }
 
     @GetMapping("/nombre")
     @Operation(summary = "Listado de nombre de los sexos",description = "Permite listar los nombres los sexos")
     public ResponseEntity<RespuestaEstandar> listadoSexosNombre() throws SearchException {
-        return ResponseEntity.ok(sexoControllerService.listadoSexosNombre());
+        return sexoControllerService.listadoSexosNombre();
     }
 }

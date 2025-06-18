@@ -37,39 +37,39 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
         this.rolRepository = rolRepository;
     }
     @Override
-    public RespuestaEstandar insertarUsuario(UsuarioDtoRecibir usuario) throws Exception {
+    public ResponseEntity<RespuestaEstandar> insertarUsuario(UsuarioDtoRecibir usuario) throws Exception {
         PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
         Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
         usuarioService.insertarUsuario(user);
-        return new RespuestaEstandar("Usuario insertado");
+        return ResponseEntity.ok(new RespuestaEstandar("Usuario insertado"));
     }
 
     @Override
-    public RespuestaEstandar modificarUsuario(UsuarioDtoRecibir usuario, Long id) throws Exception {
+    public ResponseEntity<RespuestaEstandar> modificarUsuario(UsuarioDtoRecibir usuario, Long id) throws Exception {
         PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
         Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         Usuario user = new Usuario(id,usuario, paisEstadoDtoID, rol, sexo);
         usuarioService.actualizarUsuario(user);
-        return new RespuestaEstandar("Usuario modificado");
+        return ResponseEntity.ok(new RespuestaEstandar("Usuario modificado"));
     }
 
     @Override
-    public RespuestaEstandar eliminarUsuario(Long id) throws Exception {
+    public ResponseEntity<RespuestaEstandar> eliminarUsuario(Long id) throws Exception {
         usuarioService.eliminarUsuario(id);
-        return new RespuestaEstandar("Usuario eliminado");
+        return ResponseEntity.ok(new RespuestaEstandar("Usuario eliminado"));
     }
 
     @Override
-    public RespuestaEstandar obtenerUsuario(Long id) throws SearchException {
+    public ResponseEntity<RespuestaEstandar> obtenerUsuario(Long id) throws SearchException {
         Usuario user = usuarioService.getUsuario(id);
-        return new RespuestaEstandar(user);
+        return ResponseEntity.ok(new RespuestaEstandar(user));
     }
 
     @Override
-    public RespuestaEstandar obtenerUsuarios() throws SearchException {
+    public ResponseEntity<RespuestaEstandar> obtenerUsuarios() throws SearchException {
         List<UsuarioDtoRecibir> listadoUsuarios = (List<UsuarioDtoRecibir>) usuarioRepository.findAll().stream().map(usuario -> {
             try {
                 PaisEstadoDtoNombre paisEstadoDtoNombre = ((PaisEstadoDtoNombre) APIGeografia.comprobarPaisEstadoNombre(usuario.getIdPais(),usuario.getIdEstado()).getRespuesta());
@@ -80,6 +80,6 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
         });
         if (listadoUsuarios.stream().anyMatch(usuarioDtoRecibir -> usuarioDtoRecibir.nombre() == null))
             throw new SearchException("Usuarios encontrados con errores consulte a su administrador del sistema");
-        return new RespuestaEstandar(listadoUsuarios);
+        return ResponseEntity.ok(new RespuestaEstandar(listadoUsuarios));
     }
 }

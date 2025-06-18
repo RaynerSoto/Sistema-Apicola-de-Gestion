@@ -40,7 +40,7 @@ public class RolController {
     @GetMapping("/")
     @Operation(summary = "Listado de roles",description = "Permite listar los roles")
     public ResponseEntity<RespuestaEstandar> listadoRoles() throws SearchException {
-       return ResponseEntity.ok(rolControllerService.listadoRoles());
+       return rolControllerService.listadoRoles();
     }
 
     /**
@@ -54,7 +54,7 @@ public class RolController {
     @GetMapping("/nombre")
     @Operation(summary = "Listado de nombre de los sexos",description = "Permite listar los nombres los roles")
     public ResponseEntity<RespuestaEstandar> listadoRolesNombre() throws SearchException {
-        return ResponseEntity.ok(rolControllerService.listadoRolesNombre());
+        return rolControllerService.listadoRolesNombre();
     }
 
 }

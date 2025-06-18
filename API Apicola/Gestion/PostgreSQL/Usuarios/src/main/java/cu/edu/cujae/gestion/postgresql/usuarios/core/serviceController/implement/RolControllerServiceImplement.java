@@ -8,6 +8,7 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.service.RolService;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.RolControllerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,18 +22,18 @@ public class RolControllerServiceImplement implements RolControllerService {
         this.rolService = rolService;
     }
     @Override
-    public RespuestaEstandar listadoRoles() throws SearchException {
+    public ResponseEntity<RespuestaEstandar> listadoRoles() throws SearchException {
         try {
-            return new RespuestaEstandar(rolRepository.findAll().stream().map(RolDto::toDto).toList());
+            return ResponseEntity.ok(new RespuestaEstandar(rolRepository.findAll().stream().map(RolDto::toDto).toList()));
         } catch (Exception e) {
             throw new SearchException("No se pudo acceder al listado de roles. Compruebe con el servicio técnico");
         }
     }
 
     @Override
-    public RespuestaEstandar listadoRolesNombre() throws SearchException {
+    public ResponseEntity<RespuestaEstandar> listadoRolesNombre() throws SearchException {
         try {
-            return new RespuestaEstandar(rolService.listadoRoles());
+            return ResponseEntity.ok(new RespuestaEstandar(rolService.listadoRoles()));
         } catch (Exception e) {
             throw new SearchException("No se pudo acceder al listado de roles. Compruebe con el servicio técnico");
         }
