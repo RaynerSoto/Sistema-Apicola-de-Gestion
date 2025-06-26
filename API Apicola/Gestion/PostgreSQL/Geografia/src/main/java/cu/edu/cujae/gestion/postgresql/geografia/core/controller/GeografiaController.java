@@ -24,6 +24,8 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.service.PaisService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.GeografiaControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -123,7 +125,8 @@ public class GeografiaController {
     @GetMapping("/PaisEstado/{idPais}/{idEstado}")
     @Operation(summary = "Comprobación de país-estado y retorno de los nombres",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(@PathVariable Long idPais, @PathVariable Long idEstado) throws Exception {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(@PathVariable @Valid @Min(value = 1,message = "El valor mínimo del id del Paísdebe ser 1") Long idPais
+            , @PathVariable @Valid @Min(value = 1,message = "El valor mínimo del id del Estado ser 1")Long idEstado) throws Exception {
         return geografiaControllerService.obtenerPaisEstadoNombre(idPais, idEstado);
     }
 }
