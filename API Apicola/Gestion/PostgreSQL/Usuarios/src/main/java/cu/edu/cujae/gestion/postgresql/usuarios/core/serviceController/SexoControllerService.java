@@ -7,4 +7,6 @@ import org.springframework.http.ResponseEntity;
 public interface SexoControllerService {
     ResponseEntity<RespuestaEstandar> listadoSexos() throws SearchException;
     ResponseEntity<RespuestaEstandar> listadoSexosNombre() throws SearchException;
+    ResponseEntity<RespuestaEstandar> obtenerSexo(Long id) throws SearchException;
+    ResponseEntity<RespuestaEstandar> obtenerSexoNombre(String nombre) throws SearchException;
 }

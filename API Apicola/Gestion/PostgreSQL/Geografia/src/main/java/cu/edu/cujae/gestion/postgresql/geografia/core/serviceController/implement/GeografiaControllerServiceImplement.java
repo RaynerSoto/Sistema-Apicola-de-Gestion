@@ -136,15 +136,11 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
      */
     @Override
     public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(Long idPais, Long idEstado) throws Exception {
-        if (!paisRepository.existsPaisByIdPais(idPais))
-            throw new SearchException("No ha podido encontrar el país");
-        else {
-            Optional<Pais> pais = paisRepository.findByIdPaisEquals(idPais);
-            if(!pais.get().getEstados().stream().anyMatch(estado -> estado.getIdEstado().equals(idEstado))){
-                throw new SearchException("No ha podido encontrar el estado");
-            }
-            else
-                return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoNombre(pais.get().getNombre(), pais.get().getEstados().stream().filter(estado -> estado.getIdEstado().equals(idEstado)).findFirst().get().getNombre())));
+        Pais pais = paisRepository.findByIdPaisEquals(idPais).orElseThrow(() -> new SearchException("No ha podido encontrar el país"));
+        if(!pais.getEstados().stream().anyMatch(estado -> estado.getIdEstado().equals(idEstado))){
+            throw new SearchException("No ha podido encontrar el estado");
         }
+        else
+            return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoNombre(pais.getNombre(), pais.getEstados().stream().filter(estado -> estado.getIdEstado().equals(idEstado)).findFirst().get().getNombre())));
     }
 }

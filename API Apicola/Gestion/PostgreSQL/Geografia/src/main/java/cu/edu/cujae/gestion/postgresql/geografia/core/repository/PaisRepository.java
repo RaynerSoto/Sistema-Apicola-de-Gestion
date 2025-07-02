@@ -12,9 +12,9 @@ import java.util.Optional;
  * @version 1.0
  */
 public interface PaisRepository extends JpaRepository<Pais,Long> {
-    public Optional<Pais> findByIdPaisEquals(Long id);
+    Optional<Pais> findByIdPaisEquals(Long id);
 
-    public Optional<Pais> findByNombreEquals(String nombre);
+    Optional<Pais> findByNombreEquals(String nombre);
 
     boolean existsPaisByNombre(String nombre);
 

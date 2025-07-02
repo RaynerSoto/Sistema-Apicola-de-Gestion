@@ -38,4 +38,14 @@ public class SexoControllerServiceImplement implements SexoControllerService {
             throw new SearchException("No se pudo acceder al listado de nombres de sexos. Compruebe con el servicio técnico");
         }
     }
+
+    @Override
+    public ResponseEntity<RespuestaEstandar> obtenerSexo(Long id) throws SearchException {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<RespuestaEstandar> obtenerSexoNombre(String nombre) throws SearchException {
+        return null;
+    }
 }

@@ -38,8 +38,8 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
     @Override
     public ResponseEntity<RespuestaEstandar> insertarUsuario(UsuarioDtoRecibir usuario) throws Exception {
         PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta());
-        Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
-        Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
+        Rol rol = rolRepository.findByNombreEquals(usuario.nombre()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
+        Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo()).orElseThrow(() -> new SearchException("Sexo no encontrado: " + usuario.sexo()));
         Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
         usuarioService.insertarUsuario(user);
         return ResponseEntity.ok(new RespuestaEstandar("Usuario insertado"));
@@ -48,8 +48,8 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
     @Override
     public ResponseEntity<RespuestaEstandar> modificarUsuario(UsuarioDtoRecibir usuario, Long id) throws Exception {
         PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta());
-        Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
-        Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
+        Rol rol = rolRepository.findByNombreEquals(usuario.nombre()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
+        Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo()).orElseThrow(() -> new SearchException("Sexo no encontrado: " + usuario.sexo()));
         Usuario user = new Usuario(id,usuario, paisEstadoDtoID, rol, sexo);
         usuarioService.actualizarUsuario(user);
         return ResponseEntity.ok(new RespuestaEstandar("Usuario modificado"));

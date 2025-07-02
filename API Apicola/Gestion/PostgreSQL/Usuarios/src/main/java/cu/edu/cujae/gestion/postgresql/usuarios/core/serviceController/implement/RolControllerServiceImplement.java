@@ -38,4 +38,17 @@ public class RolControllerServiceImplement implements RolControllerService {
             throw new SearchException("No se pudo acceder al listado de roles. Compruebe con el servicio técnico");
         }
     }
+
+    @Override
+    public ResponseEntity<RespuestaEstandar> obtenerRolNombre(String nombre) throws SearchException {
+        if (!rolRepository.existsByNombreEquals(nombre)) {
+            throw new SearchException("El rol con nombre " + nombre + " no existe");
+        }
+        return ResponseEntity.ok(new RespuestaEstandar(RolDto.toDto(rolRepository.findByNombreEquals(nombre).get())));
+    }
+
+    @Override
+    public ResponseEntity<RespuestaEstandar> obtenerRolID(Long id) throws SearchException {
+        return ResponseEntity.ok(new RespuestaEstandar(RolDto.toDto(rolRepository.findById(id).orElseThrow(() -> new SearchException("El rol con el id " + id + " no existe")))));
+    }
 }

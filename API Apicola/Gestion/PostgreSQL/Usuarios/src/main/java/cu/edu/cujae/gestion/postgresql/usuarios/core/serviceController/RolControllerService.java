@@ -7,4 +7,6 @@ import org.springframework.http.ResponseEntity;
 public interface RolControllerService {
     ResponseEntity<RespuestaEstandar> listadoRoles() throws SearchException;
     ResponseEntity<RespuestaEstandar> listadoRolesNombre() throws SearchException;
+    ResponseEntity<RespuestaEstandar> obtenerRolNombre(String nombre) throws SearchException;
+    ResponseEntity<RespuestaEstandar> obtenerRolID(Long id) throws SearchException;
 }

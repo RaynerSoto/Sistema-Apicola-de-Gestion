@@ -33,10 +33,6 @@ public class ContinenteServiceImplement implements ContinenteService {
 
     @Override
     public Continente buscarContinente(String nombre) throws SearchException {
-        try {
-            return continenteRepository.findByNombreEqualsIgnoreCase(nombre).get();
-        } catch (Exception e) {
-            throw new SearchException("No se pudo obtener dicho continente");
-        }
+        return continenteRepository.findByNombreEqualsIgnoreCase(nombre).orElseThrow(() -> new SearchException("El continente con nombre: " + nombre + " no existe"));
     }
 }

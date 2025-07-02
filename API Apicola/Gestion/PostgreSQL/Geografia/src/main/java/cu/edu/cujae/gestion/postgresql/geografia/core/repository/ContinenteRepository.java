@@ -12,5 +12,5 @@ import java.util.Optional;
  * @version 1.0
  */
 public interface ContinenteRepository extends JpaRepository<Continente,Long> {
-    public Optional<Continente> findByNombreEqualsIgnoreCase(String nombre);
+    Optional<Continente> findByNombreEqualsIgnoreCase(String nombre);
 }

@@ -5,9 +5,13 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.RolControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,6 +59,14 @@ public class RolController {
     @Operation(summary = "Listado de nombre de los sexos",description = "Permite listar los nombres los roles")
     public ResponseEntity<RespuestaEstandar> listadoRolesNombre() throws SearchException {
         return rolControllerService.listadoRolesNombre();
+    }
+
+    @GetMapping("/{nombre}")
+    @Operation(summary = "Buscar un rol por su nombre", description = "")
+    public ResponseEntity<RespuestaEstandar>obtenerRol(@PathVariable @Valid
+                                                           @Size(min = 4,max = 100,message = "El nombre del rol se encuentra entre 4 y 100 caracteres")
+                                                           @NotBlank(message = "El nombre del rol no puede ser nulo o estar vacío") String nombre) throws SearchException {
+        return rolControllerService.obtenerRolNombre(nombre);
     }
 
 }
