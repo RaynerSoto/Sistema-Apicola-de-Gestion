@@ -27,6 +27,7 @@ public class Pais {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "pais_seq")
     @SequenceGenerator(name = "pais_seq", sequenceName = "pais_id_pais_seq",initialValue = 1,allocationSize = 1)
     @Column(name = "id_pais",nullable = false,unique = true,updatable = false)
+    @Min(value = 1,message = "El id mínimo debe ser 1")
     private Long idPais;
 
     @Column(name = "nombre",unique = true,nullable = false,length = 100)

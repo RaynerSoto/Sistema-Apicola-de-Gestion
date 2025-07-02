@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +51,9 @@ public class GeografiaController {
     @PostMapping("/{nombre}")
     @Operation(summary = "Insertar país",
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
-    public ResponseEntity<RespuestaEstandar> insertarDatosGeograficos(@PathVariable @NotBlank(message = "El nombre a buscar no puede estar nulo o vacío") String nombre) throws Exception {
+    public ResponseEntity<RespuestaEstandar> insertarDatosGeograficos(@PathVariable @Valid
+                                                                          @Size(min = 4,max = 100,message = "El nombre del país se encuentra entre 4 y 100 caracteres")
+                                                                          @NotBlank(message = "El nombre a buscar no puede estar nulo o vacío") String nombre) throws Exception {
         return geografiaControllerService.insertarDatosGeograficos(nombre);
     }
 
@@ -68,7 +71,7 @@ public class GeografiaController {
     @Operation(summary = "Comprobación de país-estado",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
     @Deprecated
-    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoDtoNombre paisEstado){
+    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody @Valid PaisEstadoDtoNombre paisEstado){
         return geografiaControllerService.comprobarPaisEstado(paisEstado);
     }
 
