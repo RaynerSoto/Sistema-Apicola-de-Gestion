@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.serviceController;
 
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoComprobar;
+import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
 import org.springframework.http.ResponseEntity;
 
@@ -13,9 +13,9 @@ public interface GeografiaControllerService {
     ResponseEntity<RespuestaEstandar> insertarDatosGeograficos(String nombre) throws Exception;
 
     @Deprecated
-    ResponseEntity<RespuestaEstandar> comprobarPaisEstado(PaisEstadoDtoComprobar paisEstado);
+    ResponseEntity<RespuestaEstandar> comprobarPaisEstado(PaisEstadoDtoNombre paisEstado);
 
-    ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(PaisEstadoDtoComprobar paisEstado) throws Exception;
+    ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(PaisEstadoDtoNombre paisEstado) throws Exception;
 
     ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(Long idPais, Long idEstado) throws Exception;
 }

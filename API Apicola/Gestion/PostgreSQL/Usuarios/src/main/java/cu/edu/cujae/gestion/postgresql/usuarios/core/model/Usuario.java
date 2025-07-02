@@ -4,14 +4,12 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoRecib
 import cu.edu.cujae.gestion.postgresql.usuarios.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.locationtech.jts.geom.Point;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,6 +21,10 @@ import java.util.List;
 @Table(name = "usuarios", schema = "public")
 @Builder
 public class Usuario implements UserDetails {
+    @Transient
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    private PasswordEncoder passwordEncoder;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "usuario_seq")
@@ -95,7 +97,7 @@ public class Usuario implements UserDetails {
         this.identificacion = usuario.identificacion();
         this.nombre = usuario.nombre();
         this.username = usuario.username();
-        this.password = usuario.password();
+        this.password = passwordEncoder.encode(usuario.password());
         this.email = usuario.email();
         this.idEstado = paisEstadoDtoID.idEstado();
         this.idPais = paisEstadoDtoID.idPais();
@@ -113,7 +115,7 @@ public class Usuario implements UserDetails {
         this.identificacion = usuario.identificacion();
         this.nombre = usuario.nombre();
         this.username = usuario.username();
-        this.password = usuario.password();
+        this.password = passwordEncoder.encode(usuario.password());
         this.email = usuario.email();
         this.idEstado = paisEstadoDtoID.idEstado();
         this.idPais = paisEstadoDtoID.idPais();

@@ -1,7 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.implement;
 
 import cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios.APIGeografia;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
@@ -38,7 +37,7 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
     }
     @Override
     public ResponseEntity<RespuestaEstandar> insertarUsuario(UsuarioDtoRecibir usuario) throws Exception {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
+        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta());
         Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
@@ -48,7 +47,7 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
 
     @Override
     public ResponseEntity<RespuestaEstandar> modificarUsuario(UsuarioDtoRecibir usuario, Long id) throws Exception {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoComprobar(usuario.pais(), usuario.estado())).getRespuesta());
+        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta());
         Rol rol = rolRepository.findByNombreEquals(usuario.nombre());
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo());
         Usuario user = new Usuario(id,usuario, paisEstadoDtoID, rol, sexo);

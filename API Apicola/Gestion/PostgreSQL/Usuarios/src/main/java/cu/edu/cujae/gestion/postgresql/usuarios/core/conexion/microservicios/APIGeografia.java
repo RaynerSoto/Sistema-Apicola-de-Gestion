@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios;
 
 import com.google.gson.Gson;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
@@ -34,14 +34,14 @@ public class APIGeografia {
         url = urlInyectada; // Se asigna el valor inyectado a la variable estática
     }
 
-    public static RespuestaEstandar comprobarPaisEstadoID(PaisEstadoDtoComprobar paisEstado) throws IOException, InterruptedException, APIException, SearchException {
+    public static RespuestaEstandar comprobarPaisEstadoID(PaisEstadoDtoNombre paisEstado) throws IOException, InterruptedException, APIException, SearchException {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.
                     newBuilder().
                     header("Content-Type", "application/json").
                     uri(URI.create(url + "PaisEstado")).
-                    POST(HttpRequest.BodyPublishers.ofString(paisEstado.toJSON())).
+                    POST(HttpRequest.BodyPublishers.ofString(new Gson().toJson(paisEstado))).
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             RespuestaEstandar respuestaEstandar = new Gson().fromJson(response.body(), RespuestaEstandar.class);

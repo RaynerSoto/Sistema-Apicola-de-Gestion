@@ -1,26 +1,10 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.controller;
 
-import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APIGeograficaEstado;
-import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APIGeograficaPais;
-import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APITraduction;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoEstadoDto;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoComprobar;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoID;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar2doNivel;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.AsignacionException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.SearchException;
-import cu.edu.cujae.gestion.postgresql.geografia.core.model.Estado;
-import cu.edu.cujae.gestion.postgresql.geografia.core.model.Pais;
-import cu.edu.cujae.gestion.postgresql.geografia.core.repository.EstadoRepository;
-import cu.edu.cujae.gestion.postgresql.geografia.core.repository.PaisRepository;
-import cu.edu.cujae.gestion.postgresql.geografia.core.service.ContinenteService;
-import cu.edu.cujae.gestion.postgresql.geografia.core.service.EstadoService;
-import cu.edu.cujae.gestion.postgresql.geografia.core.service.MunicipioService;
-import cu.edu.cujae.gestion.postgresql.geografia.core.service.PaisService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.GeografiaControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,15 +12,11 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.management.OperationsException;
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Controlador REST para gestionar las operaciones relacionadas con la geografía.
@@ -88,7 +68,7 @@ public class GeografiaController {
     @Operation(summary = "Comprobación de país-estado",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
     @Deprecated
-    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoDtoComprobar paisEstado){
+    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody PaisEstadoDtoNombre paisEstado){
         return geografiaControllerService.comprobarPaisEstado(paisEstado);
     }
 
@@ -106,22 +86,22 @@ public class GeografiaController {
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoComprobar paisEstado) throws Exception {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody @Valid PaisEstadoDtoNombre paisEstado) throws Exception {
         return geografiaControllerService.obtenerPaisEstadoID(paisEstado);
     }
-
-    /**
-     * Método que permite comprobar si un país y un estado tienen relación dentro del sistema
-     * y retornar sus nombres.
-     * @param idPais El identificador del país a comprobar.
-     *               Debe ser un valor numérico positivo.
-     *               Si el identificador es nulo o negativo, se lanzará una excepción.
-     * @param idEstado El identificador del estado a comprobar.
-     *                 Debe ser un valor numérico positivo.
-     *                 Si el identificador es nulo o negativo, se lanzará una excepción.
-     * @return ResponseEntity con un objeto RespuestaEstandar que contiene los nombres del país y del estado.
-     * @throws SearchException si no se encuentra el país o si el estado no pertenece al país especificado.
-     */
+//
+//    /**
+//     * Método que permite comprobar si un país y un estado tienen relación dentro del sistema
+//     * y retornar sus nombres.
+//     * @param idPais El identificador del país a comprobar.
+//     *               Debe ser un valor numérico positivo.
+//     *               Si el identificador es nulo o negativo, se lanzará una excepción.
+//     * @param idEstado El identificador del estado a comprobar.
+//     *                 Debe ser un valor numérico positivo.
+//     *                 Si el identificador es nulo o negativo, se lanzará una excepción.
+//     * @return ResponseEntity con un objeto RespuestaEstandar que contiene los nombres del país y del estado.
+//     * @throws SearchException si no se encuentra el país o si el estado no pertenece al país especificado.
+//     */
     @GetMapping("/PaisEstado/{idPais}/{idEstado}")
     @Operation(summary = "Comprobación de país-estado y retorno de los nombres",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")

@@ -5,7 +5,6 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APIGeo
 import cu.edu.cujae.gestion.postgresql.geografia.core.conexion.apiExterna.APITraduction;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoEstadoDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
-import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoComprobar;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoID;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.respuestaGenerica.RespuestaEstandar;
@@ -89,7 +88,7 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
      */
     @Override
     @Deprecated
-    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(PaisEstadoDtoComprobar paisEstado) {
+    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(PaisEstadoDtoNombre paisEstado) {
         try {
             if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
                 throw new SearchException("No ha podido encontrar el país");
@@ -114,7 +113,7 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
      * @throws Exception
      */
     @Override
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(PaisEstadoDtoComprobar paisEstado) throws Exception {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(PaisEstadoDtoNombre paisEstado) throws Exception {
         if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
             throw new SearchException("No ha podido encontrar el país");
         else{

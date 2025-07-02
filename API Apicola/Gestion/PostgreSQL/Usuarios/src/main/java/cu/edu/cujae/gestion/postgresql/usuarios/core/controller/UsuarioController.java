@@ -1,21 +1,9 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.controller;
 
-import cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios.APIGeografia;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoComprobar;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoNombre;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoEnviar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoRecibir;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Rol;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Sexo;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Usuario;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.RolRepository;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.SexoRepository;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
-import cu.edu.cujae.gestion.postgresql.usuarios.core.service.UsuarioService;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.UsuarioControllerService;
 import cu.edu.cujae.gestion.postgresql.usuarios.utils.Validacion;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Controlador para manejar las operaciones relacionadas con los usuarios.
