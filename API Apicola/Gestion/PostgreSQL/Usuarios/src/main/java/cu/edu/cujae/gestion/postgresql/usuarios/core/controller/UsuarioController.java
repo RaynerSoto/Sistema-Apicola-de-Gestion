@@ -37,7 +37,7 @@ public class UsuarioController {
     @Operation(summary = "Insertar un nuevo usuario",
             description = "Permite insertar un nuevo usuario en el sistema. " +
                     "Requiere los datos del usuario en el cuerpo de la solicitud.")
-    public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody @Valid UsuarioDtoRecibir usuario) throws Exception {
+    public ResponseEntity<RespuestaEstandar> insertarUsuario(@RequestBody UsuarioDtoRecibir usuario) throws Exception {
         Validacion.validarElemento(usuario);
         return usuarioControllerService.insertarUsuario(usuario);
     }
@@ -46,7 +46,7 @@ public class UsuarioController {
     @Operation(summary = "Modificar un usuario existente",
             description = "Permite modificar un usuario existente en el sistema. " +
                     "Requiere los datos actualizados del usuario en el cuerpo de la solicitud y el ID del usuario a modificar.")
-    public ResponseEntity<RespuestaEstandar> modificarUsuario(@RequestBody @Valid UsuarioDtoRecibir usuario,
+    public ResponseEntity<RespuestaEstandar> modificarUsuario(@RequestBody UsuarioDtoRecibir usuario,
                                                               @PathVariable @Min(value = 1,message = "El valor del ID del usuario debe ser mayor o igual a 1") Long id) throws Exception {
         Validacion.validarElemento(usuario);
         return usuarioControllerService.modificarUsuario(usuario,id);

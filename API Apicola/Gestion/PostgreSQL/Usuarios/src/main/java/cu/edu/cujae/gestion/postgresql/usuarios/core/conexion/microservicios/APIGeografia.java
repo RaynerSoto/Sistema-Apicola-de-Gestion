@@ -14,6 +14,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 
 /**
  * Clase que se encarga de realizar las peticiones a la API de Geografía.
@@ -42,6 +43,7 @@ public class APIGeografia {
                     header("Content-Type", "application/json").
                     uri(URI.create(url + "PaisEstado")).
                     POST(HttpRequest.BodyPublishers.ofString(new Gson().toJson(paisEstado))).
+                    timeout(Duration.ofMinutes(30)).
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             RespuestaEstandar respuestaEstandar = new Gson().fromJson(response.body(), RespuestaEstandar.class);

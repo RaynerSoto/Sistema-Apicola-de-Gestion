@@ -89,7 +89,7 @@ public class GeografiaController {
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody @Valid PaisEstadoDtoNombre paisEstado) throws Exception {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoNombre paisEstado) throws Exception {
         return geografiaControllerService.obtenerPaisEstadoID(paisEstado);
     }
 //

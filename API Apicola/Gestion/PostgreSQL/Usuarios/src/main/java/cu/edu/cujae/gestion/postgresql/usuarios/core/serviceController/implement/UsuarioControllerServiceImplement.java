@@ -1,5 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.implement;
 
+import com.google.gson.Gson;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.conexion.microservicios.APIGeografia;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoNombre;
@@ -37,8 +38,9 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
     }
     @Override
     public ResponseEntity<RespuestaEstandar> insertarUsuario(UsuarioDtoRecibir usuario) throws Exception {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta());
-        Rol rol = rolRepository.findByNombreEquals(usuario.nombre()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
+        RespuestaEstandar respuesta = APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado()));
+        PaisEstadoDtoID paisEstadoDtoID = new Gson().fromJson(new Gson().toJson(respuesta.getRespuesta()),PaisEstadoDtoID.class);
+        Rol rol = rolRepository.findByNombreEquals(usuario.rol()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo()).orElseThrow(() -> new SearchException("Sexo no encontrado: " + usuario.sexo()));
         Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
         usuarioService.insertarUsuario(user);
