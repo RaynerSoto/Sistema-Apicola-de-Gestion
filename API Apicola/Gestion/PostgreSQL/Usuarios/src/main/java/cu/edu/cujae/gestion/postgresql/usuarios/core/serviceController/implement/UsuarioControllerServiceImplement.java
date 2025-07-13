@@ -7,6 +7,7 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDt
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoEnviar;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoRecibir;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.APIException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Rol;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Sexo;
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -65,9 +67,11 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
     }
 
     @Override
-    public ResponseEntity<RespuestaEstandar> obtenerUsuario(Long id) throws SearchException {
+    public ResponseEntity<RespuestaEstandar> obtenerUsuario(Long id) throws SearchException, APIException, IOException, InterruptedException {
         Usuario user = usuarioService.getUsuario(id);
-        return ResponseEntity.ok(new RespuestaEstandar(user));
+        PaisEstadoDtoNombre paisEstadoDtoNombre = new Gson().fromJson(new Gson().toJson(APIGeografia.comprobarPaisEstadoNombre(user.getIdPais(),user.getIdEstado()).getRespuesta()),PaisEstadoDtoNombre.class);
+        UsuarioDtoEnviar usuario = UsuarioDtoEnviar.obtenerdeUsuario(user, paisEstadoDtoNombre.nombreEstado(), paisEstadoDtoNombre.nombrePais());
+        return ResponseEntity.ok(new RespuestaEstandar(usuario));
     }
 
     @Override

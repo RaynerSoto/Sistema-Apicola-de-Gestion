@@ -48,4 +48,19 @@ public record UsuarioDtoEnviar (
                 null,
                 null);
     }
+
+    public static UsuarioDtoEnviar obtenerdeUsuario(Usuario usuario, String estado, String pais) {
+        return new UsuarioDtoEnviar(usuario.getIdentificacion(),
+                usuario.getNombre(),
+                usuario.getUsername(),
+                usuario.getRol().getNombre(),
+                usuario.getEmail(),
+                estado,
+                pais,
+                usuario.getDireccionParticular(),
+                usuario.getTelefono(),
+                usuario.getSexo().getNombre(),
+                usuario.getMarcaApicola(),
+                usuario.getCertificado());
+    }
 }
