@@ -64,7 +64,7 @@ public class APIGeografia {
             HttpRequest httpRequest = HttpRequest.
                     newBuilder().
                     header("Content-Type", "application/json").
-                    uri(URI.create(url + String.format("/PaisEstado/%s/%s", pais, estado))).
+                    uri(URI.create(url + String.format("PaisEstado/%s/%s", pais, estado))).
                     GET().
                     build();
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());

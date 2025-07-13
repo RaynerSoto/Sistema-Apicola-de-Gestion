@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @version 1.0
  */
 @Service
+@Deprecated
 public class MunicipioServiceImplement implements MunicipioService {
 
     private final MunicipioRepository municipioRepository;
@@ -24,7 +25,6 @@ public class MunicipioServiceImplement implements MunicipioService {
 
     @Override
     public void insertarMunicipio(Municipio municipio) {
-        Validacion.validarElemento(municipio);
         municipioRepository.save(municipio);
     }
 }

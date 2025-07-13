@@ -30,28 +30,23 @@ public class PaisServiceImplement implements PaisService {
 
     @Override
     public void modificarPais(Pais pais) throws Exception {
-        if (paisRepository.existsById(pais.getIdPais()))
-            paisRepository.save(pais);
-        else
+        if (!paisRepository.existsById(pais.getIdPais()))
             throw new IllegalArgumentException("No se encuentra ningún país a modificar");
+        paisRepository.save(pais);
     }
 
     @Override
     public void actualizarPais(Pais pais) throws Exception {
-        if(paisRepository.existsPaisByNombre(pais.getNombre())){
-            pais.setIdPais(paisRepository.findByNombreEquals(pais.getNombre()).get().getIdPais());
-            paisRepository.save(pais);
-        }
-        else {
+        if(!paisRepository.existsPaisByNombre(pais.getNombre()))
             throw new SearchException("No se encontró ningún país a modificar");
-        }
+        pais.setIdPais(paisRepository.findByNombreEquals(pais.getNombre()).get().getIdPais());
+        paisRepository.save(pais);
     }
 
     @Override
     public void eliminarPais(Long id) throws Exception {
         if (paisRepository.existsById(id))
-            paisRepository.deleteById(id);
-        else
             throw new SearchException("No se encuentra ningún país a eliminar");
+        paisRepository.deleteById(id);
     }
 }

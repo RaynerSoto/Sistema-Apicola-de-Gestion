@@ -8,6 +8,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.model.Municipio;
  * @author Rayner Alejandro Soto Martínez
  * @version 1.0
  */
+@Deprecated
 public interface MunicipioService {
     public void insertarMunicipio(Municipio municipio);
 }

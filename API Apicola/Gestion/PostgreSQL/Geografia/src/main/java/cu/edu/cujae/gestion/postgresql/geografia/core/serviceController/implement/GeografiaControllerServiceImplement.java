@@ -74,11 +74,10 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
                 .filter(Objects::nonNull)
                 .toList();
         pais.setEstados(estados);
-        if (pais.getEstados().size() == apiGeoEstadoDto.totalResultsCount()){
-            paisService.insertarPais(pais);
-            return ResponseEntity.ok(new RespuestaEstandar(String.format("Insertado el país %s con un total de %d estados/provincias",pais.getNombre(),pais.getEstados().size())));
-        }
-        throw new OperationsException("No se ha podioo completar la operación debido a que no se han podido cargar todos los datos");
+        if (pais.getEstados().size() != apiGeoEstadoDto.totalResultsCount())
+            throw new OperationsException("No se ha podioo completar la operación debido a que no se han podido cargar todos los datos");
+        paisService.insertarPais(pais);
+        return ResponseEntity.ok(new RespuestaEstandar(String.format("Insertado el país %s con un total de %d estados/provincias",pais.getNombre(),pais.getEstados().size())));
     }
 
     /**
@@ -95,11 +94,9 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
             else{
                 Pais pais = paisRepository.findByNombreEquals(paisEstado.nombrePais()).orElseThrow(() -> new SearchException("No ha podido encontrar el país"));
                 boolean encontrado = pais.getEstados().stream().anyMatch(estado -> estado.getNombre().equals(paisEstado.nombreEstado()));
-                if(encontrado){
+                if(encontrado)
                     return ResponseEntity.ok(new RespuestaEstandar(true));
-                }
-                else
-                    throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
+                throw new SearchException(String.format("Estado: %s no encontrado dentro del país: %s",paisEstado.nombreEstado(),paisEstado.nombrePais()));
             }
         }catch (Exception e){
             return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(new RespuestaEstandar2doNivel(true,e.getMessage()));
@@ -116,11 +113,9 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
     public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(PaisEstadoDtoNombre paisEstado) throws Exception {
         if(!paisRepository.existsPaisByNombre(paisEstado.nombrePais()))
             throw new SearchException("No ha podido encontrar el país");
-        else{
-            Pais pais = paisRepository.findByNombreEquals(paisEstado.nombrePais()).orElseThrow(() -> new SearchException("No ha podido encontrar el país"));
-            Estado estado = pais.getEstados().stream().filter(s-> s.getNombre().equalsIgnoreCase(paisEstado.nombreEstado())).findFirst().orElseThrow(() -> new SearchException(String.format("Estado: %s no encontrado dentro del país: %s", paisEstado.nombreEstado(), paisEstado.nombrePais())));
-            return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoID(pais.get().getIdPais(), estado.get().getIdEstado())));
-        }
+        Pais pais = paisRepository.findByNombreEquals(paisEstado.nombrePais()).orElseThrow(() -> new SearchException("No ha podido encontrar el país"));
+        Estado estado = pais.getEstados().stream().filter(s-> s.getNombre().equalsIgnoreCase(paisEstado.nombreEstado())).findFirst().orElseThrow(() -> new SearchException(String.format("Estado: %s no encontrado dentro del país: %s", paisEstado.nombreEstado(), paisEstado.nombrePais())));
+        return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoID(pais.getIdPais(), estado.getIdEstado())));
     }
 
     /**
@@ -136,7 +131,6 @@ public class GeografiaControllerServiceImplement implements GeografiaControllerS
         if(!pais.getEstados().stream().anyMatch(estado -> estado.getIdEstado().equals(idEstado))){
             throw new SearchException("No ha podido encontrar el estado");
         }
-        else
-            return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoNombre(pais.getNombre(), pais.getEstados().stream().filter(estado -> estado.getIdEstado().equals(idEstado)).findFirst().get().getNombre())));
+        return ResponseEntity.ok(new RespuestaEstandar(new PaisEstadoDtoNombre(pais.getNombre(), pais.getEstados().stream().filter(estado -> estado.getIdEstado().equals(idEstado)).findFirst().get().getNombre())));
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.logging.Logger;
+
 /**
  * Implementación del servicio de usuario.
  * Esta clase maneja las operaciones relacionadas con los usuarios, como insertar, actualizar,
@@ -16,7 +18,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioServiceImplement implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
+    private final Logger logger = Logger.getLogger(UsuarioServiceImplement.class.getName());
 
     @Autowired
     public UsuarioServiceImplement(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
@@ -48,11 +52,10 @@ public class UsuarioServiceImplement implements UsuarioService {
      */
     @Override
     public void actualizarUsuario(Usuario usuario) throws SearchException {
-        if (usuarioRepository.existsById(usuario.getIdUsuario())) {
-            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-            usuarioRepository.save(usuario);
-        }
-        throw new SearchException("No se ha encontrado al usuario especificado");
+        if (!usuarioRepository.existsByIdUsuario(usuario.getIdUsuario()))
+            throw new SearchException("No se ha encontrado al usuario especificado");
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        usuarioRepository.save(usuario);
     }
 
     /**
@@ -65,10 +68,9 @@ public class UsuarioServiceImplement implements UsuarioService {
      */
     @Override
     public void eliminarUsuario(Long idUsuario) throws SearchException {
-        if (usuarioRepository.existsById(idUsuario)) {
-            usuarioRepository.deleteById(idUsuario);
-        }
-        throw new SearchException("No se ha encontrado al usuario especificado");
+        if (!usuarioRepository.existsByIdUsuario(idUsuario))
+            throw new SearchException("No se ha encontrado al usuario especificado");
+        usuarioRepository.deleteById(idUsuario);
     }
 
     /**
@@ -83,9 +85,8 @@ public class UsuarioServiceImplement implements UsuarioService {
      */
     @Override
     public Usuario getUsuario(Long idUsuario) throws SearchException {
-        if (usuarioRepository.existsById(idUsuario)){
-            return usuarioRepository.getReferenceById(idUsuario);
-        }
-        throw new SearchException("No se ha encontrado al usuario especificado");
+        if (usuarioRepository.existsById(idUsuario))
+            throw new SearchException("No se ha encontrado al usuario especificado");
+        return usuarioRepository.getReferenceById(idUsuario);
     }
 }

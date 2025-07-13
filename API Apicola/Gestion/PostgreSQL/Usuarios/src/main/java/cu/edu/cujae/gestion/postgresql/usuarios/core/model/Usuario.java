@@ -21,11 +21,6 @@ import java.util.List;
 @Table(name = "usuarios", schema = "public")
 @Builder
 public class Usuario implements UserDetails {
-    @Transient
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
-    private PasswordEncoder passwordEncoder;
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "usuario_seq")
     @SequenceGenerator(name = "usuario_seq", sequenceName = "users_id_seq",initialValue = 1,allocationSize = 1)
@@ -97,7 +92,7 @@ public class Usuario implements UserDetails {
         this.identificacion = usuario.identificacion();
         this.nombre = usuario.nombre();
         this.username = usuario.username();
-        this.password = passwordEncoder.encode(usuario.password());
+        this.password = usuario.password();
         this.email = usuario.email();
         this.idEstado = paisEstadoDtoID.idEstado();
         this.idPais = paisEstadoDtoID.idPais();
@@ -115,7 +110,7 @@ public class Usuario implements UserDetails {
         this.identificacion = usuario.identificacion();
         this.nombre = usuario.nombre();
         this.username = usuario.username();
-        this.password = passwordEncoder.encode(usuario.password());
+        this.password = usuario.password();
         this.email = usuario.email();
         this.idEstado = paisEstadoDtoID.idEstado();
         this.idPais = paisEstadoDtoID.idPais();

@@ -38,8 +38,8 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
     }
     @Override
     public ResponseEntity<RespuestaEstandar> insertarUsuario(UsuarioDtoRecibir usuario) throws Exception {
-        RespuestaEstandar respuesta = APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado()));
-        PaisEstadoDtoID paisEstadoDtoID = new Gson().fromJson(new Gson().toJson(respuesta.getRespuesta()),PaisEstadoDtoID.class);
+        Gson gson = new Gson();
+        PaisEstadoDtoID paisEstadoDtoID = gson.fromJson(gson.toJson(APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta()),PaisEstadoDtoID.class);
         Rol rol = rolRepository.findByNombreEquals(usuario.rol()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo()).orElseThrow(() -> new SearchException("Sexo no encontrado: " + usuario.sexo()));
         Usuario user = new Usuario(usuario, paisEstadoDtoID, rol, sexo);
@@ -49,8 +49,9 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
 
     @Override
     public ResponseEntity<RespuestaEstandar> modificarUsuario(UsuarioDtoRecibir usuario, Long id) throws Exception {
-        PaisEstadoDtoID paisEstadoDtoID = ((PaisEstadoDtoID) APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta());
-        Rol rol = rolRepository.findByNombreEquals(usuario.nombre()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
+        Gson gson = new Gson();
+        PaisEstadoDtoID paisEstadoDtoID = gson.fromJson(gson.toJson(APIGeografia.comprobarPaisEstadoID(new PaisEstadoDtoNombre(usuario.pais(), usuario.estado())).getRespuesta()),PaisEstadoDtoID.class);
+        Rol rol = rolRepository.findByNombreEquals(usuario.rol()).orElseThrow(() -> new SearchException("Rol no encontrado: " + usuario.rol()));
         Sexo sexo = sexoRepository.findByNombreEquals(usuario.sexo()).orElseThrow(() -> new SearchException("Sexo no encontrado: " + usuario.sexo()));
         Usuario user = new Usuario(id,usuario, paisEstadoDtoID, rol, sexo);
         usuarioService.actualizarUsuario(user);
@@ -71,14 +72,14 @@ public class UsuarioControllerServiceImplement implements UsuarioControllerServi
 
     @Override
     public ResponseEntity<RespuestaEstandar> obtenerUsuarios() throws SearchException {
-        List<UsuarioDtoRecibir> listadoUsuarios = (List<UsuarioDtoRecibir>) usuarioRepository.findAll().stream().map(usuario -> {
+        List<UsuarioDtoEnviar> listadoUsuarios = usuarioRepository.findAll().stream().map(usuario -> {
             try {
-                PaisEstadoDtoNombre paisEstadoDtoNombre = ((PaisEstadoDtoNombre) APIGeografia.comprobarPaisEstadoNombre(usuario.getIdPais(),usuario.getIdEstado()).getRespuesta());
+                PaisEstadoDtoNombre paisEstadoDtoNombre = new Gson().fromJson(new Gson().toJson(APIGeografia.comprobarPaisEstadoNombre(usuario.getIdPais(),usuario.getIdEstado()).getRespuesta()),PaisEstadoDtoNombre.class);
                 return UsuarioDtoEnviar.obtenerUsuarioDtoEnviar(usuario, paisEstadoDtoNombre.nombrePais(), paisEstadoDtoNombre.nombreEstado());
             } catch (Exception e) {
                 return UsuarioDtoEnviar.obtenerUsuarioDtoEnviarNull();
             }
-        });
+        }).toList();
         if (listadoUsuarios.stream().anyMatch(usuarioDtoRecibir -> usuarioDtoRecibir.nombre() == null))
             throw new SearchException("Usuarios encontrados con errores consulte a su administrador del sistema");
         return ResponseEntity.ok(new RespuestaEstandar(listadoUsuarios));

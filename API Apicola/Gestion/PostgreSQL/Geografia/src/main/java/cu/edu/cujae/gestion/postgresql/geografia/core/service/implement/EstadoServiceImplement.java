@@ -23,7 +23,6 @@ public class EstadoServiceImplement implements EstadoService {
     }
 
     public void insertarEstado(Estado estado) {
-        Validacion.validarElemento(estado);
         estadoRepository.save(estado);
     }
 }
