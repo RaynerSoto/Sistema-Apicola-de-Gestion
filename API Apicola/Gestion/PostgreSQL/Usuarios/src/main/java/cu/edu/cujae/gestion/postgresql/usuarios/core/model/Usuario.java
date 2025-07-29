@@ -1,18 +1,26 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.core.model;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.paisEstado.PaisEstadoDtoID;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.usuario.UsuarioDtoRecibir;
+import cu.edu.cujae.gestion.postgresql.usuarios.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.locationtech.jts.geom.Point;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "usuarios", schema = "public")
-public class Usuario{
-
+@Builder
+public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "usuario_seq")
     @SequenceGenerator(name = "usuario_seq", sequenceName = "users_id_seq",initialValue = 1,allocationSize = 1)
@@ -64,11 +72,11 @@ public class Usuario{
     private Sexo sexo;
 
     @Column(name = "marca_apicola")
-    @NotBlank(message = "El valor de si es una marca Apícola no puede ser null")
+    @NotNull(message = "El valor de si es una marca Apícola no puede ser null")
     private Boolean marcaApicola;
 
     @Column(name = "certificado")
-    @NotBlank(message = "El valor de si es un apicultor certificado no puede ser null")
+    @NotNull(message = "El valor de si es un apicultor certificado no puede ser null")
     private Boolean certificado;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -76,6 +84,95 @@ public class Usuario{
     @NotNull(message = "El valor del rol no puede ser nulo")
     private Rol rol;
 
-    @Column(name = "isActivo", nullable = false)
+    @Column(name = "is_activo", nullable = false)
     private Boolean isActivo;
+
+    public Usuario(Long id, UsuarioDtoRecibir usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {
+        this.idUsuario = id;
+        this.identificacion = usuario.identificacion();
+        this.nombre = usuario.nombre();
+        this.username = usuario.username();
+        this.password = usuario.password();
+        this.email = usuario.email();
+        this.idEstado = paisEstadoDtoID.idEstado();
+        this.idPais = paisEstadoDtoID.idPais();
+        this.direccionParticular = usuario.direccionParticular();
+        this.geoPosicion = null;
+        this.telefono = usuario.telefono();
+        this.sexo = sexo;
+        this.marcaApicola = usuario.marcaApicola();
+        this.certificado = usuario.certificado();
+        this.rol = rol;
+        this.isActivo = true;
+    }
+
+    public Usuario(UsuarioDtoRecibir usuario, PaisEstadoDtoID paisEstadoDtoID, Rol rol, Sexo sexo) {
+        this.identificacion = usuario.identificacion();
+        this.nombre = usuario.nombre();
+        this.username = usuario.username();
+        this.password = usuario.password();
+        this.email = usuario.email();
+        this.idEstado = paisEstadoDtoID.idEstado();
+        this.idPais = paisEstadoDtoID.idPais();
+        this.direccionParticular = usuario.direccionParticular();
+        this.geoPosicion = null;
+        this.telefono = usuario.telefono();
+        this.sexo = sexo;
+        this.marcaApicola = usuario.marcaApicola();
+        this.certificado = usuario.certificado();
+        this.rol = rol;
+        this.isActivo = true;
+    }
+
+    public Usuario(Usuario usuario, String password) {
+        this.idUsuario = usuario.getIdUsuario();
+        this.identificacion = usuario.getIdentificacion();
+        this.nombre = usuario.getNombre();
+        this.username = usuario.getUsername();
+        this.password = password;
+        this.idEstado = usuario.getIdEstado();
+        this.idPais = usuario.getIdPais();
+        this.direccionParticular = usuario.getDireccionParticular();
+        this.geoPosicion = usuario.getGeoPosicion();
+        this.telefono = usuario.getTelefono();
+        this.sexo = usuario.getSexo();
+        this.marcaApicola = usuario.getMarcaApicola();
+        this.certificado = usuario.getCertificado();
+        this.rol = usuario.getRol();
+        this.isActivo = usuario.getIsActivo();
+    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_"+this.rol.getNombre()));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return this.isActivo;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return this.isActivo;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return this.isActivo;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.isActivo;
+    }
+
+    @PrePersist
+    @PreUpdate
+    public void prePersistUpdate(){
+        Validacion.validarElemento(this);
+    }
+
+
 }

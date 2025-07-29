@@ -2,6 +2,8 @@ package cu.edu.cujae.gestion.postgresql.geografia.core.exception;
 
 /**
  * Esta es una excepción para cuando se busca un determinado artículo, pero no se encuentra
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0.0
  */
 public class SearchException extends Exception{
     public SearchException() {

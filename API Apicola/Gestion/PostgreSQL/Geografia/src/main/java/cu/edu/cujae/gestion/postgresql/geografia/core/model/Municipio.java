@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
 
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.GeonamesDto;
-import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.geografia.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

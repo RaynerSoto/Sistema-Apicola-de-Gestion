@@ -1,6 +1,6 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.GeonamesDto;
-import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.geografia.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -11,8 +11,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
-
-import java.util.List;
 
 @Entity
 @Table(name = "estados",schema = "public")
@@ -43,7 +41,7 @@ public class Estado {
     @Column(name = "centroide",columnDefinition = "geometry")
     private Point centroide;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_pais")
     private Pais pais;
 

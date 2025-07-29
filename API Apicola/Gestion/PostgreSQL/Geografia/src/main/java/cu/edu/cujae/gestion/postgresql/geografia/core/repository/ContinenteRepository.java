@@ -4,6 +4,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
+/**
+ * Repositorio para gestionar las operaciones CRUD de la entidad Continente.
+ * Este repositorio extiende JpaRepository para proporcionar métodos predefinidos
+ * para acceder a los datos de los continentes en la base de datos.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 public interface ContinenteRepository extends JpaRepository<Continente,Long> {
-    public Optional<Continente> findByNombreEqualsIgnoreCase(String nombre);
+    Optional<Continente> findByNombreEqualsIgnoreCase(String nombre);
 }

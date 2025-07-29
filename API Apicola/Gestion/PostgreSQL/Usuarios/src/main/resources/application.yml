@@ -41,6 +41,11 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /
+junit:
+  jupiter:
+    execution:
+      parallel:
+        enabled: false
 
 enlaces:
   traduccion: "https://api.mymemory.translated.net/get?q="

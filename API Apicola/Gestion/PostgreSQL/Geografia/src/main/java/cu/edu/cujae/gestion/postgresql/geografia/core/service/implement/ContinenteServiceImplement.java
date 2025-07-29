@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementación del servicio ContinenteService.
+ * Proporciona métodos para listar todos los continentes y buscar un continente por su nombre.
+ * @author Rayner Alejandro Soto Martínez
+ * @version 1.0
+ */
 @Service
 public class ContinenteServiceImplement implements ContinenteService {
 
@@ -27,10 +33,6 @@ public class ContinenteServiceImplement implements ContinenteService {
 
     @Override
     public Continente buscarContinente(String nombre) throws SearchException {
-        try {
-            return continenteRepository.findByNombreEqualsIgnoreCase(nombre).get();
-        } catch (Exception e) {
-            throw new SearchException("No se pudo obtener dicho continente");
-        }
+        return continenteRepository.findByNombreEqualsIgnoreCase(nombre).orElseThrow(() -> new SearchException("El continente con nombre: " + nombre + " no existe"));
     }
 }

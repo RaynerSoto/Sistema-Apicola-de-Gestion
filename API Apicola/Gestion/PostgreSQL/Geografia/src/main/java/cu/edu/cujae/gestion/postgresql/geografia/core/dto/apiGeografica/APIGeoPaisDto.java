@@ -14,4 +14,7 @@ public record APIGeoPaisDto(NameDto name, String region, Double area, Long popul
                 ,this.cca2
                 ,this.fifa);
     }
+    public static APIGeoPaisDto aEspañol(String nombreCompleto,APIGeoPaisDto apiGeoPaisDto)throws IOException, InterruptedException, APIException {
+        return new APIGeoPaisDto(new NameDto(apiGeoPaisDto.name().common(), nombreCompleto), apiGeoPaisDto.region(), apiGeoPaisDto.area(), apiGeoPaisDto.population(), apiGeoPaisDto.cca2(), apiGeoPaisDto.fifa());
+    }
 }

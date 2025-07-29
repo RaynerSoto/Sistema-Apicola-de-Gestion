@@ -1,7 +1,7 @@
 package cu.edu.cujae.gestion.postgresql.geografia.core.model;
 import cu.edu.cujae.gestion.postgresql.geografia.core.dto.apiGeografica.APIGeoPaisDto;
 import cu.edu.cujae.gestion.postgresql.geografia.core.exception.AsignacionException;
-import cu.edu.cujae.gestion.postgresql.geografia.core.utils.Validacion;
+import cu.edu.cujae.gestion.postgresql.geografia.utils.Validacion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +27,7 @@ public class Pais {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "pais_seq")
     @SequenceGenerator(name = "pais_seq", sequenceName = "pais_id_pais_seq",initialValue = 1,allocationSize = 1)
     @Column(name = "id_pais",nullable = false,unique = true,updatable = false)
+    @Min(value = 1,message = "El id mínimo debe ser 1")
     private Long idPais;
 
     @Column(name = "nombre",unique = true,nullable = false,length = 100)
@@ -58,7 +59,7 @@ public class Pais {
     @JoinColumn(name = "nombre_continente",referencedColumnName = "nombre")
     private Continente continente;
 
-    @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     List<Estado> estados;
 
     @Column(name = "areakm2",nullable = false)
