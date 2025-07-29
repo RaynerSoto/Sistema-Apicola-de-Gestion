@@ -8,6 +8,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.service.PaisService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.PaisControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ public class PaisController {
     @GetMapping("/")
     @Operation(summary = "Listado de países",
             description = "Permite comprobar todo el listado de los paises")
-    public ResponseEntity<RespuestaEstandar> obtenerPaises() {
+    public ResponseEntity<RespuestaEstandar> obtenerPaises(HttpServletRequest request) {
         return paisControllerService.obtenerPaises();
     }
 
@@ -53,7 +54,7 @@ public class PaisController {
     @GetMapping("/nombre")
     @Operation(summary = "Listado de países",
             description = "Permite comprobar todo el listado de los nombres de los paises")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisesNombre() {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisesNombre(HttpServletRequest request) {
         return paisControllerService.obtenerPaisesNombre();
     }
 }

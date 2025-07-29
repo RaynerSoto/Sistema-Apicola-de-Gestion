@@ -1,5 +1,12 @@
 package cu.edu.cujae.gestion.postgresql.usuarios.config.security;
 
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.login.UsuarioLogin;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.dto.respuestaGenerica.RespuestaEstandar;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.model.Usuario;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.repository.UsuarioRepository;
+import cu.edu.cujae.gestion.postgresql.usuarios.core.service.UsuarioService;
+import cu.edu.cujae.gestion.postgresql.usuarios.utils.TokenUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,19 +25,16 @@ import java.util.Optional;
 @Tag(name = "Controlador de la autentificación",description = "Determina el funcionamiento de la seguridad")
 public class AutentificacionController {
 
-    /*
     private final AuthenticationManager authenticationManager;
     private final UsuarioService usuarioService;
     private final TokenService tokenService;
-    private final RegistroUtils registroUtils;
     private final TokenUtils tokenUtils;
     private final UsuarioRepository usuarioRepository;
 
     @Autowired
-    public AutentificacionController(UsuarioRepository usuarioRepository, TokenUtils tokenUtils, RegistroUtils registroUtils, TokenService tokenService, UsuarioService usuarioService, AuthenticationManager authenticationManager) {
+    public AutentificacionController(UsuarioRepository usuarioRepository, TokenUtils tokenUtils, TokenService tokenService, UsuarioService usuarioService, AuthenticationManager authenticationManager) {
         this.usuarioRepository = usuarioRepository;
         this.tokenUtils = tokenUtils;
-        this.registroUtils = registroUtils;
         this.tokenService = tokenService;
         this.usuarioService = usuarioService;
         this.authenticationManager = authenticationManager;
@@ -38,26 +42,17 @@ public class AutentificacionController {
 
     @PostMapping(value = "/")
     @Operation(summary = "Encargado de autentificar el usuario")
-    public ResponseEntity<?> autenticacionUsuario(@RequestBody UsuarioLoginDto usuarioLoginDto, HttpServletRequest request){
-        RegistroDto registroDto = registroUtils.registroHttpUtils(request,"Autenticación de usuario: "+usuarioLoginDto.getUsername());
-        try {
-            System.out.println("Registro");
-            System.out.println(request.getRemoteHost());//Obtener IP versión V4
-            Usuario usuario = usuarioService.obtenerUsuarioPorUsernameAndPassword(usuarioLoginDto.getUsername(), usuarioLoginDto.getPassword());
-            if (usuario.isActivo() == false)
-                throw new Exception("No es posible autentificar al usuario por no estar activo");
-            usuario = new Usuario(usuario, usuarioLoginDto.getPassword());
-            Authentication authenticationToken = new UsernamePasswordAuthenticationToken(usuario.getUsername(),usuario.getPassword());;
-            var usuarioAutentificado = authenticationManager.authenticate(authenticationToken);
-            var JWTtoken = tokenService.generarToken((Usuario) usuarioAutentificado.getPrincipal());
-            registroUtils.insertarRegistros(registroDto,tokenUtils.userToken(request),"Aceptado",null);
-            return ResponseEntity.ok(new TokenDto(JWTtoken));
-        }catch (Exception e){
-            registroUtils.insertarRegistros(registroDto,tokenUtils.userToken(request),"Rechazado",e.getMessage());
-            return ResponseEntity.badRequest().body("No se pudo autentificar el usuario: "+usuarioLoginDto.getUsername());
-        }
+    public ResponseEntity<RespuestaEstandar> autenticacionUsuario(@RequestBody UsuarioLogin usuarioLoginDto, HttpServletRequest request) throws Exception {
+        Usuario usuario = usuarioService.obtenerUsuarioPorUsernameAndPassword(usuarioLoginDto.username(), usuarioLoginDto.password());
+        if (usuario.getIsActivo() == false)
+            throw new Exception("No es posible autentificar al usuario por no estar activo");
+        usuario = new Usuario(usuario, usuarioLoginDto.password());
+        Authentication authenticationToken = new UsernamePasswordAuthenticationToken(usuario.getUsername(),usuario.getPassword());;
+        var usuarioAutentificado = authenticationManager.authenticate(authenticationToken);
+        var JWTtoken = tokenService.generarToken((Usuario) usuarioAutentificado.getPrincipal());
+        return ResponseEntity.ok(new RespuestaEstandar(JWTtoken));
     }
-
+    /*
     @PostMapping("/validarToken")
     @Operation(summary = "Encargado de autentificar a un usuario según su token")
     public ResponseEntity<?> autenticacionUsuario(@RequestBody TokenDto tokenDto){

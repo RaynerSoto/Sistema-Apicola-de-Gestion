@@ -124,6 +124,24 @@ public class Usuario implements UserDetails {
         this.isActivo = true;
     }
 
+    public Usuario(Usuario usuario, String password) {
+        this.idUsuario = usuario.getIdUsuario();
+        this.identificacion = usuario.getIdentificacion();
+        this.nombre = usuario.getNombre();
+        this.username = usuario.getUsername();
+        this.password = password;
+        this.idEstado = usuario.getIdEstado();
+        this.idPais = usuario.getIdPais();
+        this.direccionParticular = usuario.getDireccionParticular();
+        this.geoPosicion = usuario.getGeoPosicion();
+        this.telefono = usuario.getTelefono();
+        this.sexo = usuario.getSexo();
+        this.marcaApicola = usuario.getMarcaApicola();
+        this.certificado = usuario.getCertificado();
+        this.rol = usuario.getRol();
+        this.isActivo = usuario.getIsActivo();
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

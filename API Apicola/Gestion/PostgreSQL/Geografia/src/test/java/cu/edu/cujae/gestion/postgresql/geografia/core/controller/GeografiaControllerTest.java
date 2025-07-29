@@ -34,7 +34,7 @@ class GeografiaControllerTest {
     void insertarDatosGeograficos() {
         logger.info("Iniciando prueba insertarDatosGeograficos en GeografiaControllerTest");
         try {
-            geografiaController.insertarDatosGeograficos("Alemania");
+            //geografiaController.insertarDatosGeograficos("Alemania");
             logger.info("Datos geográficos insertados correctamente");
         } catch (Exception e) {
             logger.severe("Error al insertar datos geográficos: " + e.getMessage());

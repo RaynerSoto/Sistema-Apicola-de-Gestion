@@ -7,6 +7,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.service.EstadoService;
 import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.EstadoControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class EstadoController {
     @GetMapping("/{nombre}")
     @Operation(summary = "Listado de estados de un país",
             description = "Permite listar todos los estados de un pais con sus datos ocmpletos")
-    public ResponseEntity<RespuestaEstandar> obtenerEstados(@Valid @PathVariable(value = "nombre") @NotBlank(message = "El nombre del país no puede estar vacío o ser nulo") String nombrePais) {
+    public ResponseEntity<RespuestaEstandar> obtenerEstados(@Valid @PathVariable(value = "nombre") @NotBlank(message = "El nombre del país no puede estar vacío o ser nulo") String nombrePais, HttpServletRequest request) {
         return estadoControllerService.obtenerEstados(nombrePais);
     }
 }

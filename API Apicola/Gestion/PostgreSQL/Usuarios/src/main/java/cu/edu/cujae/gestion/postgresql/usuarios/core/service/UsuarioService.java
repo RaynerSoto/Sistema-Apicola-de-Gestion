@@ -18,4 +18,5 @@ public interface UsuarioService {
     void actualizarUsuario(Usuario usuario) throws SearchException;
     void eliminarUsuario(Long idUsuario) throws SearchException;
     Usuario getUsuario(Long idUsuario) throws SearchException;
+    Usuario obtenerUsuarioPorUsernameAndPassword(String username,String password) throws SearchException;
 }

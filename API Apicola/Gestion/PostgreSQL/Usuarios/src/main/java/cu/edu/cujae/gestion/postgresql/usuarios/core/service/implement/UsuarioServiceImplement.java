@@ -89,4 +89,13 @@ public class UsuarioServiceImplement implements UsuarioService {
             throw new SearchException("No se ha encontrado al usuario especificado");
         return usuarioRepository.getReferenceById(idUsuario);
     }
+
+    @Override
+    public Usuario obtenerUsuarioPorUsernameAndPassword(String username, String password) throws SearchException {
+        Usuario usuario = usuarioRepository.findByUsernameEqualsIgnoreCase(username).orElseThrow(() -> new SearchException("Usuario no encontrado con el username: " + username));
+        if (!passwordEncoder.matches(password, usuario.getPassword())) {
+            throw new SearchException("Credenciales incorrectas " + username);
+        }
+        return usuario;
+    }
 }

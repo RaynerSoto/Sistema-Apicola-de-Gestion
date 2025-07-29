@@ -5,6 +5,7 @@ import cu.edu.cujae.gestion.postgresql.usuarios.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.usuarios.core.serviceController.SexoControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,13 +31,13 @@ public class SexoController {
 
     @GetMapping("/")
     @Operation(summary = "Listado de sexos",description = "Permite listar los sexos")
-    public ResponseEntity<RespuestaEstandar> listadoSexos() throws SearchException {
+    public ResponseEntity<RespuestaEstandar> listadoSexos(HttpServletRequest request) throws SearchException {
         return sexoControllerService.listadoSexos();
     }
 
     @GetMapping("/nombre")
     @Operation(summary = "Listado de nombre de los sexos",description = "Permite listar los nombres los sexos")
-    public ResponseEntity<RespuestaEstandar> listadoSexosNombre() throws SearchException {
+    public ResponseEntity<RespuestaEstandar> listadoSexosNombre(HttpServletRequest request) throws SearchException {
         return sexoControllerService.listadoSexosNombre();
     }
 }

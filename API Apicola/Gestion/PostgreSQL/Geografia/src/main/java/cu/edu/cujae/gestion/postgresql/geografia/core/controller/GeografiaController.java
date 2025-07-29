@@ -8,6 +8,7 @@ import cu.edu.cujae.gestion.postgresql.geografia.core.exception.SearchException;
 import cu.edu.cujae.gestion.postgresql.geografia.core.serviceController.GeografiaControllerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -53,7 +54,7 @@ public class GeografiaController {
             description = "Método que permite insertar un país en el sistema, mediante la conexión a una API externa")
     public ResponseEntity<RespuestaEstandar> insertarDatosGeograficos(@PathVariable @Valid
                                                                           @Size(min = 4,max = 100,message = "El nombre del país se encuentra entre 4 y 100 caracteres")
-                                                                          @NotBlank(message = "El nombre a buscar no puede estar nulo o vacío") String nombre) throws Exception {
+                                                                          @NotBlank(message = "El nombre a buscar no puede estar nulo o vacío") String nombre, HttpServletRequest request) throws Exception {
         return geografiaControllerService.insertarDatosGeograficos(nombre);
     }
 
@@ -71,7 +72,7 @@ public class GeografiaController {
     @Operation(summary = "Comprobación de país-estado",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
     @Deprecated
-    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody @Valid PaisEstadoDtoNombre paisEstado){
+    public ResponseEntity<RespuestaEstandar> comprobarPaisEstado(@RequestBody @Valid PaisEstadoDtoNombre paisEstado, HttpServletRequest request){
         return geografiaControllerService.comprobarPaisEstado(paisEstado);
     }
 
@@ -89,7 +90,7 @@ public class GeografiaController {
     @PostMapping("/PaisEstado")
     @Operation(summary = "Comprobación de país-estado y retorno de los identificadores",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
-    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoNombre paisEstado) throws Exception {
+    public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoID(@RequestBody PaisEstadoDtoNombre paisEstado, HttpServletRequest request) throws Exception {
         return geografiaControllerService.obtenerPaisEstadoID(paisEstado);
     }
 //
@@ -109,7 +110,7 @@ public class GeografiaController {
     @Operation(summary = "Comprobación de país-estado y retorno de los nombres",
             description = "Permite comprobar de los países que puede acceder al sistema, el país y estado tienen relación")
     public ResponseEntity<RespuestaEstandar> obtenerPaisEstadoNombre(@PathVariable @Valid @Min(value = 1,message = "El valor mínimo del id del Paísdebe ser 1") Long idPais
-            , @PathVariable @Valid @Min(value = 1,message = "El valor mínimo del id del Estado ser 1")Long idEstado) throws Exception {
+            , @PathVariable @Valid @Min(value = 1,message = "El valor mínimo del id del Estado ser 1")Long idEstado, HttpServletRequest request) throws Exception {
         return geografiaControllerService.obtenerPaisEstadoNombre(idPais, idEstado);
     }
 }
